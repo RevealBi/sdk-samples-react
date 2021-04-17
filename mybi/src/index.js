@@ -5,14 +5,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App/>
-    </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const WebFont = window.WebFont;
+const webfontCallback = status => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Router>
+        <App/>
+      </Router>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+};
+
+WebFont.load({
+  custom: {
+      families: ['Roboto-Regular', 'Roboto-Bold', 'Roboto-Medium'] 
+  },
+  active: webfontCallback
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
