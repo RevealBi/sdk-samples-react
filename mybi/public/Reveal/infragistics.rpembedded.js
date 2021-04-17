@@ -2560,6 +2560,9 @@ var RevealApi = (function (exports, $$1) {
                 var dashboardView = revealView._dashboardView;
                 var r = $(revealView._selector);
                 var container = r[0];
+                if (container == null) {
+                    return;
+                }
                 var rect = container.getBoundingClientRect();
                 //we use divs with position=absolute, absolute position is relative to the closest
                 //positioned ancestor (basically the closest ancestor using a non static position).
@@ -3198,6 +3201,9 @@ var RevealApi = (function (exports, $$1) {
                 var thumbnailView = revealThumbnailView._thumbnailView;
                 var r = $(revealThumbnailView._selector);
                 var container = r[0];
+                if (container == null) {
+                    return;
+                }
                 var rect = container.getBoundingClientRect();
                 //take a look at the comment at RevealView.updateSize before modifying this.
                 if (window.getComputedStyle(container, null).position != "static") {
