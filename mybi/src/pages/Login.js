@@ -36,15 +36,15 @@ const Login = () => {
         <div className="Login-Container">
             <div className="Login-Card">
                 <div className="Login-Form">
-                    <input id="Login-Username-Input" className="Login-Input" type="username" value={username} onChange={e => {
+                    <input id="Login_Username_Input" className="Login-Input" type="username" value={username} onChange={e => {
                         setUsername(e.target.value);
                     }} placeholder="user name" />
-                    <input id="Login-Password-Input" className="Login-Input" type="password" value={password} onChange={e => {
+                    <input id="Login_Password_Input" className="Login-Input" type="password" value={password} onChange={e => {
                         setPassword(e.target.value);
                     }} onKeyUp={passwordOnKeyUp} placeholder="password" />
-                    <button id="Login-Submit" className="Login-Button" onClick={postLogin}>Sign In</button>
+                    <button id="Login_Submit" className="Login-Button" onClick={postLogin}>Sign In</button>
                 </div>
-                { isError &&<div className="Login-Error">{errorMessage}</div> }
+                { isError &&<div id="Login_Error" className="Login-Error">{errorMessage}</div> }
             </div>
         </div>
     );

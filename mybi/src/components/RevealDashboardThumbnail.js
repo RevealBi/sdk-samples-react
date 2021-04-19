@@ -17,9 +17,9 @@ export function RevealDashboardThumbnail(props) {
   }, [props.summary, divId]);
 
   return (
-    <button className="Reveal-Thumbnail-Box" onClick={props.onOpenDashboard} id={"Reveal-Thumbnail-Box-" + escapedTitle}>
+    <button className="Reveal-Thumbnail-Box" onClick={props.onOpenDashboard} id={"Reveal-Thumbnail_Box_" + escapedTitle}>
         <div className="Reveal-Thumbnail-Header">{props.title}</div>
-        <div className="Reveal-Dashboard-Delete-Button" id={"Reveal-Thumbnail-Delete-" + escapedTitle}
+        <div className="Reveal-Dashboard-Delete-Button" id={"Reveal_Thumbnail_Delete_" + escapedTitle}
         onClick={(e) => 
         {
             if (props.onDeleteDashboard) {
