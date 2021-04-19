@@ -3,16 +3,23 @@ import crossicon from '../images/cross-icon.svg';
 
 const $ = window.$;
 
+const escapeId = (str) => {
+  return str.replaceAll(' ', '_');
+}
+
 export function RevealDashboardThumbnail(props) {
+  const escapedId = escapeId(props.id);
+  const divId = "thumbnail_" + escapedId;
+  const escapedTitle = escapeId(props.title);
   useEffect(() => {
-    var thumbnailView = new $.ig.RevealDashboardThumbnailView("#thumbnail_" + props.id);
+    var thumbnailView = new $.ig.RevealDashboardThumbnailView("#" + divId);
     thumbnailView.dashboardInfo = props.summary;
-  });
+  }, []);
 
   return (
-    <button className="Reveal-Thumbnail-Box" onClick={props.onOpenDashboard} id={"Reveal-Thumbnail-Box-" + props.title}>
+    <button className="Reveal-Thumbnail-Box" onClick={props.onOpenDashboard} id={"Reveal-Thumbnail-Box-" + escapedTitle}>
         <div className="Reveal-Thumbnail-Header">{props.title}</div>
-        <div className="Reveal-Dashboard-Delete-Button" id={"Reveal-Thumbnail-Delete-" + props.title}
+        <div className="Reveal-Dashboard-Delete-Button" id={"Reveal-Thumbnail-Delete-" + escapedTitle}
         onClick={(e) => 
         {
             if (props.onDeleteDashboard) {
@@ -21,7 +28,7 @@ export function RevealDashboardThumbnail(props) {
             e.stopPropagation();
         }
         }><img src={crossicon} alt="Delete Dashboard" className="delete-icon"/></div>
-        <div id={"thumbnail_"+props.id} className="Reveal-Thumbnail-View"/>
+        <div id={divId} className="Reveal-Thumbnail-View"/>
     </button>
   );
 }
