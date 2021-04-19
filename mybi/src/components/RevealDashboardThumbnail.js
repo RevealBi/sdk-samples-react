@@ -3,18 +3,18 @@ import crossicon from '../images/cross-icon.svg';
 
 const $ = window.$;
 
-const escapeId = (str) => {
-  return str.replaceAll(' ', '_');
-}
 
 export function RevealDashboardThumbnail(props) {
+  const escapeId = (str) => {
+    return str.replaceAll(' ', '_');
+  }
   const escapedId = escapeId(props.id);
   const divId = "thumbnail_" + escapedId;
   const escapedTitle = escapeId(props.title);
   useEffect(() => {
     var thumbnailView = new $.ig.RevealDashboardThumbnailView("#" + divId);
     thumbnailView.dashboardInfo = props.summary;
-  }, []);
+  }, [props.summary, divId]);
 
   return (
     <button className="Reveal-Thumbnail-Box" onClick={props.onOpenDashboard} id={"Reveal-Thumbnail-Box-" + escapedTitle}>

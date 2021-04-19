@@ -860,6 +860,7 @@ var RevealApi = (function (exports, $$1) {
              */
             this.onHasPendingChangesChanged = null;
             this._dashboardModel = new $.ig.DashboardDocument(0);
+            this._dashboardModel.useAutoLayout(true);
             this._loadVisualizations();
             this._loadFilters();
             this._delegate = new SdkDocumentDelegate(this);
@@ -2244,7 +2245,9 @@ var RevealApi = (function (exports, $$1) {
         _dashboardLoaded(dashboard) {
             var revealView = this;
             if (dashboard == null) {
-                dashboard = RVDashboard._create(new $.ig.DashboardDocument(0), "New dashboard"); //TODO - review this - what should be the id of new dashboard or loaded from blob
+                var newDashboard = new $.ig.DashboardDocument(0);
+                newDashboard.useAutoLayout(true);
+                dashboard = RVDashboard._create(newDashboard, "New dashboard"); //TODO - review this - what should be the id of new dashboard or loaded from blob
             }
             if (this._dashboard != null) {
                 this._dashboard._unsubscribeDashboardView(this._dashboardView);
