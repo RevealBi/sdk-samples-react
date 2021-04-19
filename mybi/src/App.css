@@ -25,8 +25,14 @@
 
 .App-Header-NewDashboard-Link {
   position: absolute;
+  right: 60px;
+  width: 25px;
+}
+
+.App-Header-Logout-Link {
+  position: absolute;
   right: 20px;
-  width: 30px;
+  width: 25px;
 }
 
 .App-Header-Home-Link img {
@@ -144,3 +150,4 @@
 .switch-wrapper > div {
   position: absolute;
 }
+

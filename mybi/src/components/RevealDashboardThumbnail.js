@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import crossicon from '../images/cross-icon.svg';
 
 const $ = window.$;
@@ -12,7 +12,7 @@ export function RevealDashboardThumbnail(props) {
   return (
     <button className="Reveal-Thumbnail-Box" onClick={props.onOpenDashboard} id={"Reveal-Thumbnail-Box-" + props.title}>
         <div className="Reveal-Thumbnail-Header">{props.title}</div>
-        <div className="Reveal-Dashboard-Delete-Button"
+        <div className="Reveal-Dashboard-Delete-Button" id={"Reveal-Thumbnail-Delete-" + props.title}
         onClick={(e) => 
         {
             if (props.onDeleteDashboard) {
@@ -20,8 +20,8 @@ export function RevealDashboardThumbnail(props) {
             }
             e.stopPropagation();
         }
-        }><img src={crossicon} className="delete-icon"/></div>
-        <div id={"thumbnail_"+props.id} alt="Delete dashboard" className="Reveal-Thumbnail-View"/>
+        }><img src={crossicon} alt="Delete Dashboard" className="delete-icon"/></div>
+        <div id={"thumbnail_"+props.id} className="Reveal-Thumbnail-View"/>
     </button>
   );
 }

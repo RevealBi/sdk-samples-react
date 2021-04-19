@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
 import { RevealDashboardThumbnail } from './RevealDashboardThumbnail'
-import { config } from '../Constants';
 import { CSSGrid, measureItems, makeResponsive, layout } from 'react-stonecutter';
 import { useLoading, Oval } from '@agney/react-loading';
 import { Modal, Button } from 'react-bootstrap'
+import { backend } from '../backend/Backend';
 
 const Grid = makeResponsive(measureItems(CSSGrid), {
   maxWidth: 1920,
@@ -31,7 +31,7 @@ export function DashboardsRepository(props) {
       if (!ignored) {
         setIsLoaded(true);
         setDashboards(result);
-        }
+      }
     },
     (error) => {
       if (!ignored) {
@@ -43,9 +43,7 @@ export function DashboardsRepository(props) {
   }, [loadNumber])
 
   const loadDashboards = (onSuccess, onError) => {
-    fetch(config.url.API_URL_DASHBOARDS)
-      .then(res => res.json())
-      .then(onSuccess, onError)
+    backend.dashboards(onSuccess, onError);
   }
 
   const reload = () => {
@@ -65,17 +63,14 @@ export function DashboardsRepository(props) {
   }
 
   const deleteDashboard = (dashboard) => {
-    //alert('TODO: delete dashboard ' + dashboard.info.Title);
-    fetch(config.url.API_URL_DASHBOARDS + "/" + dashboard.id, {method: 'delete'})
-    .then(
-      (result) => {
+    backend.deleteDashboard(
+      dashboard.id, 
+      () => {
         reload();
-        //setDashboards(dashboards.filter((d) => d.id != dashboard.id));
-      },
+      }, 
       (error) => {
         alert('delete failed: ' + error)
-      }
-    )
+      });
   }
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -94,7 +89,7 @@ export function DashboardsRepository(props) {
           easing="ease-out">
         {dashboards.map((d, i) => 
           <div key={d.id}>
-            <RevealDashboardThumbnail title={d.id} id={i} summary={d.info} onOpenDashboard={() => {
+            <RevealDashboardThumbnail title={d.info.Title} id={d.id} summary={d.info} onOpenDashboard={() => {
               props.onOpenDashboard(d.id);
             }} onDeleteDashboard={() => {
               confirmDeleteDashboard(d);
