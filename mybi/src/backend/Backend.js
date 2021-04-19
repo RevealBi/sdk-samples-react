@@ -84,7 +84,7 @@ const executeDelete = (url, onSuccess, onError) => {
 
 const executeFetch = (url, fetchParameters, parseResult, onSuccess, onError) => {
     fetch(url, fetchParameters).then(result => {
-        if (result.type === 'opaqueredirect') {
+        if (result.type === 'opaqueredirect' || result.status == 401) {
             window.location.pathname = config.frontendLoginUrl;
         } else if (result.ok) {
             if (parseResult) {
@@ -95,7 +95,13 @@ const executeFetch = (url, fetchParameters, parseResult, onSuccess, onError) => 
         } else {
             onError(result.statusText);
         }
-    }, onError).catch(onError);
+    }).catch(e => {
+        if (e.status == 401) {
+            window.location.pathname = config.frontendLoginUrl;
+        } else {
+            onError(e);
+        }
+    });
 }
 
 const fetchParameters = (method, includeSession = true, contentType = null, body = null) => {
