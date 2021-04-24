@@ -389,139 +389,140 @@ $.ig.util.bulkDefine([
 "CPDropTargetDisplayView:jx",
 "CPThemeLight:jy",
 "CPThemeDark:jz",
-"CPHapticType:j0",
-"CPImageUtility:j1",
-"NativeImageUtility:j2",
-"CPImage:j3",
-"KeyboardKeys:j4",
-"CPFile:j5",
-"CPButton:j6",
-"NumericInputView:j7",
-"CPNumericTextView:j8",
-"PasswordInputView:j9",
-"CPPasswordBox:ka",
-"NativeSystemThemeManager:kb",
-"CPVideoPlayer:kc",
-"WebHostView:kd",
-"CPBucketAddCellAnimator:ke",
-"CPBucketRemoveCellAnimator:kf",
-"CPBucketView:kg",
-"CPBucketViewScrollbar:kh",
-"CPGridViewSingleRowSingleFieldDataSourceHelper:ki",
-"CPBucketViewCell:kj",
-"CPContentDraggableBucketViewCell:kk",
-"CPCheckedState:kl",
-"CPCheckBox:km",
-"CPIconHeaderedLabelButton:kn",
-"CPIconLabelSplitButton:ko",
-"CPIIconLabelPillButton:kp",
-"CPNestedButton:kq",
-"CPVerticalIconLabelButton:kr",
-"CPCompactMonthInteractiveView:ks",
-"CPCompactMonthView:kt",
-"CPCompactMonthDrawingView:ku",
-"CPCompactMonthViewSnapshot:kv",
-"CPMonthViewDisplayMode:kw",
-"CPMonthViewSelectedState:kx",
-"CPDateRangePicker:ky",
-"DoubleCPDateTimeBlock:kz",
-"CPDateRangePickerModeSelectorView:k0",
-"CPDateRangePickerModeIndicator:k1",
-"CPButtonAreaView:k2",
-"CPButtonAreaViewBase:k3",
-"CPDateTimeBlock:k4",
-"CPCompactMonthViewAnimation:k5",
-"CPColorListView:k6",
-"CPColorColumn:k7",
-"CPColorCell:k8",
-"ColorInfo:k9",
-"CPContentView:la",
-"CPEditableTitle:lb",
-"CPGradientView:lc",
-"CPModalHeaderLabel:ld",
-"CPProgressBar:le",
-"CPResizerView:lf",
-"Orientation:lg",
-"CPSearchBar:lh",
-"CPSegementButton:li",
-"CPSlider:lj",
-"CPSliderView:lk",
-"CPSwitch:ll",
-"CPTabbedView:lm",
-"CPTabButton:ln",
-"CPTimeEntryView:lo",
-"CPTypingIndicator:lp",
-"FlowLayoutDataSource:lq",
-"FlowLayoutViewDataSource:lr",
-"FlowLayoutItemView:ls",
-"FlowlayoutItemInfo:lt",
-"FlowLayoutView:lu",
-"FlowLayoutViewCaptureViewDelegate:lv",
-"FlowLayoutResizeHandleLocation:lw",
-"FlowLayoutViewCaptureView:lx",
-"FlowLayoutDefinition:ly",
-"FlowLayoutDirection:lz",
-"FlowLayoutManager:l0",
-"FlowLayoutItemViewDelegate:l1",
-"FlowLayoutViewEditDelegate:l2",
-"CPHorizontalElementsContainer:l3",
-"CPDynamicColumnGridView:l4",
-"CPGridViewSingleFieldDynamicColumnDataSourceHelper:l5",
-"CPGridViewButtonFooterCell:l6",
-"CPGridViewDeleteRowAnimator:l7",
-"CPGridViewExpandableCardCell:l8",
-"CPGridViewItemExpandableCell:l9",
-"CPGridViewItemCheckBoxCell:ma",
-"CPCheckedItemStateDelegate:mb",
-"CPGridViewCheckBoxEditMode:mc",
-"CPGridViewItemExpandableType:md",
-"CPGridViewCellItemHitArea:me",
-"ObjectBoolBlock:mf",
-"CPGridViewInsertRowAnimator:mg",
-"CPGridViewItemDropDownCell:mh",
-"CPGridViewItemTreeCell:mi",
-"CPGridViewNumericTextBoxCell:mj",
-"CPGridViewValueCell:mk",
-"CPTriggersOnboardingBubbleDelegate:ml",
-"CPIslandDialogView:mm",
-"CPPopupListDrillItem:mn",
-"CPPopupListViewDrillItemCell:mo",
-"CPPopupListItemSpacer:mp",
-"CPPopupSeparatorViewCell:mq",
-"CPPopupListItemLabel:mr",
-"CPPopupListDeleteItem:ms",
-"CPPopupListOpenItem:mt",
-"CPPopupListFooterWithTextInput:mu",
-"CPPopupTextInputCell:mv",
-"CPPopupListButtonItem:mw",
-"CPPopupListButtonCell:mx",
-"CPPopupHeaderCell:my",
-"CPComplexPopupHeader:mz",
-"CPPopupProgressView:m0",
-"CPPopupSliderItem:m1",
-"CPPopupSliderViewCell:m2",
-"CPPopupSwitchItem:m3",
-"CPPopupSwitchViewCell:m4",
-"ProgressHelper:m5",
-"RoundedImageDrawingDelegate:m6",
-"ZoomType:m7",
-"CPFocusableTextView:m8",
-"CPRichTextBoxToolBar:m9",
-"CPSearchBox:na",
-"CancellableStringBlock:nb",
-"CPSearchPopupManager:nc",
-"CPTextCurlyBraceDetector:nd",
-"CPTextEmailDetector:ne",
-"CPTextMetaDataDetector:nf",
-"CPTextMetaData:ng",
-"CPTextPhoneNumberDetector:nh",
-"CPLiveInputListProcessor:ni",
-"StringListCallbackBlock:nj",
-"StringForObjectBlock:nk",
-"CPTextTrackingRange:nl",
-"SystemThemeManager:nm",
-"CPTooltipListPopupManager:nn",
-"CPVideoView:no"]);
+"ProgressHelper:j0",
+"WebCoreUtils:j1",
+"CPHapticType:j2",
+"CPImageUtility:j3",
+"NativeImageUtility:j4",
+"CPImage:j5",
+"KeyboardKeys:j6",
+"CPFile:j7",
+"CPButton:j8",
+"NumericInputView:j9",
+"CPNumericTextView:ka",
+"PasswordInputView:kb",
+"CPPasswordBox:kc",
+"NativeSystemThemeManager:kd",
+"CPVideoPlayer:ke",
+"WebHostView:kf",
+"CPBucketAddCellAnimator:kg",
+"CPBucketRemoveCellAnimator:kh",
+"CPBucketView:ki",
+"CPBucketViewScrollbar:kj",
+"CPGridViewSingleRowSingleFieldDataSourceHelper:kk",
+"CPBucketViewCell:kl",
+"CPContentDraggableBucketViewCell:km",
+"CPCheckedState:kn",
+"CPCheckBox:ko",
+"CPIconHeaderedLabelButton:kp",
+"CPIconLabelSplitButton:kq",
+"CPIIconLabelPillButton:kr",
+"CPNestedButton:ks",
+"CPVerticalIconLabelButton:kt",
+"CPCompactMonthInteractiveView:ku",
+"CPCompactMonthView:kv",
+"CPCompactMonthDrawingView:kw",
+"CPCompactMonthViewSnapshot:kx",
+"CPMonthViewDisplayMode:ky",
+"CPMonthViewSelectedState:kz",
+"CPDateRangePicker:k0",
+"DoubleCPDateTimeBlock:k1",
+"CPDateRangePickerModeSelectorView:k2",
+"CPDateRangePickerModeIndicator:k3",
+"CPButtonAreaView:k4",
+"CPButtonAreaViewBase:k5",
+"CPDateTimeBlock:k6",
+"CPCompactMonthViewAnimation:k7",
+"CPColorListView:k8",
+"CPColorColumn:k9",
+"CPColorCell:la",
+"ColorInfo:lb",
+"CPContentView:lc",
+"CPEditableTitle:ld",
+"CPGradientView:le",
+"CPModalHeaderLabel:lf",
+"CPProgressBar:lg",
+"CPResizerView:lh",
+"Orientation:li",
+"CPSearchBar:lj",
+"CPSegementButton:lk",
+"CPSlider:ll",
+"CPSliderView:lm",
+"CPSwitch:ln",
+"CPTabbedView:lo",
+"CPTabButton:lp",
+"CPTimeEntryView:lq",
+"CPTypingIndicator:lr",
+"FlowLayoutDataSource:ls",
+"FlowLayoutViewDataSource:lt",
+"FlowLayoutItemView:lu",
+"FlowlayoutItemInfo:lv",
+"FlowLayoutView:lw",
+"FlowLayoutViewCaptureViewDelegate:lx",
+"FlowLayoutResizeHandleLocation:ly",
+"FlowLayoutViewCaptureView:lz",
+"FlowLayoutDefinition:l0",
+"FlowLayoutDirection:l1",
+"FlowLayoutManager:l2",
+"FlowLayoutItemViewDelegate:l3",
+"FlowLayoutViewEditDelegate:l4",
+"CPHorizontalElementsContainer:l5",
+"CPDynamicColumnGridView:l6",
+"CPGridViewSingleFieldDynamicColumnDataSourceHelper:l7",
+"CPGridViewButtonFooterCell:l8",
+"CPGridViewDeleteRowAnimator:l9",
+"CPGridViewExpandableCardCell:ma",
+"CPGridViewItemExpandableCell:mb",
+"CPGridViewItemCheckBoxCell:mc",
+"CPCheckedItemStateDelegate:md",
+"CPGridViewCheckBoxEditMode:me",
+"CPGridViewItemExpandableType:mf",
+"CPGridViewCellItemHitArea:mg",
+"ObjectBoolBlock:mh",
+"CPGridViewInsertRowAnimator:mi",
+"CPGridViewItemDropDownCell:mj",
+"CPGridViewItemTreeCell:mk",
+"CPGridViewNumericTextBoxCell:ml",
+"CPGridViewValueCell:mm",
+"CPTriggersOnboardingBubbleDelegate:mn",
+"CPIslandDialogView:mo",
+"CPPopupListDrillItem:mp",
+"CPPopupListViewDrillItemCell:mq",
+"CPPopupListItemSpacer:mr",
+"CPPopupSeparatorViewCell:ms",
+"CPPopupListItemLabel:mt",
+"CPPopupListDeleteItem:mu",
+"CPPopupListOpenItem:mv",
+"CPPopupListFooterWithTextInput:mw",
+"CPPopupTextInputCell:mx",
+"CPPopupListButtonItem:my",
+"CPPopupListButtonCell:mz",
+"CPPopupHeaderCell:m0",
+"CPComplexPopupHeader:m1",
+"CPPopupProgressView:m2",
+"CPPopupSliderItem:m3",
+"CPPopupSliderViewCell:m4",
+"CPPopupSwitchItem:m5",
+"CPPopupSwitchViewCell:m6",
+"RoundedImageDrawingDelegate:m7",
+"ZoomType:m8",
+"CPFocusableTextView:m9",
+"CPRichTextBoxToolBar:na",
+"CPSearchBox:nb",
+"CancellableStringBlock:nc",
+"CPSearchPopupManager:nd",
+"CPTextCurlyBraceDetector:ne",
+"CPTextEmailDetector:nf",
+"CPTextMetaDataDetector:ng",
+"CPTextMetaData:nh",
+"CPTextPhoneNumberDetector:ni",
+"CPLiveInputListProcessor:nj",
+"StringListCallbackBlock:nk",
+"StringForObjectBlock:nl",
+"CPTextTrackingRange:nm",
+"SystemThemeManager:nn",
+"CPTooltipListPopupManager:no",
+"CPVideoView:np"]);
 /*<BeginType Name="Infragistics.ViewControllerModalPresentationStyle" />*/
 
 $.ig.util.defType('ViewControllerModalPresentationStyle', 'Enum', {
@@ -2173,6 +2174,13 @@ $.ig.util.defType('InteractiveView', 'Object', {
 	}
 	/*<EndMethod Name="System.Void Infragistics.InteractiveView::AddDragLeaveHandler(Infragistics.PointExecutionBlock)" />*/
 	,
+	__draggingOverHandler: null,
+	/*<BeginMethod Name="System.Void Infragistics.InteractiveView::AddDraggingOverHanlder(Infragistics.ExecutionBlock)" />*/
+	addDraggingOverHanlder: function (action) {
+		this.__draggingOverHandler = action;
+	}
+	/*<EndMethod Name="System.Void Infragistics.InteractiveView::AddDraggingOverHanlder(Infragistics.ExecutionBlock)" />*/
+	,
 	/*<BeginMethod Name="System.Void Infragistics.InteractiveView::OnDragEnter(System.JQuery.JQueryEvent)" />*/
 	onDragEnter: function (e) {
 		if (this.__allowDragOver) {
@@ -2195,6 +2203,9 @@ $.ig.util.defType('InteractiveView', 'Object', {
 			e.stopPropagation();
 			if (!this.__allowDrop) {
 				e.originalEvent.dataTransfer.dropEffect = 'none';
+			}
+			if (this.__draggingOverHandler != null) {
+				this.__draggingOverHandler();
 			}
 		}
 	}
@@ -3378,12 +3389,36 @@ $.ig.util.defType('CPViewBase', 'CPViewCore', {
 			$self.externalDrop(dropId, o);
 		});
 		targetView.addDragLeaveHandler(function (x, y) {
-			$self.externalDragLeave(x, y);
+			$self.dropTargetViewLeave(dropId, x, y);
+		});
+		targetView.addDraggingOverHanlder(function () {
+			$self.dropTargetViewEnter(dropId);
 		});
 		this.externalDropTargetViewParent().addSubview(targetView);
 		return dropId;
 	}
 	/*<EndMethod Name="System.String Infragistics.CPViewBase::RegisterExternalDropTargetView(System.String, Infragistics.PathIcon, System.String, Infragistics.CPExternalDropHandler)" />*/
+	,
+	/*<BeginMethod Name="System.Void Infragistics.CPViewBase::DropTargetViewLeave(System.String, System.Int32, System.Int32)" />*/
+	dropTargetViewLeave: function (dropId, x, y) {
+		this.externalDragLeave(x, y);
+		this.setIsOverForDropTargetView(dropId, false);
+	}
+	/*<EndMethod Name="System.Void Infragistics.CPViewBase::DropTargetViewLeave(System.String, System.Int32, System.Int32)" />*/
+	,
+	/*<BeginMethod Name="System.Void Infragistics.CPViewBase::DropTargetViewEnter(System.String)" />*/
+	dropTargetViewEnter: function (dropId) {
+		this.stopDragLeaveTimer();
+		this.setIsOverForDropTargetView(dropId, true);
+	}
+	/*<EndMethod Name="System.Void Infragistics.CPViewBase::DropTargetViewEnter(System.String)" />*/
+	,
+	/*<BeginMethod Name="System.Void Infragistics.CPViewBase::SetIsOverForDropTargetView(System.String, System.Boolean)" />*/
+	setIsOverForDropTargetView: function (dropId, isOver) {
+		var target = this.__dropTargetLookup.item(dropId);
+		target.setIsOver(isOver);
+	}
+	/*<EndMethod Name="System.Void Infragistics.CPViewBase::SetIsOverForDropTargetView(System.String, System.Boolean)" />*/
 	,
 	/*<BeginMethod Name="System.Void Infragistics.CPViewBase::UnregisterDropTargetView(System.String)" />*/
 	unregisterDropTargetView: function (identifier) {
@@ -3441,13 +3476,31 @@ $.ig.util.defType('CPViewBase', 'CPViewCore', {
 	,
 	/*<BeginMethod Name="System.Void Infragistics.CPViewBase::ExternalDragEntered()" />*/
 	externalDragEntered: function () {
+		this.stopDragLeaveTimer();
 		this.setDropTargetsHidden(false);
 	}
 	/*<EndMethod Name="System.Void Infragistics.CPViewBase::ExternalDragEntered()" />*/
 	,
+	/*<BeginMethod Name="System.Void Infragistics.CPViewBase::StopDragLeaveTimer()" />*/
+	stopDragLeaveTimer: function () {
+		if (this.__delayDragHideTimer != null) {
+			this.__delayDragHideTimer.stop();
+			this.__delayDragHideTimer = null;
+		}
+	}
+	/*<EndMethod Name="System.Void Infragistics.CPViewBase::StopDragLeaveTimer()" />*/
+	,
+	__delayDragHideTimer: null,
 	/*<BeginMethod Name="System.Void Infragistics.CPViewBase::ExternalDragLeft()" />*/
 	externalDragLeft: function () {
-		this.setDropTargetsHidden(true);
+		var $self = this;
+		if (this.__delayDragHideTimer == null) {
+			this.__delayDragHideTimer = new $.ig.CPTimer();
+			this.__delayDragHideTimer.startAndFireOnce(0.1, function () {
+				$self.setDropTargetsHidden(true);
+				$self.stopDragLeaveTimer();
+			});
+		}
 	}
 	/*<EndMethod Name="System.Void Infragistics.CPViewBase::ExternalDragLeft()" />*/
 	,
@@ -8943,6 +8996,13 @@ $.ig.util.defType('NativeUIUtility', 'Object', {
 	,
 	/*<BeginMethod Name="System.Void Infragistics.NativeUIUtility::TakeScreenshotHelper(Infragistics.CPViewBase, System.Boolean, Infragistics.ObjectBlock)" />*/
 	takeScreenshotHelper: function (rootView, includeLayers, successHandler) {
+		var screenshotSuccess = function (o) {
+			$.ig.ProgressHelper.prototype.hideProgress(rootView, false);
+			if (successHandler != null) {
+				successHandler(o);
+			}
+		};
+		$.ig.ProgressHelper.prototype.showProgress1(rootView);
 		var rootElement = rootView._element[0];
 		var width = rootView.currentWidth();
 		var height = rootView.currentHeight();
@@ -8983,6 +9043,12 @@ $.ig.util.defType('NativeUIUtility', 'Object', {
 		var html = clonedElement.outerHTML;
 		var baseUrl = $.ig.InfragisticsAPIRequestBase.prototype.baseInfragisticsAPIURL();
 		var ajaxUrl = baseUrl + "tools/renderhtml/";
+		var extraHeaders = $.ig.WebCoreUtils.prototype.getExtraHeaders(ajaxUrl);
+		var addHeadersBlock = function (xhr, headers) {
+			if (headers != null) {
+				$.ig.WebCoreUtils.prototype.addHeaders(xhr, headers);
+			}
+		};
 		
 				$.ajax({
                     url: ajaxUrl, 
@@ -8990,16 +9056,19 @@ $.ig.util.defType('NativeUIUtility', 'Object', {
                     contentType: 'text/plain',
                     dataType: 'text',
                     data: html,
+                    beforeSend: function (xhr) {
+                        addHeadersBlock(xhr, extraHeaders);
+                    },
 					success: function(result) {
 						var img = document.createElement('img');
 						img.src = 'data:image/png;base64,' + result;
 						img.style.width = '100%';
 						img.style.height = '100%';
-						successHandler(img);
+						screenshotSuccess(img);
 					},
                     error: function(_, _a, err) {
                         console.error('unable to take screenshot: ' + err);
-                    }});;
+                    }});
 	}
 	/*<EndMethod Name="System.Void Infragistics.NativeUIUtility::TakeScreenshotHelper(Infragistics.CPViewBase, System.Boolean, Infragistics.ObjectBlock)" />*/
 	,
@@ -9099,12 +9168,6 @@ $.ig.util.defType('NativeUIUtility', 'Object', {
 		return new $.ig.CPPoint(fronLeft - toLeft + p._x, fromTop - toTop + p._y);
 	}
 	/*<EndMethod Name="Infragistics.NativePoint Infragistics.NativeUIUtility::TranslatePoint(Infragistics.NativePoint, System.JQuery.JQueryObject, System.JQuery.JQueryObject)" />*/
-	,
-	/*<BeginMethod Name="System.Boolean Infragistics.NativeUIUtility::DeviceHasCamera(Infragistics.CPViewBase)" />*/
-	deviceHasCamera: function (relativeView) {
-		return false;
-	}
-	/*<EndMethod Name="System.Boolean Infragistics.NativeUIUtility::DeviceHasCamera(Infragistics.CPViewBase)" />*/
 	,
 	$type: new $.ig.Type('NativeUIUtility', $.ig.Object.prototype.$type)
 }, true);
@@ -22080,6 +22143,9 @@ $.ig.util.defType('CPEditableTitle', 'CPInteractionView', {
 		this.supportsInteractionOpacity(true);
 		this.__leftEdgePadding = $.ig.ThemeManager.prototype.theme().padding20();
 		this.__rightEdgePadding = $.ig.ThemeManager.prototype.theme().padding10();
+		$.ig.UIUtility.prototype.setAccessibilityName1(this, "editableTitle");
+		$.ig.UIUtility.prototype.setAccessibilityName1(this.__editButton, "editableTitleButton");
+		$.ig.UIUtility.prototype.setAccessibilityName1(this.__titleLabel, "editableTitleLabel");
 	},
 	__leftEdgePadding: 0,
 	__rightEdgePadding: 0,
@@ -25424,6 +25490,8 @@ $.ig.util.defType('CPSliderView', 'CPViewBase', {
 		this.__sep.setBackgroundColor($.ig.ThemeManager.prototype.theme().foregroundColor().$native());
 		this.addSubview(this.__sep);
 		this.__sepSize = $.ig.ThemeManager.prototype.theme().borderWidth1();
+		$.ig.UIUtility.prototype.setAccessibilityName1(this.__plusButton, "plusButton");
+		$.ig.UIUtility.prototype.setAccessibilityName1(this.__minusButton, "minusButton");
 	},
 	_supportsSep: false,
 	/*<BeginProperty Name="System.Boolean Infragistics.CPSliderView::SupportsSep()" />*/
@@ -26993,6 +27061,16 @@ $.ig.util.defType('CPDropTargetDisplayView', 'CPView', {
 		}
 		this.identifier(identifier);
 	},
+	__isOver: false,
+	/*<BeginMethod Name="System.Void Infragistics.CPDropTargetDisplayView::SetIsOver(System.Boolean)" />*/
+	setIsOver: function (isOver) {
+		if (this.__isOver != isOver) {
+			this.__isOver = isOver;
+			this.triggerSizeChanged();
+		}
+	}
+	/*<EndMethod Name="System.Void Infragistics.CPDropTargetDisplayView::SetIsOver(System.Boolean)" />*/
+	,
 	_dropHandler: null,
 	/*<BeginProperty Name="Infragistics.CPExternalDropHandler Infragistics.CPDropTargetDisplayView::DropHandler()" />*/
 	dropHandler: function (value) {
@@ -27020,10 +27098,18 @@ $.ig.util.defType('CPDropTargetDisplayView', 'CPView', {
 	/*<BeginMethod Name="System.Void Infragistics.CPDropTargetDisplayView::SizeChanged(System.Int32, System.Int32)" />*/
 	sizeChanged: function (w, h) {
 		$.ig.CPView.prototype.sizeChanged.call(this, w, h);
+		var opacity = $.ig.ThemeManager.prototype.theme().restOpacity();
+		if (this.__isOver) {
+			opacity = 1;
+		}
 		var sidePadding = $.ig.ThemeManager.prototype.theme().padding15();
 		if (h < $.ig.ThemeManager.prototype.theme().largerHitSize()) {
 			var iconSize = $.ig.ThemeManager.prototype.theme().largeIconSize();
-			this.__titleLabel.setFont($.ig.ThemeManager.prototype.theme().fontSizeBody(), $.ig.ThemeManager.prototype.theme().boldFont());
+			if (this.__isOver) {
+				this.__titleLabel.setFont($.ig.ThemeManager.prototype.theme().fontSizeBody(), $.ig.ThemeManager.prototype.theme().boldFont());
+			} else {
+				this.__titleLabel.setFont($.ig.ThemeManager.prototype.theme().fontSizeBody(), $.ig.ThemeManager.prototype.theme().regularFont());
+			}
 			this.__titleLabel.calculateSizeToFit();
 			var tlw = this.__titleLabel.getCalculatedWidth();
 			var tlh = this.__titleLabel.getCalculatedHeight();
@@ -27034,22 +27120,26 @@ $.ig.util.defType('CPDropTargetDisplayView', 'CPView', {
 			} else {
 				tlw = w - (iconSize + sidePadding * 2 + iconPadding);
 			}
-			this.measureView1(this.__iconView, x, $.ig.intDivide(h, 2) - $.ig.intDivide(iconSize, 2), iconSize, iconSize, 1);
+			this.measureView1(this.__iconView, x, $.ig.intDivide(h, 2) - $.ig.intDivide(iconSize, 2), iconSize, iconSize, opacity);
 			x += iconSize + iconPadding;
-			this.measureView1(this.__titleLabel, x, $.ig.intDivide(h, 2) - $.ig.intDivide(tlh, 2), tlw, tlh, 1);
+			this.measureView1(this.__titleLabel, x, $.ig.intDivide(h, 2) - $.ig.intDivide(tlh, 2), tlw, tlh, opacity);
 		} else {
 			var iconSize1 = $.ig.truncate((h * 0.4));
 			var iconX = $.ig.intDivide(w, 2) - $.ig.intDivide(iconSize1, 2);
 			var availWidth = w - sidePadding * 2;
 			var iconPadding1 = $.ig.ThemeManager.prototype.theme().padding15();
-			this.__titleLabel.setFont($.ig.ThemeManager.prototype.theme().fontSizeH2(), $.ig.ThemeManager.prototype.theme().boldFont());
+			if (this.__isOver) {
+				this.__titleLabel.setFont($.ig.ThemeManager.prototype.theme().fontSizeH2(), $.ig.ThemeManager.prototype.theme().boldFont());
+			} else {
+				this.__titleLabel.setFont($.ig.ThemeManager.prototype.theme().fontSizeH2(), $.ig.ThemeManager.prototype.theme().regularFont());
+			}
 			this.__titleLabel.calculateSizeToFit1(availWidth);
 			var tlw1 = this.__titleLabel.getCalculatedWidth();
 			var tlh1 = this.__titleLabel.getCalculatedHeight();
 			var y = $.ig.intDivide(h, 2) - $.ig.intDivide((iconSize1 + iconPadding1 + tlh1), 2);
-			this.measureView1(this.__iconView, iconX, y, iconSize1, iconSize1, 1);
+			this.measureView1(this.__iconView, iconX, y, iconSize1, iconSize1, opacity);
 			y += iconPadding1 + iconSize1;
-			this.measureView1(this.__titleLabel, $.ig.intDivide(w, 2) - $.ig.intDivide(tlw1, 2), y, tlw1, tlh1, 1);
+			this.measureView1(this.__titleLabel, $.ig.intDivide(w, 2) - $.ig.intDivide(tlw1, 2), y, tlw1, tlh1, opacity);
 		}
 	}
 	/*<EndMethod Name="System.Void Infragistics.CPDropTargetDisplayView::SizeChanged(System.Int32, System.Int32)" />*/
@@ -35126,6 +35216,11 @@ $.ig.util.defType('CPGridViewItemExpandableCell', 'CPGridViewItemCheckBoxCell', 
 		} else {
 			this.__expansionIndicator.setRotation(this.__isExpanded ? 90 : 0, animate);
 		}
+		if (this.__isExpanded) {
+			$.ig.UIUtility.prototype.setAccessibilityName1(this.__expansionIndicator, "expansionIndicator_expanded");
+		} else {
+			$.ig.UIUtility.prototype.setAccessibilityName1(this.__expansionIndicator, "expansionIndicator_collapsed");
+		}
 	}
 	/*<EndMethod Name="System.Void Infragistics.CPGridViewItemExpandableCell::UpdateExpansionState(System.Boolean)" />*/
 	,
@@ -40466,10 +40561,10 @@ $.ig.util.defType('CPPopupManagerBase', 'Object', {
 	}
 	/*<EndProperty Name="System.Boolean Infragistics.CPPopupManagerBase::KeepTopMost()" />*/
 	,
-	/*<BeginMethod Name="System.Void Infragistics.CPPopupManagerBase::InvaliidateBounds()" />*/
-	invaliidateBounds: function () {
+	/*<BeginMethod Name="System.Void Infragistics.CPPopupManagerBase::InvalidateBounds()" />*/
+	invalidateBounds: function () {
 	}
-	/*<EndMethod Name="System.Void Infragistics.CPPopupManagerBase::InvaliidateBounds()" />*/
+	/*<EndMethod Name="System.Void Infragistics.CPPopupManagerBase::InvalidateBounds()" />*/
 	,
 	/*<BeginProperty Name="Infragistics.CPPopupViewDelegate Infragistics.CPPopupManagerBase::ViewDelegate()" />*/
 	viewDelegate: function () {
@@ -41358,21 +41453,21 @@ $.ig.util.defType('CPLocalPopupManager', 'CPPopupManagerBase', {
 	__root: null,
 	__previousWidth: 0,
 	__previousHeight: 0,
-	/*<BeginMethod Name="System.Void Infragistics.CPLocalPopupManager::InvaliidateBounds()" />*/
-	invaliidateBounds: function () {
+	/*<BeginMethod Name="System.Void Infragistics.CPLocalPopupManager::InvalidateBounds()" />*/
+	invalidateBounds: function () {
 		if (this.__popup != null && this.__root != null) {
 			this.updateSizes();
 			this.layoutPopup(this.__popup, this.__root, this.__previousWidth, this.__previousHeight);
 		}
 	}
-	/*<EndMethod Name="System.Void Infragistics.CPLocalPopupManager::InvaliidateBounds()" />*/
+	/*<EndMethod Name="System.Void Infragistics.CPLocalPopupManager::InvalidateBounds()" />*/
 	,
 	/*<BeginMethod Name="System.Void Infragistics.CPLocalPopupManager::AnimateInvalidateBounds()" />*/
 	animateInvalidateBounds: function () {
 		var $self = this;
 		this.__popup.animate($.ig.ThemeManager.prototype.theme().animationDuration(), function () {
 			$self.__containerView.animate($.ig.ThemeManager.prototype.theme().animationDuration(), function () {
-				$self.invaliidateBounds();
+				$self.invalidateBounds();
 			}, null);
 		}, null);
 	}
@@ -44921,7 +45016,7 @@ $.ig.util.defType('CPPopupListManager', 'CPLocalPopupManager', {
 		if (this.__listView != null) {
 			this.calculateContentSize();
 			this.__listView.replaceData(items);
-			this.invaliidateBounds();
+			this.invalidateBounds();
 			this.givePopupKeyboardFocus();
 		}
 	}
@@ -48973,7 +49068,7 @@ $.ig.util.defType('ScrollEventProcessor', 'Object', {
 	touchMoveHelper: function (x, y) {
 		this.__isMultitouch = x.length > 1;
 		if (!this.__isMultitouch) {
-			return this.handleMouseMove(x[0], y[0]);
+			return this.processMouseMove(x[0], y[0], false);
 		}
 		if (x.length == 2) {
 			var pt1X = x[0];
@@ -49144,7 +49239,13 @@ $.ig.util.defType('ScrollEventProcessor', 'Object', {
 	,
 	/*<BeginMethod Name="System.Boolean Infragistics.ScrollEventProcessor::HandleMouseMove(System.Double, System.Double)" />*/
 	handleMouseMove: function (x, y) {
-		if (this.allowMouseDrag()) {
+		return this.processMouseMove(x, y, true);
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.ScrollEventProcessor::HandleMouseMove(System.Double, System.Double)" />*/
+	,
+	/*<BeginMethod Name="System.Boolean Infragistics.ScrollEventProcessor::ProcessMouseMove(System.Double, System.Double, System.Boolean)" />*/
+	processMouseMove: function (x, y, isMouse) {
+		if (!isMouse || this.allowMouseDrag()) {
 			if (this.__mouseDown) {
 				this.__isScrolling = this.ensureIsScrolling(x, y);
 				if (this.__isScrolling) {
@@ -49155,7 +49256,7 @@ $.ig.util.defType('ScrollEventProcessor', 'Object', {
 		}
 		return false;
 	}
-	/*<EndMethod Name="System.Boolean Infragistics.ScrollEventProcessor::HandleMouseMove(System.Double, System.Double)" />*/
+	/*<EndMethod Name="System.Boolean Infragistics.ScrollEventProcessor::ProcessMouseMove(System.Double, System.Double, System.Boolean)" />*/
 	,
 	/*<BeginMethod Name="System.Double Infragistics.ScrollEventProcessor::GetNow()" />*/
 	getNow: function () {

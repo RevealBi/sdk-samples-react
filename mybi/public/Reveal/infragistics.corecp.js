@@ -175,71 +175,72 @@ $.ig.util.bulkDefine([
 "PlatformType:dx",
 "CPKeyedObject:dy",
 "TouchPoints:dz",
-"GoogleAnalyticsProperties:d0",
-"GoogleAnalyticsActivity:d1",
-"BackingStoreActivity:d2",
-"ActivityTrackingBackingStore:d3",
-"BackingStoreObjectBase:d4",
-"ArrayUtility:d5",
-"CPMathUtility:d6",
-"SimpleIDItemBackingStore:d7",
-"AnimationHelperDelegate:d8",
-"AnimationHelper:d9",
-"AnimationType:ea",
-"Orientation:eb",
-"CPKeyedNumber:ec",
-"CPLayoutParamsBase:ed",
-"CPLayoutParams:ee",
-"CPLinearGradientBrush:ef",
-"CPLongTermMemoryStorageUtility:eg",
-"CPMemoryStateManager:eh",
-"CPObjectDelegate:ei",
-"CPTimer:ej",
-"CPDropInfo:ek",
-"CPFile:el",
-"KeyboardKeys:em",
-"LogLevel:en",
-"ILogger:eo",
-"ILoggerFactory:ep",
-"LoggerFactory:eq",
-"NOPLoggerFactory:er",
-"RandomNumberGenerator:es",
-"CPCustomSortPropInfo:et",
-"CPObjectPropertySortConverter:eu",
-"CPPropertySortConverter:ev",
-"CPObjectSortConverter:ew",
-"IUndoRedo:ex",
-"IUndoRedoTransaction:ey",
-"IUndoRedoItem:ez",
-"IUndoRedoItemsCollection:e0",
-"IUndoRedoTransactionObserver:e1",
-"TransactonClosedMetadata:e2",
-"UndoRedoItem:e3",
-"UndoRedoTransaction:e4",
-"Array:e5",
-"UndoRedoException:e6",
-"UndoRedoStorage:e7",
-"UndoRedo:e8",
-"ICPViewCore:e9",
-"Console:fa",
-"GestureState:fb",
-"CanvasContext:fc",
-"CanvasContext2D:fd",
-"CanvasContext:fe",
-"TextMetrics:ff",
-"ImageData:fg",
-"CanvasElement:fh",
-"Element:fi",
-"ElementAttributeCollection:fj",
-"ElementCollection:fk",
-"WebStyle:fl",
-"ElementNodeType:fm",
-"document:fn",
-"EventListener:fo",
-"IElementEventHandler:fp",
-"ElementEventHandler:fq",
-"ElementAttribute:fr",
-"Gradient:fs"]);
+"WebCoreUtils:d0",
+"GoogleAnalyticsProperties:d1",
+"GoogleAnalyticsActivity:d2",
+"BackingStoreActivity:d3",
+"ActivityTrackingBackingStore:d4",
+"BackingStoreObjectBase:d5",
+"ArrayUtility:d6",
+"CPMathUtility:d7",
+"SimpleIDItemBackingStore:d8",
+"AnimationHelperDelegate:d9",
+"AnimationHelper:ea",
+"AnimationType:eb",
+"Orientation:ec",
+"CPKeyedNumber:ed",
+"CPLayoutParamsBase:ee",
+"CPLayoutParams:ef",
+"CPLinearGradientBrush:eg",
+"CPLongTermMemoryStorageUtility:eh",
+"CPMemoryStateManager:ei",
+"CPObjectDelegate:ej",
+"CPTimer:ek",
+"CPDropInfo:el",
+"CPFile:em",
+"KeyboardKeys:en",
+"LogLevel:eo",
+"ILogger:ep",
+"ILoggerFactory:eq",
+"LoggerFactory:er",
+"NOPLoggerFactory:es",
+"RandomNumberGenerator:et",
+"CPCustomSortPropInfo:eu",
+"CPObjectPropertySortConverter:ev",
+"CPPropertySortConverter:ew",
+"CPObjectSortConverter:ex",
+"IUndoRedo:ey",
+"IUndoRedoTransaction:ez",
+"IUndoRedoItem:e0",
+"IUndoRedoItemsCollection:e1",
+"IUndoRedoTransactionObserver:e2",
+"TransactonClosedMetadata:e3",
+"UndoRedoItem:e4",
+"UndoRedoTransaction:e5",
+"Array:e6",
+"UndoRedoException:e7",
+"UndoRedoStorage:e8",
+"UndoRedo:e9",
+"ICPViewCore:fa",
+"Console:fb",
+"GestureState:fc",
+"CanvasContext:fd",
+"CanvasContext2D:fe",
+"CanvasContext:ff",
+"TextMetrics:fg",
+"ImageData:fh",
+"CanvasElement:fi",
+"Element:fj",
+"ElementAttributeCollection:fk",
+"ElementCollection:fl",
+"WebStyle:fm",
+"ElementNodeType:fn",
+"document:fo",
+"EventListener:fp",
+"IElementEventHandler:fq",
+"ElementEventHandler:fr",
+"ElementAttribute:fs",
+"Gradient:ft"]);
 /*<BeginType Name="System.GestureState" />*/
 
 $.ig.util.defType('GestureState', 'Enum', {
@@ -2126,6 +2127,18 @@ $.ig.util.defType('PlatformInfo', 'Object', {
 	}
 	/*<EndProperty Name="System.String Infragistics.PlatformInfo::PlatformString()" />*/
 	,
+	/*<BeginProperty Name="System.Boolean Infragistics.PlatformInfo::SupportsCamera()" />*/
+	supportsCamera: function () {
+		return false;
+	}
+	/*<EndProperty Name="System.Boolean Infragistics.PlatformInfo::SupportsCamera()" />*/
+	,
+	/*<BeginProperty Name="System.Boolean Infragistics.PlatformInfo::SupportsPhotoLibrary()" />*/
+	supportsPhotoLibrary: function () {
+		return false;
+	}
+	/*<EndProperty Name="System.Boolean Infragistics.PlatformInfo::SupportsPhotoLibrary()" />*/
+	,
 	/*<BeginMethod Name="Infragistics.CPList Infragistics.PlatformInfo::GetSystemInformation()" />*/
 	getSystemInformation: function () {
 		return (function () {
@@ -2160,6 +2173,42 @@ $.ig.util.defType('TouchPoints', 'Object', {
 }, true);
 
 /*<EndType Name="Infragistics.TouchPoints" />*/
+
+/*<BeginType Name="Infragistics.WebCoreUtils" />*/
+
+$.ig.util.defType('WebCoreUtils', 'Object', {
+	init: function () {
+		$.ig.Object.prototype.init.call(this);
+	},
+	/*<BeginMethod Name="System.Void Infragistics.WebCoreUtils::AddHeaders(System.Object, Infragistics.CPDictionary)" />*/
+	addHeaders: function (xhr, headers) {
+		var keys = $.ig.NativeDictionaryUtility.prototype.getKeys(headers);
+		for (var i = 0; i < keys.length; i++) {
+			var key = keys[i];
+			var value = headers.item(key);
+			xhr.setRequestHeader(key, value);
+		}
+	}
+	/*<EndMethod Name="System.Void Infragistics.WebCoreUtils::AddHeaders(System.Object, Infragistics.CPDictionary)" />*/
+	,
+	/*<BeginMethod Name="Infragistics.CPDictionary Infragistics.WebCoreUtils::GetExtraHeaders(System.String)" />*/
+	getExtraHeaders: function (url) {
+		var extraHeaders = null;
+		if (window.IGAppExtraHeadersProvider != undefined) {
+			var extraHeadersObj = window.IGAppExtraHeadersProvider(url);
+			if (extraHeadersObj != null) {
+				extraHeaders = new $.ig.Dictionary(0);
+				extraHeaders.proxy = extraHeadersObj;
+			}
+		}
+		return extraHeaders;
+	}
+	/*<EndMethod Name="Infragistics.CPDictionary Infragistics.WebCoreUtils::GetExtraHeaders(System.String)" />*/
+	,
+	$type: new $.ig.Type('WebCoreUtils', $.ig.Object.prototype.$type)
+}, true);
+
+/*<EndType Name="Infragistics.WebCoreUtils" />*/
 
 /*<BeginType Name="Infragistics.GoogleAnalyticsProperties" />*/
 
@@ -2715,18 +2764,6 @@ $.ig.util.defType('ActivityTrackingBackingStore', 'BackingStoreObjectBase', {
 		return false;
 	}
 	/*<EndProperty Name="System.Boolean Infragistics.ActivityTrackingBackingStore::AutoGenerateIdentifierIfNull()" />*/
-	,
-	_silentlyUpdateItem: false,
-	/*<BeginProperty Name="System.Boolean Infragistics.ActivityTrackingBackingStore::SilentlyUpdateItem()" />*/
-	silentlyUpdateItem: function (value) {
-		if (arguments.length === 1) {
-			this._silentlyUpdateItem = value;
-			return value;
-		} else {
-			return this._silentlyUpdateItem;
-		}
-	}
-	/*<EndProperty Name="System.Boolean Infragistics.ActivityTrackingBackingStore::SilentlyUpdateItem()" />*/
 	,
 	/*<BeginMethod Name="System.String Infragistics.ActivityTrackingBackingStore::ResolveKind()" />*/
 	resolveKind: function () {

@@ -83,440 +83,442 @@ $.ig.util.bulkDefine([
 "Dictionary:bc",
 "SessionResponseType:bd",
 "Script:be",
-"JSDictionary:bf",
-"JSAjaxBeforeSendRequestBlock:bg",
-"MulticastDelegate:bh",
-"IntPtr:bi",
-"NativeDictionaryUtility:bj",
-"Array:bk",
-"Array:bl",
-"CompareCallback:bm",
-"SessionTask:bn",
-"SessionDelegate:bo",
-"CloudError:bp",
-"CloudErrorType:bq",
-"NativeStringUtility:br",
-"CPStringUtility:bs",
-"JsonPushEventHandler:bt",
-"ExecutionBlock:bu",
-"URLRequest:bv",
-"RQHTTPUtils:bw",
-"CookieStorageMode:bx",
-"SessionHTTPMethod:by",
-"SessionContentType:bz",
-"Nullable$1:b0",
-"SessionTaskType:b1",
-"SessionType:b2",
-"CPJSONObject:b3",
-"NativeJSONUtility:b4",
-"FileReader:b5",
-"ObjectBlock:b6",
-"FileLoader:b7",
-"JSAjaxSuccessReponseBlock:b8",
-"JSAjaxErrorReponseBlock:b9",
-"RequestSuccessBlock:ca",
-"RequestBase:cb",
-"IRequest:cc",
-"RequestErrorBlock:cd",
-"SessionRequestProgressUpdateBlock:ce",
-"SessionRequestFileDownloadedBlock:cf",
-"CloudFilesBlock:cg",
-"CloudFileBlock:ch",
-"CloudFile:ci",
-"LinkedDocument:cj",
-"ActivityTrackingBackingStore:ck",
-"BackingStoreObjectBase:cl",
-"BackingStoreActivity:cm",
-"GoogleAnalyticsActivity:cn",
-"ArrayUtility:co",
-"CPMathUtility:cp",
-"CPRect:cq",
-"Math:cr",
-"CPPoint:cs",
-"CPSize:ct",
-"NativeNullableUtility:cu",
-"BoolForObjectBlock:cv",
-"ObjectForObjectBlock:cw",
-"SimpleIDItemBackingStore:cx",
-"DocumentLink:cy",
-"LinkedDocumentChildPagingInfo:cz",
-"GenericCloudFile:c0",
-"CPDateTime:c1",
-"NativeDateUtility:c2",
-"JSDate:c3",
-"DateUtility:c4",
-"CPMonthInfo:c5",
-"CPDateTimeFormatProvider:c6",
-"CloudProviderType:c7",
-"MicrosoftFile:c8",
-"ContentProperties:c9",
-"NativeRequestUtility:da",
-"Request:db",
-"ReadFileRequest:dc",
-"RequestsLocalizationKeys:dd",
-"NativeRequestLocalizeUtil:de",
-"SharePointFile:df",
-"SharePointFileBase:dg",
-"SharePointCloudFileBase:dh",
-"GoogleFile:di",
-"CloudProviderTypeUtility:dj",
-"CloudAccountUserInfo:dk",
-"BoxAccountUserInfo:dl",
-"GoogleAccountUserInfo:dm",
-"MicrosoftAccountUserInfo:dn",
-"SharePointAccountUserInfo:dp",
-"SharePointUser:dq",
-"DropboxAccountUserInfo:dr",
-"InfragisticsAccountUserInfo:ds",
-"SalesForceAccountUserInfo:dt",
-"DataDotWorldUserInfo:du",
-"JWTDecoder:dv",
-"TokenState:dw",
-"OAuthTokenStateCallback:dx",
-"IRequestFactory:dy",
-"OAuthProvider:dz",
-"OAuthKeys:d0",
-"Token:d1",
-"OAuthRequestBase:d2",
-"SessionRequestBase:d3",
-"NativeXmlProxy:d4",
-"IOAuthRequest:d5",
-"NativeThreadUtility:d6",
-"DataSourceAssignment:d7",
-"CloudAccountUserInfoFromJWT:d8",
-"HubspotAccountUserInfo:d9",
-"QuickBooksUserInfo:ea",
-"SearchCapabilities:eb",
-"DropboxFileManager:ec",
-"CloudFileManager:ed",
-"ProvideCredentialsBlock:ee",
-"RQCredentials:ef",
-"CloudErrorBlock:eg",
-"ProgressFileBlock:eh",
-"FileDownloadedBlock:ei",
-"FileDownloadedIfModifiedBlock:ej",
-"SearchQuery:ek",
-"CloudAccountUserInfoBlock:el",
-"CloudFilePermissionsBlock:em",
-"CloudFilePermissions:en",
-"CloudFileMemberPermissions:eo",
-"DoubleStringBlock:ep",
-"SimpleRequestManager:eq",
-"StringBlock:er",
-"DropboxGetFilesRequest:es",
-"DropboxRequestBase:et",
-"DropboxOAuthProvider:eu",
-"DropboxFile:ev",
-"DropboxSearchFilesRequest:ew",
-"DropboxDownloadFileRequest:ex",
-"DropboxGetMetadataRequest:ey",
-"DropboxGetSharedLinksRequest:ez",
-"DropboxCreateSharedLinkRequest:e0",
-"RequestWrapper:e1",
-"DropboxCreateFolderRequest:e2",
-"DropboxDeleteRequest:e3",
-"DropboxGetAccountInfo:e4",
-"DropboxDownloadLinkRequest:e5",
-"DropboxCopyFileRequest:e6",
-"DropboxFileRequest:e7",
-"DropboxMoveFileRequest:e8",
-"DropboxSharingGetFileMetadataRequest:e9",
-"DropboxFileAction:fa",
-"DropboxFileActionString:fb",
-"DropboxFilePermissions:fc",
-"DropboxSharingListFilePermissionsRequest:fd",
-"DropboxSharingRemoveFileMemberRequest:fe",
-"DropboxExplicitSharePermissions:ff",
-"DropboxSharingGetFolderMetadataRequest:fg",
-"DropboxFolderAction:fh",
-"DropboxFolderActionString:fi",
-"DropboxSharingAddFileMemberRequest:fj",
-"DropboxAccessLevel:fk",
-"DropboxAccessLevelString:fl",
-"DropboxSharingShareFolderRequest:fm",
-"DropboxSharingAddFolderMemberRequest:fn",
-"DropboxSharingMountFolderRequest:fo",
-"DropboxDownloadFileFromLinkRequest:fp",
-"MicrosoftRequestBase:fq",
-"MicrosoftOAuthProvider:fr",
-"HttpRequestBuilder:fs",
-"RequestErrorInterceptorBlock:ft",
-"GenericRequest:fu",
-"ProcessHeadersBlock:fv",
-"RequestPreExecuteBlock:fw",
-"ProcessResponseStreamBlock:fx",
-"ProcessObjectBlock:fy",
-"DropboxWriteMode:fz",
-"NativeFileUtility:f0",
-"DropboxStartUploadSessionRequest:f1",
-"DropboxAppendV2UploadSessionRequest:f2",
-"DropboxFinishUploadSessionRequest:f3",
-"GoogleFileManager:f4",
-"GoogleGetFilesRequest:f5",
-"GoogleRequestBase:f6",
-"GoogleOAuthProvider:f7",
-"GoogleGetSharedDrivesRequest:f8",
-"GoogleSearchFilesRequest:f9",
-"GoogleDownloadFileRequest:ga",
-"GoogleGetMetadataRequest:gb",
-"GoogleUploadDataChunkRequest:gc",
-"GoogleCreateFolderRequest:gd",
-"GoogleCreateSharedLinkRequest:ge",
-"GoogleTrashFileRequest:gf",
-"GoogleDeleteFileRequest:gg",
-"GoogleGetAccountInfo:gh",
-"GoogleGetFileRequest:gi",
-"GoogleDownloadLinkRequest:gj",
-"GoogleFileRequest:gk",
-"GoogleCopyFileRequest:gl",
-"GoogleMoveFileRequest:gm",
-"GoogleGetFilePermissionsRequest:gn",
-"GoogleFilePermissions:go",
-"GoogleListFilePermissionsRequest:gp",
-"GoogleDeleteFilePermissionsRequest:gq",
-"GoogleShareObjectRequest:gr",
-"GoogleDownloadFileFromLinkRequest:gs",
-"GoogleDeleteSharedLinkRequest:gt",
-"GoogleCreateOverwriteSessionRequest:gu",
-"GoogleCreateUploadSessionRequest:gv",
-"BoxFileManager:gw",
-"BoxGetFilesRequest:gx",
-"BoxRequestBase:gy",
-"BoxOAuthProvider:gz",
-"BoxFile:g0",
-"BoxSearchFilesRequest:g1",
-"BoxDownloadFileRequest:g2",
-"BoxGetMetadataRequest:g3",
-"NotImplementedException:g4",
-"BoxCreateFolderRequest:g5",
-"BoxGetSharedLinkRequest:g6",
-"BoxCreateSharedLinkRequest:g7",
-"BoxDeleteFolderRequest:g8",
-"BoxDeleteFileRequest:g9",
-"BoxGetAccountInfo:ha",
-"BoxGetFolderInfoRequest:hb",
-"BoxDownloadLinkRequest:hc",
-"BoxFileRequest:hd",
-"BoxCopyFileRequest:he",
-"BoxMoveFileRequest:hf",
-"BoxFilePermissions:hg",
-"BoxFileCollaborationPermissions:hh",
-"BoxGetUserCollaborationRequest:hi",
-"BoxDeleteUserCollaborationRequest:hj",
-"BoxCreateCollaborationRequest:hk",
-"BoxDownloadFileFromLinkRequest:hl",
-"SharePointFileManager:hm",
-"SharePointOnPremSessionInfo:hn",
-"SharePointLibrary:ho",
-"SharePointListBase:hp",
-"SharePointFolder:hq",
-"ItemsBlock:hr",
-"SharePointField:hs",
-"SharePointView:ht",
-"SharePointGetPeopleRequest:hu",
-"SharePointRequestBase:hv",
-"SharePointOAuthProvider:hw",
-"SharePointSite:hx",
-"SharePointList:hy",
-"SharePointListItem:hz",
-"SharePointFileRequest:h0",
-"SharePointCopyFileRequest:h1",
-"SharePointMoveFileRequest:h2",
-"SharePointSearchFilesRequest:h3",
-"SharePointSearchQuery:h4",
-"SharePointProviderUtility:h5",
-"SharePointDeleteRequest:h6",
-"SharePointDownloadLinkRequest:h7",
-"SharePointGetFilePermissions:h8",
-"SPPermissions:h9",
-"PermissionKind:ia",
-"SPSharingInfoPermissions:ib",
-"SPCloudFileMemberPermissions:ic",
-"SharePointGetSharingInformation:id",
-"SharePointRemoveShareLinkObject:ie",
-"SharePointRemoveShareObject:ig",
-"SharePointShareObject:ih",
-"SharePointCreateSharedLinkRequest:ii",
-"SharePointDownloadFileFromLinkRequest:ij",
-"SharePointCreateFileRequest:ik",
-"MicrosoftFileManager:il",
-"MicrosoftGetFilesRequest:im",
-"MicrosoftDownloadFileRequest:io",
-"MicrosoftCreateUploadSessionRequest:ip",
-"MicrosoftUploadDataChunkRequest:iq",
-"MicrosoftGetMetadataRequest:ir",
-"MicrosoftSearchFilesRequest:is",
-"MicrosoftCreateFolderRequest:it",
-"MicrosoftDeleteDriveItemRequest:iu",
-"MicrosoftGetAccountInfo:iv",
-"MicrosoftDownloadLinkRequest:iw",
-"MicrosoftFileRequest:ix",
-"MicrosoftCopyFileRequest:iy",
-"MicrosoftMoveFileRequest:iz",
-"MicrosoftItemPermissionsRequest:i0",
-"MicrosoftItemPermissions:i1",
-"MicrosoftDeleteItemPermissionsRequest:i2",
-"MicrosoftItemAddPermissionsRequest:i3",
-"MicrosoftRole:i4",
-"MicrosoftRoleUtility:i5",
-"MicrosoftGetSharedLinkRequest:i6",
-"MicrosoftDownloadFileFromLinkRequest:i7",
-"ProviderBase:i8",
-"SharePointSubsite:i9",
-"ProviderTokenState:ja",
-"ProviderInfragisticsWebProxy:jb",
-"InfragisticsWebCloudFileManager:jc",
-"InfragisticsGetFilesInFolder:jd",
-"InfragisticsAPIRequestBase:je",
-"InfragisticsRequestsConfiguration:jf",
-"CloudTeamManager:jg",
-"CloudTeam:jh",
-"CloudTeamMember:ji",
-"GoogleTeamManager:jj",
-"GoogleGroupsUserBelongsToRequest:jk",
-"GoogleTeam:jl",
-"GoogleGroupMembersRequest:jm",
-"GoogleTeamMember:jn",
-"GoogleOrganizationRequest:jo",
-"GoogleOrganization:jp",
-"CloudOrganization:jq",
-"GoogleGetPersonDetailsRequest:jr",
-"MicrosoftTeamManager:js",
-"MicrosoftGroupsUserBelongsToRequest:jt",
-"MicrosoftTeam:ju",
-"MicrosoftGroupMembersRequest:jv",
-"MicrosoftTeamMember:jw",
-"MicrosoftOrganizationRequest:jx",
-"MicrosoftOrganization:jy",
-"CloudFileBoolBlock:jz",
-"DictionaryBlock:j0",
-"JSONObjectBlock:j1",
-"NativeXmlElementProxy:j2",
-"AzureAnalysisServicesOAuthProvider:j3",
-"BoxCreateUploadSessionRequest:j4",
-"BoxPartUploadSessionRequest:j5",
-"BoxCommitUploadSessionRequest:j6",
-"UploadedPart:j7",
-"CredentialsRequestBase:j8",
-"CredentialsOAuthURLRequest:j9",
-"CredentialsGetAccountsRequest:ka",
-"GenericAccountMetadata:kb",
-"AccountMetadata:kc",
-"AccountType:kd",
-"CredentialsSaveAccountRequest:ke",
-"CredentialsDeleteAccountRequest:kf",
-"CredentialsDeleteAssociationRequest:kg",
-"EditorVerifyAccountRequest:kh",
-"VerifyCredentialsResponse:ki",
-"VerifyConnectionByDataSourceRequest:kj",
-"GetAccountMetadataForDataSourceRequest:kk",
-"CredentialsAssociateRequest:kl",
-"GoogleAdsRequestBase:km",
-"GoogleAdsCustomersRequest:kn",
-"GoogleAdsCustomerInfoRequest:ko",
-"GoogleAdsMetadataSearchRequest:kp",
-"GoogleAdsSearchRequest:kq",
-"GoogleAnalyticsSortDirection:kr",
-"GoogleAnalyticsResourceType:ks",
-"GoogleAnalyticsMetadataColumnObject:kt",
-"GoogleAnalyticsMetadataSegmentObject:ku",
-"GoogleAnalyticsFilterObjectBase:kv",
-"GoogleAnalyticsDimensionFilterObject:kw",
-"GoogleAnalyticsMetricFilterObject:kx",
-"GoogleAnalyticsSortingObject:ky",
-"GoogleAnalyticsDataObject:kz",
-"GoogleAnalyticsRequestBase:k0",
-"GoogleAnalyticsColumnsRequest:k1",
-"GoogleAnalyticsCustomDimensionsRequest:k2",
-"GoogleAnalyticsCustomMetricsRequest:k3",
-"GoogleAnalyticsSegmentsRequest:k4",
-"GoogleAnalyticsAccountsRequest:k5",
-"GoogleAnalyticsProfilesRequest:k6",
-"GoogleAnalyticsViewsRequest:k7",
-"GoogleAnalyticsGoalsRequest:k8",
-"GoogleAnalyticsDataRequest:k9",
-"GoogleGetEventsRequest:la",
-"GoogleListDirectoryRequest:lb",
-"GoogleListRoomsRequest:lc",
-"GoogleGetUserAvailabilityRequest:ld",
-"GoogleGetEmailAddressesRequest:le",
-"GoogleGetPersonalPhotoRequest:lf",
-"HubspotGetAccountInfo:lg",
-"HubspotOAuthProvider:lh",
-"InfragisticsAPIIncrementScopes:li",
-"InfragisticsRefreshTokenRequest:lj",
-"MicrosoftGetUserAvailabilityRequest:lk",
-"MicrosoftListDirectoryRequest:ll",
-"MicrosoftListRoomsRequest:lm",
-"MicrosoftGetAppointmentsRequest:ln",
-"MicrosoftGetUserPhoto:lo",
-"MicrosoftSendEmailRequest:lp",
-"MicrosoftGetEmailAddressesRequest:lq",
-"MicrosoftGetRootSiteRequest:lr",
-"SharePointSiteGraphObject:ls",
-"ContentPropertyData:lt",
-"ContentPropertyType:lu",
-"EMTokenState:lv",
-"EMTokenStateRefreshFactory:lw",
-"RequestDelegateManager:lx",
-"OAuthDelegate:ly",
-"InfragisticsFile:lz",
-"ProviderLocal:l0",
-"ProviderReportPlus:l1",
-"ProviderGenericOAuth:l2",
-"GenericOAuthTokenState:l3",
-"SharePointFieldCalculated:l4",
-"SharePointListMetadata:l5",
-"WindowsAuthProvider:l6",
-"WindowsAuthAccount:l7",
-"WindowsAuthAssignment:l8",
-"GenericOAuthProvider:l9",
-"IOAuthAccountStorage:ma",
-"JWTDecoderAsRequest:mb",
-"OAuthGetTokenRequest:mc",
-"OAuthLoginRequest:md",
-"OAuthLoginWebRequestDelegate:me",
-"ExecutionBoolBlock:mf",
-"QuickBooksOAuthProvider:mg",
-"ReportPlusFileLocation:mh",
-"ReportPlusLocationType:mi",
-"ReportPlusShareUserType:mj",
-"ReportPlusSharePermission:mk",
-"ReportPlusResponse:ml",
-"ReportPlusRequestBase:mm",
-"ReportPlusUpsertDashboardRequest:mn",
-"ReportPlusUpsertFolderRequest:mo",
-"ReportPlusFile:mp",
-"ReportPlusGetFriendlyNamesRequest:mq",
-"ReportPlusDeleteFileRequest:mr",
-"ReportPlusGetFileLocationRequest:ms",
-"ReportPlusApproveShareRequest:mt",
-"ReportPlusCreateWidgetRequest:mu",
-"ReportPlusCloudFileMetadataRequest:mv",
-"ReportPlusGetAdditionalMetadataRequest:mw",
-"ReportPlusGetChildrenMetadataRequest:mx",
-"ReportPlusGetRootMetadataRequest:my",
-"ReportPlusGetEditorExpressionInfoRequest:mz",
-"ReportPlusValidateExpressionRequest:m0",
-"ReportPlusGetExpressionFunctionsRequest:m1",
-"ReportPlusGetParameterValuesRequest:m2",
-"ReportPlusGetParametersMetadataRequest:m3",
-"ReportPlusGetProviderMetadataRequest:m4",
-"ReportPlusUploadFileRequest:m5",
-"ReportPlusGetJSONDashboardZipRequest:m6",
-"ReportPlusGetLicenseRequest:m7",
-"SharePointGetSiteInfoRequest:m8",
-"DiscoveryServices:m9",
-"SharePointUpdateFileRequest:na",
-"SharePointGetListPermissions:nb",
-"SharePointGetCurrentUser:nc",
-"PendingRequestsManager:nd",
-"Monitor:ne",
-"AbstractEnumerable:nf",
-"Func$1:ng",
-"AbstractEnumerator:nh",
-"GenericEnumerable$1:ni",
-"GenericEnumerator$1:nj"]);
+"WebCoreUtils:bf",
+"NativeDictionaryUtility:bg",
+"Array:bh",
+"Array:bi",
+"CompareCallback:bj",
+"MulticastDelegate:bk",
+"IntPtr:bl",
+"JSDictionary:bm",
+"JSAjaxBeforeSendRequestBlock:bn",
+"SessionTask:bo",
+"SessionDelegate:bp",
+"CloudError:bq",
+"CloudErrorType:br",
+"NativeStringUtility:bs",
+"CPStringUtility:bt",
+"JsonPushEventHandler:bu",
+"ExecutionBlock:bv",
+"URLRequest:bw",
+"RQHTTPUtils:bx",
+"CookieStorageMode:by",
+"SessionHTTPMethod:bz",
+"SessionContentType:b0",
+"Nullable$1:b1",
+"SessionTaskType:b2",
+"SessionType:b3",
+"CPJSONObject:b4",
+"NativeJSONUtility:b5",
+"FileReader:b6",
+"ObjectBlock:b7",
+"FileLoader:b8",
+"JSAjaxSuccessReponseBlock:b9",
+"JSAjaxErrorReponseBlock:ca",
+"RequestSuccessBlock:cb",
+"RequestBase:cc",
+"IRequest:cd",
+"RequestErrorBlock:ce",
+"SessionRequestProgressUpdateBlock:cf",
+"SessionRequestFileDownloadedBlock:cg",
+"CloudFilesBlock:ch",
+"CloudFileBlock:ci",
+"CloudFile:cj",
+"LinkedDocument:ck",
+"ActivityTrackingBackingStore:cl",
+"BackingStoreObjectBase:cm",
+"BackingStoreActivity:cn",
+"GoogleAnalyticsActivity:co",
+"ArrayUtility:cp",
+"CPMathUtility:cq",
+"CPRect:cr",
+"Math:cs",
+"CPPoint:ct",
+"CPSize:cu",
+"NativeNullableUtility:cv",
+"BoolForObjectBlock:cw",
+"ObjectForObjectBlock:cx",
+"SimpleIDItemBackingStore:cy",
+"DocumentLink:cz",
+"LinkedDocumentChildPagingInfo:c0",
+"GenericCloudFile:c1",
+"CPDateTime:c2",
+"NativeDateUtility:c3",
+"JSDate:c4",
+"DateUtility:c5",
+"CPMonthInfo:c6",
+"CPDateTimeFormatProvider:c7",
+"CloudProviderType:c8",
+"MicrosoftFile:c9",
+"ContentProperties:da",
+"NativeRequestUtility:db",
+"Request:dc",
+"ReadFileRequest:dd",
+"RequestsLocalizationKeys:de",
+"NativeRequestLocalizeUtil:df",
+"SharePointFile:dg",
+"SharePointFileBase:dh",
+"SharePointCloudFileBase:di",
+"GoogleFile:dj",
+"CloudProviderTypeUtility:dk",
+"CloudAccountUserInfo:dl",
+"BoxAccountUserInfo:dm",
+"GoogleAccountUserInfo:dn",
+"MicrosoftAccountUserInfo:dp",
+"SharePointAccountUserInfo:dq",
+"SharePointUser:dr",
+"DropboxAccountUserInfo:ds",
+"InfragisticsAccountUserInfo:dt",
+"SalesForceAccountUserInfo:du",
+"DataDotWorldUserInfo:dv",
+"JWTDecoder:dw",
+"TokenState:dx",
+"OAuthTokenStateCallback:dy",
+"IRequestFactory:dz",
+"OAuthProvider:d0",
+"OAuthKeys:d1",
+"Token:d2",
+"OAuthRequestBase:d3",
+"SessionRequestBase:d4",
+"NativeXmlProxy:d5",
+"IOAuthRequest:d6",
+"NativeThreadUtility:d7",
+"DataSourceAssignment:d8",
+"CloudAccountUserInfoFromJWT:d9",
+"HubspotAccountUserInfo:ea",
+"QuickBooksUserInfo:eb",
+"SearchCapabilities:ec",
+"DropboxFileManager:ed",
+"CloudFileManager:ee",
+"ProvideCredentialsBlock:ef",
+"RQCredentials:eg",
+"CloudErrorBlock:eh",
+"ProgressFileBlock:ei",
+"FileDownloadedBlock:ej",
+"FileDownloadedIfModifiedBlock:ek",
+"SearchQuery:el",
+"CloudAccountUserInfoBlock:em",
+"CloudFilePermissionsBlock:en",
+"CloudFilePermissions:eo",
+"CloudFileMemberPermissions:ep",
+"DoubleStringBlock:eq",
+"SimpleRequestManager:er",
+"StringBlock:es",
+"DropboxGetFilesRequest:et",
+"DropboxRequestBase:eu",
+"DropboxOAuthProvider:ev",
+"DropboxFile:ew",
+"DropboxSearchFilesRequest:ex",
+"DropboxDownloadFileRequest:ey",
+"DropboxGetMetadataRequest:ez",
+"DropboxGetSharedLinksRequest:e0",
+"DropboxCreateSharedLinkRequest:e1",
+"RequestWrapper:e2",
+"DropboxCreateFolderRequest:e3",
+"DropboxDeleteRequest:e4",
+"DropboxGetAccountInfo:e5",
+"DropboxDownloadLinkRequest:e6",
+"DropboxCopyFileRequest:e7",
+"DropboxFileRequest:e8",
+"DropboxMoveFileRequest:e9",
+"DropboxSharingGetFileMetadataRequest:fa",
+"DropboxFileAction:fb",
+"DropboxFileActionString:fc",
+"DropboxFilePermissions:fd",
+"DropboxSharingListFilePermissionsRequest:fe",
+"DropboxSharingRemoveFileMemberRequest:ff",
+"DropboxExplicitSharePermissions:fg",
+"DropboxSharingGetFolderMetadataRequest:fh",
+"DropboxFolderAction:fi",
+"DropboxFolderActionString:fj",
+"DropboxSharingAddFileMemberRequest:fk",
+"DropboxAccessLevel:fl",
+"DropboxAccessLevelString:fm",
+"DropboxSharingShareFolderRequest:fn",
+"DropboxSharingAddFolderMemberRequest:fo",
+"DropboxSharingMountFolderRequest:fp",
+"DropboxDownloadFileFromLinkRequest:fq",
+"MicrosoftRequestBase:fr",
+"MicrosoftOAuthProvider:fs",
+"HttpRequestBuilder:ft",
+"RequestErrorInterceptorBlock:fu",
+"GenericRequest:fv",
+"ProcessHeadersBlock:fw",
+"RequestPreExecuteBlock:fx",
+"ProcessResponseStreamBlock:fy",
+"ProcessObjectBlock:fz",
+"DropboxWriteMode:f0",
+"NativeFileUtility:f1",
+"DropboxStartUploadSessionRequest:f2",
+"DropboxAppendV2UploadSessionRequest:f3",
+"DropboxFinishUploadSessionRequest:f4",
+"GoogleFileManager:f5",
+"GoogleGetFilesRequest:f6",
+"GoogleRequestBase:f7",
+"GoogleOAuthProvider:f8",
+"GoogleGetSharedDrivesRequest:f9",
+"GoogleSearchFilesRequest:ga",
+"GoogleDownloadFileRequest:gb",
+"GoogleGetMetadataRequest:gc",
+"GoogleUploadDataChunkRequest:gd",
+"GoogleCreateFolderRequest:ge",
+"GoogleCreateSharedLinkRequest:gf",
+"GoogleTrashFileRequest:gg",
+"GoogleDeleteFileRequest:gh",
+"GoogleGetAccountInfo:gi",
+"GoogleGetFileRequest:gj",
+"GoogleDownloadLinkRequest:gk",
+"GoogleFileRequest:gl",
+"GoogleCopyFileRequest:gm",
+"GoogleMoveFileRequest:gn",
+"GoogleGetFilePermissionsRequest:go",
+"GoogleFilePermissions:gp",
+"GoogleListFilePermissionsRequest:gq",
+"GoogleDeleteFilePermissionsRequest:gr",
+"GoogleShareObjectRequest:gs",
+"GoogleDownloadFileFromLinkRequest:gt",
+"GoogleDeleteSharedLinkRequest:gu",
+"GoogleCreateOverwriteSessionRequest:gv",
+"GoogleCreateUploadSessionRequest:gw",
+"BoxFileManager:gx",
+"BoxGetFilesRequest:gy",
+"BoxRequestBase:gz",
+"BoxOAuthProvider:g0",
+"BoxFile:g1",
+"BoxSearchFilesRequest:g2",
+"BoxDownloadFileRequest:g3",
+"BoxGetMetadataRequest:g4",
+"NotImplementedException:g5",
+"BoxCreateFolderRequest:g6",
+"BoxGetSharedLinkRequest:g7",
+"BoxCreateSharedLinkRequest:g8",
+"BoxDeleteFolderRequest:g9",
+"BoxDeleteFileRequest:ha",
+"BoxGetAccountInfo:hb",
+"BoxGetFolderInfoRequest:hc",
+"BoxDownloadLinkRequest:hd",
+"BoxFileRequest:he",
+"BoxCopyFileRequest:hf",
+"BoxMoveFileRequest:hg",
+"BoxFilePermissions:hh",
+"BoxFileCollaborationPermissions:hi",
+"BoxGetUserCollaborationRequest:hj",
+"BoxDeleteUserCollaborationRequest:hk",
+"BoxCreateCollaborationRequest:hl",
+"BoxDownloadFileFromLinkRequest:hm",
+"SharePointFileManager:hn",
+"SharePointOnPremSessionInfo:ho",
+"SharePointLibrary:hp",
+"SharePointListBase:hq",
+"SharePointFolder:hr",
+"ItemsBlock:hs",
+"SharePointField:ht",
+"SharePointView:hu",
+"SharePointGetPeopleRequest:hv",
+"SharePointRequestBase:hw",
+"SharePointOAuthProvider:hx",
+"SharePointSite:hy",
+"SharePointList:hz",
+"SharePointListItem:h0",
+"SharePointFileRequest:h1",
+"SharePointCopyFileRequest:h2",
+"SharePointMoveFileRequest:h3",
+"SharePointSearchFilesRequest:h4",
+"SharePointSearchQuery:h5",
+"SharePointProviderUtility:h6",
+"SharePointDeleteRequest:h7",
+"SharePointDownloadLinkRequest:h8",
+"SharePointGetFilePermissions:h9",
+"SPPermissions:ia",
+"PermissionKind:ib",
+"SPSharingInfoPermissions:ic",
+"SPCloudFileMemberPermissions:id",
+"SharePointGetSharingInformation:ie",
+"SharePointRemoveShareLinkObject:ig",
+"SharePointRemoveShareObject:ih",
+"SharePointShareObject:ii",
+"SharePointCreateSharedLinkRequest:ij",
+"SharePointDownloadFileFromLinkRequest:ik",
+"SharePointCreateFileRequest:il",
+"MicrosoftFileManager:im",
+"MicrosoftGetFilesRequest:io",
+"MicrosoftDownloadFileRequest:ip",
+"MicrosoftCreateUploadSessionRequest:iq",
+"MicrosoftUploadDataChunkRequest:ir",
+"MicrosoftGetMetadataRequest:is",
+"MicrosoftSearchFilesRequest:it",
+"MicrosoftCreateFolderRequest:iu",
+"MicrosoftDeleteDriveItemRequest:iv",
+"MicrosoftGetAccountInfo:iw",
+"MicrosoftDownloadLinkRequest:ix",
+"MicrosoftFileRequest:iy",
+"MicrosoftCopyFileRequest:iz",
+"MicrosoftMoveFileRequest:i0",
+"MicrosoftItemPermissionsRequest:i1",
+"MicrosoftItemPermissions:i2",
+"MicrosoftDeleteItemPermissionsRequest:i3",
+"MicrosoftItemAddPermissionsRequest:i4",
+"MicrosoftRole:i5",
+"MicrosoftRoleUtility:i6",
+"MicrosoftGetSharedLinkRequest:i7",
+"MicrosoftDownloadFileFromLinkRequest:i8",
+"MicrosoftFileSimpleUploadRequest:i9",
+"ProviderBase:ja",
+"SharePointSubsite:jb",
+"ProviderTokenState:jc",
+"ProviderInfragisticsWebProxy:jd",
+"InfragisticsWebCloudFileManager:je",
+"InfragisticsGetFilesInFolder:jf",
+"InfragisticsAPIRequestBase:jg",
+"InfragisticsRequestsConfiguration:jh",
+"CloudTeamManager:ji",
+"CloudTeam:jj",
+"CloudTeamMember:jk",
+"GoogleTeamManager:jl",
+"GoogleGroupsUserBelongsToRequest:jm",
+"GoogleTeam:jn",
+"GoogleGroupMembersRequest:jo",
+"GoogleTeamMember:jp",
+"GoogleOrganizationRequest:jq",
+"GoogleOrganization:jr",
+"CloudOrganization:js",
+"GoogleGetPersonDetailsRequest:jt",
+"MicrosoftTeamManager:ju",
+"MicrosoftGroupsUserBelongsToRequest:jv",
+"MicrosoftTeam:jw",
+"MicrosoftGroupMembersRequest:jx",
+"MicrosoftTeamMember:jy",
+"MicrosoftOrganizationRequest:jz",
+"MicrosoftOrganization:j0",
+"CloudFileBoolBlock:j1",
+"DictionaryBlock:j2",
+"JSONObjectBlock:j3",
+"NativeXmlElementProxy:j4",
+"AzureAnalysisServicesOAuthProvider:j5",
+"BoxCreateUploadSessionRequest:j6",
+"BoxPartUploadSessionRequest:j7",
+"BoxCommitUploadSessionRequest:j8",
+"UploadedPart:j9",
+"CredentialsRequestBase:ka",
+"CredentialsOAuthURLRequest:kb",
+"CredentialsGetAccountsRequest:kc",
+"GenericAccountMetadata:kd",
+"AccountMetadata:ke",
+"AccountType:kf",
+"CredentialsSaveAccountRequest:kg",
+"CredentialsDeleteAccountRequest:kh",
+"CredentialsDeleteAssociationRequest:ki",
+"EditorVerifyAccountRequest:kj",
+"VerifyCredentialsResponse:kk",
+"VerifyConnectionByDataSourceRequest:kl",
+"GetAccountMetadataForDataSourceRequest:km",
+"CredentialsAssociateRequest:kn",
+"GoogleAdsRequestBase:ko",
+"GoogleAdsCustomersRequest:kp",
+"GoogleAdsCustomerInfoRequest:kq",
+"GoogleAdsMetadataSearchRequest:kr",
+"GoogleAdsSearchRequest:ks",
+"GoogleAnalyticsSortDirection:kt",
+"GoogleAnalyticsResourceType:ku",
+"GoogleAnalyticsMetadataColumnObject:kv",
+"GoogleAnalyticsMetadataSegmentObject:kw",
+"GoogleAnalyticsFilterObjectBase:kx",
+"GoogleAnalyticsDimensionFilterObject:ky",
+"GoogleAnalyticsMetricFilterObject:kz",
+"GoogleAnalyticsSortingObject:k0",
+"GoogleAnalyticsDataObject:k1",
+"GoogleAnalyticsRequestBase:k2",
+"GoogleAnalyticsColumnsRequest:k3",
+"GoogleAnalyticsCustomDimensionsRequest:k4",
+"GoogleAnalyticsCustomMetricsRequest:k5",
+"GoogleAnalyticsSegmentsRequest:k6",
+"GoogleAnalyticsAccountsRequest:k7",
+"GoogleAnalyticsProfilesRequest:k8",
+"GoogleAnalyticsViewsRequest:k9",
+"GoogleAnalyticsGoalsRequest:la",
+"GoogleAnalyticsDataRequest:lb",
+"GoogleGetEventsRequest:lc",
+"GoogleListDirectoryRequest:ld",
+"GoogleListRoomsRequest:le",
+"GoogleGetUserAvailabilityRequest:lf",
+"GoogleGetEmailAddressesRequest:lg",
+"GoogleGetPersonalPhotoRequest:lh",
+"HubspotGetAccountInfo:li",
+"HubspotOAuthProvider:lj",
+"InfragisticsAPIIncrementScopes:lk",
+"InfragisticsRefreshTokenRequest:ll",
+"MicrosoftGetUserAvailabilityRequest:lm",
+"MicrosoftListDirectoryRequest:ln",
+"MicrosoftListRoomsRequest:lo",
+"MicrosoftGetAppointmentsRequest:lp",
+"MicrosoftGetUserPhoto:lq",
+"MicrosoftSendEmailRequest:lr",
+"MicrosoftGetEmailAddressesRequest:ls",
+"MicrosoftGetRootSiteRequest:lt",
+"SharePointSiteGraphObject:lu",
+"ContentPropertyData:lv",
+"ContentPropertyType:lw",
+"EMTokenState:lx",
+"EMTokenStateRefreshFactory:ly",
+"RequestDelegateManager:lz",
+"OAuthDelegate:l0",
+"InfragisticsFile:l1",
+"ProviderLocal:l2",
+"ProviderReportPlus:l3",
+"ProviderGenericOAuth:l4",
+"GenericOAuthTokenState:l5",
+"SharePointFieldCalculated:l6",
+"SharePointListMetadata:l7",
+"WindowsAuthProvider:l8",
+"WindowsAuthAccount:l9",
+"WindowsAuthAssignment:ma",
+"GenericOAuthProvider:mb",
+"IOAuthAccountStorage:mc",
+"JWTDecoderAsRequest:md",
+"OAuthGetTokenRequest:me",
+"OAuthLoginRequest:mf",
+"OAuthLoginWebRequestDelegate:mg",
+"ExecutionBoolBlock:mh",
+"QuickBooksOAuthProvider:mi",
+"ReportPlusFileLocation:mj",
+"ReportPlusLocationType:mk",
+"ReportPlusShareUserType:ml",
+"ReportPlusSharePermission:mm",
+"ReportPlusResponse:mn",
+"ReportPlusRequestBase:mo",
+"ReportPlusUpsertDashboardRequest:mp",
+"ReportPlusUpsertFolderRequest:mq",
+"ReportPlusFile:mr",
+"ReportPlusGetFriendlyNamesRequest:ms",
+"ReportPlusDeleteFileRequest:mt",
+"ReportPlusGetFileLocationRequest:mu",
+"ReportPlusApproveShareRequest:mv",
+"ReportPlusCreateWidgetRequest:mw",
+"ReportPlusCloudFileMetadataRequest:mx",
+"ReportPlusGetAdditionalMetadataRequest:my",
+"ReportPlusGetChildrenMetadataRequest:mz",
+"ReportPlusGetRootMetadataRequest:m0",
+"ReportPlusGetEditorExpressionInfoRequest:m1",
+"ReportPlusValidateExpressionRequest:m2",
+"ReportPlusGetExpressionFunctionsRequest:m3",
+"ReportPlusGetParameterValuesRequest:m4",
+"ReportPlusGetParametersMetadataRequest:m5",
+"ReportPlusGetProviderMetadataRequest:m6",
+"ReportPlusUploadFileRequest:m7",
+"ReportPlusGetJSONDashboardZipRequest:m8",
+"ReportPlusGetLicenseRequest:m9",
+"SharePointGetSiteInfoRequest:na",
+"DiscoveryServices:nb",
+"SharePointUpdateFileRequest:nc",
+"SharePointGetListPermissions:nd",
+"SharePointGetCurrentUser:ne",
+"PendingRequestsManager:nf",
+"Monitor:ng",
+"AbstractEnumerable:nh",
+"Func$1:ni",
+"AbstractEnumerator:nj",
+"GenericEnumerable$1:nk",
+"GenericEnumerator$1:nl"]);
 /*<BeginType Name="Infragistics.PermissionKind" />*/
 
 $.ig.util.defType('PermissionKind', 'Enum', {
@@ -1115,46 +1117,21 @@ $.ig.util.defType('WebRequest', 'Object', {
 		if (responseType == $.ig.SessionResponseType.prototype.dATA) {
 			xhrFields["responseType"] = "blob";
 		}
-		var extraHeaders = $.ig.WebRequest.prototype.getExtraHeaders(url);
+		var extraHeaders = $.ig.WebCoreUtils.prototype.getExtraHeaders(url);
 		if (authorization != null || additionalHeaderFields != null || extraHeaders != null) {
 			this.__store["beforeSend"] = function (xhr) {
 				if (authorization != null) {
 					xhr.setRequestHeader('Authorization', authorization);
 				}
 				if (extraHeaders != null) {
-					$.ig.WebRequest.prototype.addHeaders(xhr, extraHeaders);
+					$.ig.WebCoreUtils.prototype.addHeaders(xhr, extraHeaders);
 				}
 				if (additionalHeaderFields != null) {
-					$.ig.WebRequest.prototype.addHeaders(xhr, additionalHeaderFields);
+					$.ig.WebCoreUtils.prototype.addHeaders(xhr, additionalHeaderFields);
 				}
 			};
 		}
 	},
-	/*<BeginMethod Name="System.Void System.Net.WebRequest::AddHeaders(System.Object, Infragistics.CPDictionary)" />*/
-	addHeaders: function (xhr, headers) {
-		var keys = $.ig.NativeDictionaryUtility.prototype.getKeys(headers);
-		for (var i = 0; i < keys.length; i++) {
-			var key = keys[i];
-			var value = headers.item(key);
-			xhr.setRequestHeader(key, value);
-		}
-	}
-	/*<EndMethod Name="System.Void System.Net.WebRequest::AddHeaders(System.Object, Infragistics.CPDictionary)" />*/
-	,
-	/*<BeginMethod Name="Infragistics.CPDictionary System.Net.WebRequest::GetExtraHeaders(System.String)" />*/
-	getExtraHeaders: function (url) {
-		var extraHeaders = null;
-		if (window.IGAppExtraHeadersProvider != undefined) {
-			var extraHeadersObj = window.IGAppExtraHeadersProvider(url);
-			if (extraHeadersObj != null) {
-				extraHeaders = new $.ig.Dictionary(0);
-				extraHeaders.proxy = extraHeadersObj;
-			}
-		}
-		return extraHeaders;
-	}
-	/*<EndMethod Name="Infragistics.CPDictionary System.Net.WebRequest::GetExtraHeaders(System.String)" />*/
-	,
 	/*<BeginMethod Name="System.Void System.Net.WebRequest::Execute(Infragistics.SessionTask)" />*/
 	execute: function (task) {
 		this.__store["success"] = function (data, textStatus, jqXHR) {
@@ -3274,7 +3251,7 @@ $.ig.util.defType('BoxFileManager', 'CloudFileManager', {
 	,
 	/*<BeginMethod Name="System.Boolean Infragistics.BoxFileManager::HasDropCapability()" />*/
 	hasDropCapability: function () {
-		return false;
+		return true;
 	}
 	/*<EndMethod Name="System.Boolean Infragistics.BoxFileManager::HasDropCapability()" />*/
 	,
@@ -11599,23 +11576,21 @@ $.ig.util.defType('GoogleFileManager', 'CloudFileManager', {
 			chunkSize = (totalSize - startPosition);
 		}
 		var data = $.ig.NativeFileUtility.prototype.readFile1(file, startPosition, chunkSize);
-		if ($.ig.NativeRequestUtility.prototype.utility().getNativeDataSize(data) > 0) {
-			var uploadDataRequest = new $.ig.GoogleUploadDataChunkRequest(this.tokenState(), function (r, o) {
-				if ((r).isLast()) {
-					success(new $.ig.GoogleFile(1, o, $self.tokenState().additionalIdentifier()));
-				} else {
-					var currentPosition = startPosition + $.ig.NativeRequestUtility.prototype.utility().getNativeDataSize(data);
-					progress(currentPosition, totalSize);
-					if (!originalRequest.isCanceled()) {
-						$self.uploadChunk1(requestWrapper, originalRequest, file, uploadUrl, currentPosition, progress, success, errorHandler);
-					}
+		var uploadDataRequest = new $.ig.GoogleUploadDataChunkRequest(this.tokenState(), function (r, o) {
+			if ((r).isLast()) {
+				success(new $.ig.GoogleFile(1, o, $self.tokenState().additionalIdentifier()));
+			} else {
+				var currentPosition = startPosition + $.ig.NativeRequestUtility.prototype.utility().getNativeDataSize(data);
+				progress(currentPosition, totalSize);
+				if (!originalRequest.isCanceled()) {
+					$self.uploadChunk1(requestWrapper, originalRequest, file, uploadUrl, currentPosition, progress, success, errorHandler);
 				}
-			}, function (r, error) {
-				errorHandler(error);
-			}, uploadUrl, startPosition, startPosition + $.ig.NativeRequestUtility.prototype.utility().getNativeDataSize(data) - 1, totalSize, data);
-			requestWrapper.request(uploadDataRequest);
-			this.executeAndManage(uploadDataRequest);
-		}
+			}
+		}, function (r, error) {
+			errorHandler(error);
+		}, uploadUrl, startPosition, startPosition + $.ig.NativeRequestUtility.prototype.utility().getNativeDataSize(data) - 1, totalSize, data);
+		requestWrapper.request(uploadDataRequest);
+		this.executeAndManage(uploadDataRequest);
 	}
 	/*<EndMethod Name="System.Void Infragistics.GoogleFileManager::UploadChunk(Infragistics.RequestWrapper, Infragistics.Request, System.String, System.String, System.Int64, Infragistics.ProgressFileBlock, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
 	,
@@ -12889,8 +12864,10 @@ $.ig.util.defType('GoogleUploadDataChunkRequest', 'GoogleRequestBase', {
 	/*<BeginMethod Name="Infragistics.CPDictionary Infragistics.GoogleUploadDataChunkRequest::ResolveAdditionalHeaderFields()" />*/
 	resolveAdditionalHeaderFields: function () {
 		var headers = new $.ig.Dictionary(0);
-		var contentRange = "bytes " + this.rangeStart().toString() + "-" + this.rangeEnd().toString() + "/" + this.totalSize().toString();
-		headers.item("Content-Range", contentRange);
+		if (this.totalSize() > 0) {
+			var contentRange = "bytes " + this.rangeStart().toString() + "-" + this.rangeEnd().toString() + "/" + this.totalSize().toString();
+			headers.item("Content-Range", contentRange);
+		}
 		return headers;
 	}
 	/*<EndMethod Name="Infragistics.CPDictionary Infragistics.GoogleUploadDataChunkRequest::ResolveAdditionalHeaderFields()" />*/
@@ -14909,18 +14886,58 @@ $.ig.util.defType('MicrosoftFileManager', 'CloudFileManager', {
 	}
 	/*<EndMethod Name="Infragistics.Request Infragistics.MicrosoftFileManager::DownloadFileFromLink(System.String, System.String, Infragistics.RequestSuccessBlock, Infragistics.RequestErrorBlock)" />*/
 	,
+	/*<BeginMethod Name="Infragistics.Request Infragistics.MicrosoftFileManager::SimpleUploadRequest(System.String, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
+	simpleUploadRequest: function (path, success, errorHandler) {
+		var $self = this;
+		var request = new $.ig.MicrosoftFileSimpleUploadRequest(this.tokenState(), function (r, o) {
+			$self.simpleUploadRequestSuccess(o, success, errorHandler);
+		}, function (r, error) {
+			if (errorHandler != null) {
+				errorHandler(error);
+			}
+		});
+		request.path(path);
+		return request;
+	}
+	/*<EndMethod Name="Infragistics.Request Infragistics.MicrosoftFileManager::SimpleUploadRequest(System.String, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
+	,
+	/*<BeginMethod Name="System.Void Infragistics.MicrosoftFileManager::SimpleUploadRequestSuccess(Infragistics.CPJSONObject, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
+	simpleUploadRequestSuccess: function (json, success, errorHandler) {
+		if (json.containsKey("file")) {
+			success(new $.ig.MicrosoftFile(1, json, this.tokenState().userInfo().getUserId(), this.tokenState().additionalIdentifier()));
+		} else {
+			var error = new $.ig.CloudError(0);
+			error.errorMessage("Response returned successfully, but error creating file");
+			errorHandler(error);
+		}
+	}
+	/*<EndMethod Name="System.Void Infragistics.MicrosoftFileManager::SimpleUploadRequestSuccess(Infragistics.CPJSONObject, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
+	,
 	/*<BeginMethod Name="Infragistics.Request Infragistics.MicrosoftFileManager::OverwriteFile(System.String, System.Object, System.String, System.String, Infragistics.ProgressFileBlock, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
 	overwriteFile: function (fileName, file, remoteFolderId, remoteFileId, progress, success, errorHandler) {
-		var path = "drive/items/" + $.ig.MicrosoftFile.prototype.extractItemId(remoteFileId);
-		return this.uploadFileInternal(file, path, "replace", progress, success, errorHandler);
+		var totalSize = $.ig.NativeFileUtility.prototype.getFileSize(file);
+		if (totalSize > 0) {
+			var path = "drive/items/" + $.ig.MicrosoftFile.prototype.extractItemId(remoteFileId);
+			return this.uploadFileInternal(file, path, "replace", progress, success, errorHandler);
+		} else {
+			var path1 = $.ig.MicrosoftFile.prototype.extractItemId(remoteFileId);
+			return this.simpleUploadRequest(path1, success, errorHandler);
+		}
 	}
 	/*<EndMethod Name="Infragistics.Request Infragistics.MicrosoftFileManager::OverwriteFile(System.String, System.Object, System.String, System.String, Infragistics.ProgressFileBlock, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
 	,
 	/*<BeginMethod Name="Infragistics.Request Infragistics.MicrosoftFileManager::UploadFile(System.String, System.Object, System.String, Infragistics.ProgressFileBlock, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
 	uploadFile: function (fileName, file, remoteFolderId, progress, success, errorHandler) {
-		var folderMatch = (remoteFolderId == null) ? "drive/root" : "drive/items/" + $.ig.MicrosoftFile.prototype.extractItemId(remoteFolderId);
-		var path = folderMatch + ":/" + fileName + ":";
-		return this.uploadFileInternal(file, path, "fail", progress, success, errorHandler);
+		var totalSize = $.ig.NativeFileUtility.prototype.getFileSize(file);
+		if (totalSize > 0) {
+			var folderMatch = (remoteFolderId == null) ? "drive/root" : "drive/items/" + $.ig.MicrosoftFile.prototype.extractItemId(remoteFolderId);
+			var path = folderMatch + ":/" + fileName + ":";
+			return this.uploadFileInternal(file, path, "fail", progress, success, errorHandler);
+		} else {
+			var folderMatch1 = (remoteFolderId == null) ? "root" : $.ig.MicrosoftFile.prototype.extractItemId(remoteFolderId);
+			var path1 = folderMatch1 + ":/" + fileName + ":";
+			return this.simpleUploadRequest(path1, success, errorHandler);
+		}
 	}
 	/*<EndMethod Name="Infragistics.Request Infragistics.MicrosoftFileManager::UploadFile(System.String, System.Object, System.String, Infragistics.ProgressFileBlock, Infragistics.CloudFileBlock, Infragistics.CloudErrorBlock)" />*/
 	,
@@ -15240,6 +15257,47 @@ $.ig.util.defType('MicrosoftGetUserPhoto', 'MicrosoftRequestBase', {
 }, true);
 
 /*<EndType Name="Infragistics.MicrosoftGetUserPhoto" />*/
+
+/*<BeginType Name="Infragistics.MicrosoftFileSimpleUploadRequest" />*/
+
+$.ig.util.defType('MicrosoftFileSimpleUploadRequest', 'MicrosoftRequestBase', {
+	init: function (token, success, error) {
+		$.ig.MicrosoftRequestBase.prototype.init.call(this, 0, "OneDriveFileSimpleUpload", token, success, error);
+	},
+	_path: null,
+	/*<BeginProperty Name="System.String Infragistics.MicrosoftFileSimpleUploadRequest::Path()" />*/
+	path: function (value) {
+		if (arguments.length === 1) {
+			this._path = value;
+			return value;
+		} else {
+			return this._path;
+		}
+	}
+	/*<EndProperty Name="System.String Infragistics.MicrosoftFileSimpleUploadRequest::Path()" />*/
+	,
+	/*<BeginMethod Name="Infragistics.SessionHTTPMethod Infragistics.MicrosoftFileSimpleUploadRequest::ResolveHTTPMethod()" />*/
+	resolveHTTPMethod: function () {
+		return $.ig.SessionHTTPMethod.prototype.pUT;
+	}
+	/*<EndMethod Name="Infragistics.SessionHTTPMethod Infragistics.MicrosoftFileSimpleUploadRequest::ResolveHTTPMethod()" />*/
+	,
+	/*<BeginMethod Name="System.String Infragistics.MicrosoftFileSimpleUploadRequest::ResolveAction()" />*/
+	resolveAction: function () {
+		return "drive/items/" + this.path() + "/content";
+	}
+	/*<EndMethod Name="System.String Infragistics.MicrosoftFileSimpleUploadRequest::ResolveAction()" />*/
+	,
+	/*<BeginMethod Name="System.Object Infragistics.MicrosoftFileSimpleUploadRequest::ProcessJSONResponse(Infragistics.CPJSONObject)" />*/
+	processJSONResponse: function (response) {
+		return response;
+	}
+	/*<EndMethod Name="System.Object Infragistics.MicrosoftFileSimpleUploadRequest::ProcessJSONResponse(Infragistics.CPJSONObject)" />*/
+	,
+	$type: new $.ig.Type('MicrosoftFileSimpleUploadRequest', $.ig.MicrosoftRequestBase.prototype.$type)
+}, true);
+
+/*<EndType Name="Infragistics.MicrosoftFileSimpleUploadRequest" />*/
 
 /*<BeginType Name="Infragistics.MicrosoftDownloadFileRequest" />*/
 
@@ -17675,6 +17733,12 @@ $.ig.util.defType('LinkedDocument', 'ActivityTrackingBackingStore', {
 	}
 	/*<EndProperty Name="System.String Infragistics.LinkedDocument::WorkspaceIdFromPath()" />*/
 	,
+	/*<BeginProperty Name="System.String Infragistics.LinkedDocument::OrgIdFromPath()" />*/
+	orgIdFromPath: function () {
+		return this.resolveIdPart($.ig.DocumentLink.prototype.documentTypeTeam + ":" + $.ig.DocumentLink.prototype.kindTypeOrg);
+	}
+	/*<EndProperty Name="System.String Infragistics.LinkedDocument::OrgIdFromPath()" />*/
+	,
 	/*<BeginMethod Name="System.Void Infragistics.LinkedDocument::ProcessParentLink(Infragistics.DocumentLink)" />*/
 	processParentLink: function (link) {
 		if (link.documentType() == $.ig.DocumentLink.prototype.documentTypeTeam) {
@@ -19105,6 +19169,9 @@ $.ig.util.defType('CloudFile', 'LinkedDocument', {
 	,
 	/*<BeginProperty Name="System.Boolean Infragistics.CloudFile::SupportsFilePermissions()" />*/
 	supportsFilePermissions: function () {
+		if (this.providerType() == ($.ig.CloudProviderType.prototype.sharePoint)) {
+			return $.ig.SharePointFile.prototype.getSupportsFilePermissions(this);
+		}
 		if (this.sectionKey() != null && (this.sectionKey().equals($.ig.CloudFile.prototype.typeFile))) {
 			return true;
 		}
@@ -25353,21 +25420,24 @@ $.ig.util.defType('SharePointFile', 'SharePointFileBase', {
 		properties.contentLocation($.ig.NativeRequestLocalizeUtil.prototype.localize($.ig.RequestsLocalizationKeys.prototype.sharePoint) + (ownerName == null ? " " : "\n" + ownerName) + (ownerEmail == null ? " " : "\n" + ownerEmail));
 		var filePath = "";
 		var path = cloudFile.resolveStringForKey("odata.id");
-		if (path != null) {
+		if (!$.ig.CPStringUtility.prototype.isNullOrEmpty(path)) {
 			var root = "decodedurl='";
-			var endOfRootPos = $.ig.NativeStringUtility.prototype.lastIndexOf(path, root) + root.length - 1;
-			endOfRootPos++;
-			filePath = filePath + $.ig.NativeStringUtility.prototype.substring(path, endOfRootPos, path.length - endOfRootPos);
-			var fileNamePos = $.ig.NativeStringUtility.prototype.indexOf(filePath, cloudFile.name());
-			filePath = $.ig.NativeStringUtility.prototype.substring(filePath, 0, fileNamePos - 1);
-		}
-		if (filePath != "" && filePath != null) {
-			if ($.ig.NativeStringUtility.prototype.substring(filePath, 0, 1).equals("/")) {
-				filePath = $.ig.NativeStringUtility.prototype.substring(filePath, 1, filePath.length - 1);
+			if ($.ig.NativeStringUtility.prototype.contains(path, root)) {
+				var endOfRootPos = ($.ig.NativeStringUtility.prototype.lastIndexOf(path, root) + root.length - 1) + 1;
+				filePath = $.ig.NativeStringUtility.prototype.substring(path, endOfRootPos, path.length - endOfRootPos);
+			}
+			if ($.ig.NativeStringUtility.prototype.contains(filePath, cloudFile.name())) {
+				var fileNamePos = $.ig.NativeStringUtility.prototype.indexOf(filePath, cloudFile.name());
+				filePath = $.ig.NativeStringUtility.prototype.substring(filePath, 0, fileNamePos - 1);
+			}
+			if (!$.ig.CPStringUtility.prototype.isNullOrEmpty(filePath)) {
+				if ($.ig.NativeStringUtility.prototype.substring(filePath, 0, 1).equals("/")) {
+					filePath = $.ig.NativeStringUtility.prototype.substring(filePath, 1, filePath.length - 1);
+				}
+				filePath = (cloudFile.providerOwnerGivenName() == null ? "" : cloudFile.providerOwnerGivenName() + "'s ") + $.ig.NativeRequestLocalizeUtil.prototype.localize($.ig.RequestsLocalizationKeys.prototype.sharePointAccount) + "/" + filePath;
+				properties.locationPath(filePath);
 			}
 		}
-		filePath = (cloudFile.providerOwnerGivenName() == null ? "" : cloudFile.providerOwnerGivenName() + "'s ") + $.ig.NativeRequestLocalizeUtil.prototype.localize($.ig.RequestsLocalizationKeys.prototype.sharePointAccount) + "/" + filePath;
-		properties.locationPath(filePath);
 		return properties;
 	}
 	/*<EndMethod Name="Infragistics.ContentProperties Infragistics.SharePointFile::GetViewProperties(Infragistics.CloudFile)" />*/
@@ -25401,6 +25471,16 @@ $.ig.util.defType('SharePointFile', 'SharePointFileBase', {
 		}
 	}
 	/*<EndMethod Name="System.String Infragistics.SharePointFile::DetermineEmbedUrl(Infragistics.CloudFile)" />*/
+	,
+	/*<BeginMethod Name="System.Boolean Infragistics.SharePointFile::GetSupportsFilePermissions(Infragistics.CloudFile)" />*/
+	getSupportsFilePermissions: function (cloudFile) {
+		var fileType = cloudFile.resolveStringForKey("odata.type");
+		if (!$.ig.CPStringUtility.prototype.isNullOrEmpty(fileType) && fileType == "SP.File") {
+			return true;
+		}
+		return false;
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.SharePointFile::GetSupportsFilePermissions(Infragistics.CloudFile)" />*/
 	,
 	$type: new $.ig.Type('SharePointFile', $.ig.SharePointFileBase.prototype.$type)
 }, true);
