@@ -4,14 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { PublicClientApplication } from '@azure/msal-browser';
+import { MsalProvider } from '@azure/msal-react';
+import { msalConfig } from './msAuthConfig';
+
+const msalInstance = new PublicClientApplication(msalConfig);
 
 const WebFont = window.WebFont;
 const webfontCallback = status => {
   ReactDOM.render(
     <React.StrictMode>
-      <Router>
-        <App/>
-      </Router>
+      <MsalProvider instance={msalInstance}>
+        <Router>        
+          <App/>
+        </Router>        
+      </MsalProvider>
     </React.StrictMode>,
     document.getElementById('root')
   );

@@ -33,7 +33,7 @@ function App() {
   return (
       <div className="App">
         <header className="App-Header">
-          { location.pathname !== "/" && <Link id="home_link" to="/" className="App-Header-Home-Link"><img alt="Home" src={homeicon}/></Link>}
+          { location.pathname !== "/" && location.pathname !== "/login" && <Link id="home_link" to="/" className="App-Header-Home-Link"><img alt="Home" src={homeicon}/></Link>}
           { location.pathname === "/login" ? <span className="App-Header-Title">Login</span> : <span className="App-Header-Title">Dashboards</span> }
           { location.pathname === "/" && <Link id="newdashboard_link" to="/newdashboard" className="App-Header-NewDashboard-Link"><img alt="New Dashboard" src={plusicon}/></Link>}
           { location.pathname === "/" && <Link id="logout_link" to="/logout" className="App-Header-Logout-Link"><img alt="Logout" src={logouticon}/></Link>}

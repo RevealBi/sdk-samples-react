@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@agney/react-loading": "^0.1.2",
+    "@azure/msal-browser": "^2.14.1",
+    "@azure/msal-react": "^1.0.0-beta.2",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",

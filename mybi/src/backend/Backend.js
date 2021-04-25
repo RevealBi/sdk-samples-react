@@ -4,7 +4,9 @@ const sessionInfo =
     localStorage.getItem("sessionData") ? 
     JSON.parse(localStorage.getItem("sessionData")) : 
     {
-        sessionId : null
+        sessionId : null,
+        displayName: null,
+        emailAddress: null
     };
 
 const dashboards = (onSuccess, onError) => {
@@ -35,7 +37,7 @@ const login = (username, password, onSuccess, onError) => {
         (result) => {            
             result.json().then((json) => {
                 if (json.succeeded) {
-                    setSessionId(json.sessionId);
+                    setSessionData(json.sessionId, json.emailAddress, json.displayName);
                     onSuccess(json);
                 } else {
                     onError(json.message ? json.message : "Login failed");
@@ -43,7 +45,34 @@ const login = (username, password, onSuccess, onError) => {
             }, onError);
         },
         onError
-    );
+    );    
+}
+
+const oauthLogin = (provider, accessToken, onSuccess, onError) => {
+    executeFetch(
+        config.url.API_URL_LOGIN, 
+        fetchParameters(
+            'post', 
+            false,
+            'application/json', 
+            JSON.stringify({
+                provider: provider,
+                accessToken: accessToken
+            })
+        ),
+        false,
+        (result) => {            
+            result.json().then((json) => {
+                if (json.succeeded) {
+                    setSessionData(json.sessionId, json.emailAddress, json.displayName);
+                    onSuccess(json);
+                } else {
+                    onError(json.message ? json.message : "Login failed");
+                }
+            }, onError);
+        },
+        onError
+    );    
 }
 
 const getSessionHeaders = () => {
@@ -55,11 +84,13 @@ const getSessionHeaders = () => {
     }
 }
 
-const setSessionId = (sessionId) => {
+const setSessionData = (sessionId, emailAddress, displayName) => {
     if (sessionId == null) {
         return;
     }
     sessionInfo.sessionId = sessionId;
+    sessionInfo.emailAddress = emailAddress;
+    sessionInfo.displayName = displayName;
     localStorage.setItem("sessionData", JSON.stringify(sessionInfo));
 }
 
@@ -124,6 +155,7 @@ const fetchParameters = (method, includeSession = true, contentType = null, body
 }
 export const backend = {
     login: login,
+    oauthLogin: oauthLogin,
     logout: logout,
     dashboards: dashboards,
     dataSources: dataSources,
