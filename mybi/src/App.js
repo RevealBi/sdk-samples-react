@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Link, useHistory, useLocation } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
-
 import { PrivateRoute } from './components/PrivateRoute';
 import { AuthenticationContext } from './context/authentication';
 
-import { DashboardsRepository } from './components/DashboardsRepository';
+import DashboardsRepository from './components/DashboardsRepository';
 import { DashboardView } from './components/DashboardView';
 import { Admin } from './pages/Admin';
 import homeicon from './images/home-icon.svg';
 import plusicon from './images/plus-icon.svg';
 import logouticon from './images/logout-icon.svg';
+import uploadicon from './images/upload-icon.svg';
 import { config } from './Constants';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
@@ -22,12 +22,17 @@ const $ = window.$;
 function App() {  
   const history = useHistory();
   const location = useLocation();
-  const [authentication, ] = useState({ isAuthenticated: false, userId: null, fullName: null })
+  const [authentication, ] = useState({ isAuthenticated: false, userId: null, fullName: null });
+  const fileInput = useRef(null);
 
   $.ig.RevealSdkSettings.setBaseUrl(config.url.REVEAL_API_URL);
 
   const openDashboard = (dashboardId) => {
     history.push("/dashboard/" + dashboardId)
+  }
+
+  const uploadDashboard = () => {
+    fileInput.current.click();
   }
 
   return (
@@ -36,6 +41,7 @@ function App() {
           { location.pathname !== "/" && location.pathname !== "/login" && <Link id="home_link" to="/" className="App-Header-Home-Link"><img alt="Home" src={homeicon}/></Link>}
           { location.pathname === "/login" ? <span className="App-Header-Title">Login</span> : <span className="App-Header-Title">Dashboards</span> }
           { location.pathname === "/" && <Link id="newdashboard_link" to="/newdashboard" className="App-Header-NewDashboard-Link"><img alt="New Dashboard" src={plusicon}/></Link>}
+          { location.pathname === "/" && <button id="uploaddashboard_link" onClick={uploadDashboard} className="App-Header-UploadDashboard-Link"><img alt="Upload Dashboard" src={uploadicon}/></button> }
           { location.pathname === "/" && <Link id="logout_link" to="/logout" className="App-Header-Logout-Link"><img alt="Logout" src={logouticon}/></Link>}
         </header>
         <AuthenticationContext.Provider value={ authentication }>
@@ -56,7 +62,7 @@ function App() {
             <Route path="/logout" component={Logout} />
             <Route path="/">
               <div className="Dashboards-grid">
-                <DashboardsRepository onOpenDashboard={openDashboard}/>
+                <DashboardsRepository onOpenDashboard={openDashboard} ref={fileInput}/>
               </div>
             </Route>
           </AnimatedSwitch>

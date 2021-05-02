@@ -105,6 +105,43 @@ const logout = (onSuccess, onError) => {
     );
 }
 
+const exportDashboard = (dashboardId, onSuccess, onError) => {
+    const errorHandler = (e) => {
+        if (onError) {
+            onError(e);
+        }
+    }
+    executeFetch(config.url.API_URL_DASHBOARDS + "/export/" + dashboardId, fetchParameters('get'), false, (result) => {
+        result.blob().then((blob) => {        
+            const url = window.URL.createObjectURL(new Blob([blob]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', dashboardId + '.rdash');
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+            if (onSuccess) {
+                onSuccess();
+            }
+        }, errorHandler);
+    }, errorHandler);
+}
+
+const uploadDashboards = (formData, onSuccess) => {
+    executeFetch(config.url.API_URL_DASHBOARDS + "/upload", fetchParameters('post', true, null, formData), false, 
+        () => {
+            if (onSuccess) {
+                onSuccess();
+            } else {
+                console.log("upload ok");
+            }
+        }, 
+        (e) => {
+            console.log("upload failed: " + e);
+        }
+    )
+}
+
 const executeGet = (url, onSuccess, onError) => {
     executeFetch(url, fetchParameters('get'), true, onSuccess, onError);
 }
@@ -160,5 +197,7 @@ export const backend = {
     dashboards: dashboards,
     dataSources: dataSources,
     deleteDashboard: deleteDashboard,
+    exportDashboard: exportDashboard,
+    uploadDashboards: uploadDashboards,
     getSessionHeaders: getSessionHeaders
 }

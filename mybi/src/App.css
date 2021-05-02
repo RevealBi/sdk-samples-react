@@ -25,14 +25,22 @@
 
 .App-Header-NewDashboard-Link {
   position: absolute;
-  right: 60px;
-  width: 25px;
+  right: 99px;
+  width: 24px;
+}
+
+.App-Header-UploadDashboard-Link {
+  position: absolute;
+  right: 54px;
+  width: 34px;
+  background-color: transparent;
+  border: 0px;
 }
 
 .App-Header-Logout-Link {
   position: absolute;
   right: 20px;
-  width: 25px;
+  width: 23px;
 }
 
 .App-Header-Home-Link img {
@@ -105,21 +113,32 @@
   position: relative;
 }
 
-.Reveal-Dashboard-Delete-Button:active {
+.Reveal-Dashboard-Thumbnail-Button {
+  visibility: hidden;
+  float: right;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-top: -5px;
+  margin-right: -5px;
+  position: relative;
+}
+
+.Reveal-Dashboard-Thumbnail-Button:active {
   transform: translate(1px, 1px);
   background-color:#e9ebf2;
 }
 
-.Reveal-Thumbnail-Box:hover .Reveal-Dashboard-Delete-Button {  
+.Reveal-Thumbnail-Box:hover .Reveal-Dashboard-Thumbnail-Button {  
   visibility: inherit;
 }
 
-.Reveal-Dashboard-Delete-Button:hover {
+.Reveal-Dashboard-Thumbnail-Button:hover {
   background-color:#e9ebf2;
 }
 
 /*To avoid the parent button to get activated and animated*/
-.Reveal-Dashboard-Delete-Button:active::before {
+.Reveal-Dashboard-Thumbnail-Button:active::before {
   content: '';
   position: absolute;
   top: 0;
@@ -130,7 +149,7 @@
   z-index: -1;
 }
 
-.Reveal-Dashboard-Delete-Button img {
+.Reveal-Dashboard-Thumbnail-Button img {
   width: 10px;
   position: absolute;
   top: calc(50% - 5px);

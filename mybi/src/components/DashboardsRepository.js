@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import '../App.css';
 import { RevealDashboardThumbnail } from './RevealDashboardThumbnail'
 import { CSSGrid, measureItems, makeResponsive, layout } from 'react-stonecutter';
@@ -11,7 +11,7 @@ const Grid = makeResponsive(measureItems(CSSGrid), {
   minPadding: 100
 });
 
-export function DashboardsRepository(props) {
+function DashboardsRepository(props, ref) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [dashboards, setDashboards] = useState([]);
@@ -62,6 +62,10 @@ export function DashboardsRepository(props) {
     setShowModal(true);
   }
 
+  const exportDashboard = (dashboardId) => {
+    backend.exportDashboard(dashboardId);
+  }
+
   const deleteDashboard = (dashboard) => {
     backend.deleteDashboard(
       dashboard.id, 
@@ -72,6 +76,19 @@ export function DashboardsRepository(props) {
         alert('delete failed: ' + error)
       });
   }
+
+  const handleFileInput = (e) => {
+    const formData = new FormData();
+    const files = e.target.files;
+    for (var i = 0; i < files.length; i++) {
+      const file = files[i];
+      formData.append("files", file, file.name);
+    }
+    backend.uploadDashboards(formData, () => {
+      reload();
+    });
+  }
+
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -79,6 +96,7 @@ export function DashboardsRepository(props) {
   } else {
     return (
       <>
+      <input type="file" ref={ref} onChange={handleFileInput} style={{display:'none'}} accept=".rdash" multiple="true"/>
       <Grid component="div" 
           columnWidth={350}
           itemHeight={270}
@@ -86,12 +104,19 @@ export function DashboardsRepository(props) {
           gutterHeight={5}
           layout={layout.simple}
           duration={800}
-          easing="ease-out">
+          easing="ease-out"
+          enter={() => ({ scale: 1, opacity: 0 })}
+          entered={() => ({ scale: 1, opacity: 1 })}>
         {dashboards.map((d, i) => 
           <div key={d.id}>
-            <RevealDashboardThumbnail title={d.info.Title} id={d.id} summary={d.info} onOpenDashboard={() => {
+            <RevealDashboardThumbnail title={d.info.Title} id={d.id} summary={d.info} 
+            onOpenDashboard={() => {
               props.onOpenDashboard(d.id);
-            }} onDeleteDashboard={() => {
+            }} 
+            onExportDashboard={() => {
+              exportDashboard(d.id);
+            }}
+            onDeleteDashboard={() => {
               confirmDeleteDashboard(d);
             }}/>
           </div>)}
@@ -110,3 +135,5 @@ export function DashboardsRepository(props) {
     );
   }
 }
+
+export default forwardRef(DashboardsRepository);
