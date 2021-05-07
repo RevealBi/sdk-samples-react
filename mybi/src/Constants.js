@@ -1,5 +1,5 @@
 const dev_base_url = 'http://localhost:8080/mybi/';
-const prod_base_url = 'http://revealcdb01.eastus.cloudapp.azure.com:8081/mybi/'
+const prod_base_url = 'http://revealcdb01.eastus.cloudapp.azure.com/mybi-backend/'
 const base_url = process.env.NODE_ENV === 'development' ? dev_base_url : prod_base_url;
 
 const dev_ui_url = 'http://localhost:3000';
