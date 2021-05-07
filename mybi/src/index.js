@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { PublicClientApplication } from '@azure/msal-browser';
 import { MsalProvider } from '@azure/msal-react';
 import { msalConfig } from './msAuthConfig';
+import { config } from './Constants'
 
 const msalInstance = new PublicClientApplication(msalConfig);
 
@@ -15,7 +16,7 @@ const webfontCallback = status => {
   ReactDOM.render(
     <React.StrictMode>
       <MsalProvider instance={msalInstance}>
-        <Router>        
+        <Router basename={config.routerBasename}>        
           <App/>
         </Router>        
       </MsalProvider>
