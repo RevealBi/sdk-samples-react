@@ -28,7 +28,6 @@ function App() {
         setSelectedDashboard(json[0]);
         WebFontLoader.load({
           active: () => {
-            console.log("json[0]: ", json[0]);
             loadDashboard(json[0]);
           },
           inactive: () => {
@@ -75,7 +74,6 @@ function App() {
         $.ig.RevealSdkSettings.theme = createCustomTheme();
         break;
     }
-    console.log("selectedDashboard: ", selectedDashboard);
     loadDashboard(selectedDashboard);
   }
 
