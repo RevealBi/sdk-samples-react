@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Reveal.Sdk.Web.AspNetCore.Trial" Version="1.0.1866" />
+    <PackageReference Include="Reveal.Sdk.Web.AspNetCore.Trial" Version="1.0.1922" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
