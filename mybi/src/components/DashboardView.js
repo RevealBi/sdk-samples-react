@@ -44,14 +44,13 @@ export const DashboardView = (props) => {
 				setHasPendingChanges(newValue);
 			}
 			view.onSave = function(rv, saveEvent) {
-				if (saveEvent.saveAs || saveEvent.name === "New Dashboard") {
+				if (saveEvent.saveAs || saveEvent.isNew) {
 					var name = prompt("Dashboard name: ", saveEvent.name);
 					if (name != null) {
-						//workaround to change the title in the UI
-						saveEvent.serializeWithNewName(name, function(blob) {}, function(error){});
-						
 						saveEvent.name = name;
-						saveEvent._dashboardId = name;
+						saveEvent.dashboardId = $.ig.RevealUtility.generateUID();
+					} else {
+						return;
 					}
 				}
 				saveEvent.saveFinished();

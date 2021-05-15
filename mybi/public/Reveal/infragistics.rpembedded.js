@@ -1,9 +1,5 @@
-var RevealApi = (function (exports, $$1) {
+var RevealApi = (function (exports) {
     'use strict';
-
-    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-    var $__default = /*#__PURE__*/_interopDefaultLegacy($$1);
 
     /**
      * @enum
@@ -628,6 +624,13 @@ var RevealApi = (function (exports, $$1) {
             })
                 .execute();
         }
+        /**
+         * Generates a new universal identifier.
+         * @returns a generated UID
+         */
+        static generateUID() {
+            return $.ig.NativeStringUtility.prototype.generateUID();
+        }
         // /**
         //  * Method used to get the possible values for a given filter.
         //  * For a Country filter, this will return the list of all countries, not only the selected ones.
@@ -732,6 +735,9 @@ var RevealApi = (function (exports, $$1) {
         }
         widgetAdded(widget, index) {
             this._dashboard._widgetAdded(widget, index);
+        }
+        titleUpdated(newTitle) {
+            this._dashboard._titleUpdated(newTitle);
         }
         widgetDeleted(index) {
             this._dashboard._widgetDeleted(index);
@@ -841,6 +847,12 @@ var RevealApi = (function (exports, $$1) {
             this._visualizations = new VisualizationsArray();
             this._dateFilter = null;
             this._subscribedViews = new Set();
+            this._title = "";
+            /**
+             * This event is triggered when the the title of the dashboard is changed
+             * was added/removed or updated.
+             */
+            this.onTitleChanged = null;
             /**
              * This event is triggered when the list of visualizations has changed because a visualization
              * was added/removed or updated.
@@ -959,7 +971,10 @@ var RevealApi = (function (exports, $$1) {
          * @returns {string} the name or title of the dashboard
          * */
         get title() {
-            return this._dashboardModel.title();
+            if (this._title === "") {
+                this._title = this._dashboardModel.title();
+            }
+            return this._title;
         }
         _subscribeDashboardView(view) {
             if (view != null) {
@@ -974,6 +989,11 @@ var RevealApi = (function (exports, $$1) {
         _visualizationsChanged() {
             if (this.onVisualizationsChanged) {
                 this.onVisualizationsChanged([...this._visualizations]);
+            }
+        }
+        _titleChanged(newTitle) {
+            if (this.onTitleChanged) {
+                this.onTitleChanged(newTitle);
             }
         }
         _dateFilterChanged() {
@@ -996,6 +1016,10 @@ var RevealApi = (function (exports, $$1) {
                 this._visualizations.splice(index, 0, new RVVisualization(widget));
                 this._visualizationsChanged();
             }
+        }
+        _titleUpdated(newTitle) {
+            this._title = newTitle;
+            this._titleChanged(newTitle);
         }
         _widgetDeleted(index) {
             if (index >= 0 && index < this._visualizations.length) {
@@ -1209,6 +1233,7 @@ var RevealApi = (function (exports, $$1) {
         }
     }
 
+    // import $ from "jquery";
     /**
      * @class
      * @classdesc  The class contains current theme settings.
@@ -1318,16 +1343,16 @@ var RevealApi = (function (exports, $$1) {
                 : RevealTheme._mountainTheme;
             this.chartColors = [];
             for (var i = 0; i < currentDashboardTheme.chartColors().length; i++) {
-                this.chartColors.push($__default['default'].ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.chartColors()[i]));
+                this.chartColors.push($.ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.chartColors()[i]));
             }
-            this.conditionalFormatting.lowColor = $__default['default'].ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.cFLowColor());
-            this.conditionalFormatting.midColor = $__default['default'].ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.cFMidColor());
-            this.conditionalFormatting.hiColor = $__default['default'].ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.cFHiColor());
-            this.conditionalFormatting.noneColor = $__default['default'].ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.cFNoneColor());
-            this.highlightColor = $__default['default'].ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.highlightColor());
+            this.conditionalFormatting.lowColor = $.ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.cFLowColor());
+            this.conditionalFormatting.midColor = $.ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.cFMidColor());
+            this.conditionalFormatting.hiColor = $.ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.cFHiColor());
+            this.conditionalFormatting.noneColor = $.ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.cFNoneColor());
+            this.highlightColor = $.ig.ColorUtility.prototype.convertToNative(currentDashboardTheme.highlightColor());
             let appTheme = this.isDark
-                ? $__default['default'].ig.ThemeManager.prototype.resolveThemeFromName($__default['default'].ig.ThemeManager.prototype.darkTheme)
-                : $__default['default'].ig.ThemeManager.prototype.resolveThemeFromName($__default['default'].ig.ThemeManager.prototype.lightTheme);
+                ? $.ig.ThemeManager.prototype.resolveThemeFromName($.ig.ThemeManager.prototype.darkTheme)
+                : $.ig.ThemeManager.prototype.resolveThemeFromName($.ig.ThemeManager.prototype.lightTheme);
             this.regularFont = appTheme.regularFont();
             this.mediumFont = appTheme.mediumFont();
             this.boldFont = appTheme.boldFont();
@@ -1340,8 +1365,8 @@ var RevealApi = (function (exports, $$1) {
             this.useRoundedCorners = appTheme.supportsCornerRadius();
         }
         static initialize() {
-            RevealTheme._oceanTheme = $__default['default'].ig.DashboardThemeManager.prototype.getTheme($__default['default'].ig.DashboardThemeManager.prototype.builtInThemeId2);
-            RevealTheme._mountainTheme = $__default['default'].ig.DashboardThemeManager.prototype.getTheme($__default['default'].ig.DashboardThemeManager.prototype.builtInThemeId1);
+            RevealTheme._oceanTheme = $.ig.DashboardThemeManager.prototype.getTheme($.ig.DashboardThemeManager.prototype.builtInThemeId2);
+            RevealTheme._mountainTheme = $.ig.DashboardThemeManager.prototype.getTheme($.ig.DashboardThemeManager.prototype.builtInThemeId1);
         }
     }
     RevealTheme.initialize();
@@ -1522,21 +1547,31 @@ var RevealApi = (function (exports, $$1) {
         getPersonalTeam() {
             return "";
         }
-        getSelectDatasourcesScreen(dashboard, dataSourceItemSelected, preselectedDatasourceId, selectedDatasourceItem, mode, trigger) {
-            return this.getSelectDatasourcesScreen1(dashboard, dataSourceItemSelected, preselectedDatasourceId, selectedDatasourceItem, mode, trigger, null);
-        }
-        getSelectDatasourcesScreen1(dashboard, dataSourceItemSelected, preselectedDatasourceId, selectedDatasourceItem, mode, trigger, providerValidatorBlock) {
+        showSelectDatasourcesScreen(relativeView, navController, dashboard, dataSourceItemSelected, preselectedDatasourceId, selectedDatasourceItem, mode, trigger, providerValidatorBlock, continueBlock) {
             var sdkApp = this;
-            var revealDatasources = null;
+            var showBlock = function (rvDataSources) {
+                var vc = new $.ig.SdkSelectExistingDatasourceViewController(dashboard, rvDataSources, dataSourceItemSelected, preselectedDatasourceId, selectedDatasourceItem, mode);
+                vc.providerValidatorBlock(providerValidatorBlock);
+                if (navController != null) {
+                    navController.pushViewController(vc, true);
+                    continueBlock(null);
+                }
+                else {
+                    var popupId = $.ig.CPPopupManager.prototype.showTallScreenModalDialog(relativeView, vc, true);
+                    continueBlock(popupId);
+                }
+            };
             if (sdkApp.sdkView.onDataSourcesRequested != null) {
                 sdkApp.sdkView.onDataSourcesRequested(function (revealDsObj) {
                     revealDsObj = RevealUtility._transformToWrappers(revealDsObj);
-                    revealDatasources = revealDsObj.getInternal();
+                    var revealDatasources = revealDsObj.getInternal();
+                    showBlock(revealDatasources);
                 }, SdkApp._convertDataSourcesSelectedTrigger(trigger));
             }
-            var vc = new $.ig.SdkSelectExistingDatasourceViewController(dashboard, revealDatasources, dataSourceItemSelected, selectedDatasourceItem, mode);
-            vc.providerValidatorBlock(providerValidatorBlock);
-            return vc;
+            else {
+                showBlock(null);
+            }
+            return null;
         }
     }
     SdkApp._convertDataSourcesSelectedTrigger = function (trigger) {
@@ -1886,22 +1921,39 @@ var RevealApi = (function (exports, $$1) {
      */
     class DashboardSaveEventArgs {
         constructor(saveAs, name, revealView, dashboardId) {
-            this.saveAs = false;
-            this.name = "";
             /**
-             *  A flag indicating if this event was originated by a 'save' (false) or 'save as' (true) operation.
-             *  @name $.ig.DashboardSaveEventArgs#saveAs
-             *  @type {boolean}
+             *  The name of the dashboard being saved, that could have been modified by the end user by editing the title.
+             *  @name $.ig.DashboardSaveEventArgs#name
+             *  @type {string}
              */
-            this.saveAs = saveAs;
+            this.name = "";
+            this._saveAs = saveAs;
+            this._isNew = dashboardId == null;
             /**
              * The name of the dashboard being saved.
              * @name $.ig.DashboardSaveEventArgs#name
              * @type {string}
              */
             this.name = name;
-            this._dashboardId = dashboardId;
+            this.dashboardId = saveAs ? null : dashboardId;
             this._revealView = revealView;
+        }
+        /**
+         *  A flag indicating if this event was originated by a 'save' (false) or 'save as' (true) operation.
+         *  @name $.ig.DashboardSaveEventArgs#saveAs
+         *  @type {boolean}
+         */
+        get saveAs() {
+            return this._saveAs;
+        }
+        /**
+         * A flag indicating if this event was originated by saving a newly created dashboard, it will be false
+         * when saving or "saving as" an existing dashboard.
+         *  @name $.ig.DashboardSaveEventArgs#isNew
+         *  @type {boolean}
+         */
+        get isNew() {
+            return this._isNew;
         }
         /**
          * Serializes the current dashboard to the '.rdash' file format, using the current name.
@@ -1924,12 +1976,17 @@ var RevealApi = (function (exports, $$1) {
         }
         /**
          * Notifies the Reveal SDK the save operation has finished and it should switch to view mode.
+         * When using server side saving and for a new dashboard or for the "save as" operation it expects:
+         *  - name to be set to the name entered by the end user, that value will be set as the title for the displayed dashboard.
+         *  - dashboardId to be set to the assigned id, this value will be used for subsequent save operations, name will be used as the ID if dashboardId is not set.
          */
         saveFinished() {
             if (this._revealView.serverSideSave) {
-                this._revealView._sendServerSideSaveRequest(this.name, this._dashboardId);
+                this._revealView._sendServerSideSaveRequest(this.name, this.dashboardId);
             }
-            return this._revealView._dashboardView.dashboardSaved();
+            else {
+                return this._revealView._dashboardSaveFinished(this.name, this.dashboardId);
+            }
         }
     }
 
@@ -2461,8 +2518,8 @@ var RevealApi = (function (exports, $$1) {
             var revealView = this;
             var title = dashboard.title();
             var dashboardId = (_a = revealView === null || revealView === void 0 ? void 0 : revealView.dashboard) === null || _a === void 0 ? void 0 : _a._dashboardId;
-            if (dashboardId == null || dashboardId == undefined || dashboardId == "New Dashboard") {
-                dashboardId = title;
+            if (dashboardId == "New Dashboard") {
+                dashboardId = null;
             }
             dashboard.saveToBackingStore(); // needed to sync backing store (json) with the model.
             if (revealView.onSave) {
@@ -2544,15 +2601,29 @@ var RevealApi = (function (exports, $$1) {
         }
         _sendServerSideSaveRequest(name, dashboardId) {
             var _a;
+            let toSaveId = (dashboardId == null || dashboardId == "") ? name : dashboardId;
             var revealView = this;
+            revealView._dashboardView.setHeaderTitle(name);
             if (revealView.serverSideSave) {
-                var saveRequest = $.ig.ReportPlusWebSdkRequest.prototype.uploadDashboard(name, dashboardId, (_a = this.dashboard) === null || _a === void 0 ? void 0 : _a._dashboardModel, null, function (req, res) {
+                var saveRequest = $.ig.ReportPlusWebSdkRequest.prototype.uploadDashboard(name, toSaveId, (_a = this.dashboard) === null || _a === void 0 ? void 0 : _a._dashboardModel, null, function (req, res) {
+                    if (revealView.dashboard != null) {
+                        revealView.dashboard._dashboardId = toSaveId;
+                    }
                     revealView._dashboardView.dashboardSaved();
                 }, function (req, err) {
                     console.log(err.errorMessage());
                 });
                 saveRequest.execute();
             }
+        }
+        _dashboardSaveFinished(name, dashboardId) {
+            let savedId = (dashboardId == null || dashboardId == "") ? name : dashboardId;
+            var revealView = this;
+            revealView._dashboardView.setHeaderTitle(name);
+            if (revealView.dashboard != null) {
+                revealView.dashboard._dashboardId = savedId;
+            }
+            revealView._dashboardView.dashboardSaved();
         }
         /**
          * This method is used to indicate the size of the container has changed and $.ig.RevealView must re-layout its contents.
@@ -5608,6 +5679,55 @@ var RevealApi = (function (exports, $$1) {
         }
     }
 
+    /**
+     * @hidden
+     */
+    class RVSnowflakeDataSourceItem extends RVSqlPDSDataSourceItem {
+        constructor(dataSource) {
+            super(dataSource);
+            this._schema = null;
+            this.database = dataSource.database;
+        }
+        get schema() {
+            return this._schema;
+        }
+        set schema(value) {
+            this._schema = value;
+        }
+        getType() {
+            return "RVSnowflakeDataSourceItem";
+        }
+        _getWrapper() {
+            let wrapper = super._getWrapper();
+            wrapper.schema(this.schema);
+            return wrapper;
+        }
+    }
+
+    /**
+     * @hidden
+     */
+    class RVSnowflakeDataSource extends RVSqlPDSDataSource {
+        constructor() {
+            super();
+            this._database = null;
+        }
+        get database() {
+            return this._database;
+        }
+        set database(value) {
+            this._database = value;
+        }
+        getType() {
+            return "RVSnowflakeDataSource";
+        }
+        _getWrapper() {
+            var wrapper = super._getWrapper();
+            wrapper.database(this.database);
+            return wrapper;
+        }
+    }
+
     function addLocalizationSupport() {
         // Support function //
         var currentScriptPath = (function () {
@@ -5697,10 +5817,13 @@ var RevealApi = (function (exports, $$1) {
     }
 
     //Root level imports
+    exports.VisualizationEditorOpeningArgs = VisualizationEditorOpeningArgs;
     exports.VisualizationEditorClosingArgs = VisualizationEditorClosingArgs;
     exports.DashboardSaveEventArgs = DashboardSaveEventArgs;
     exports.RVDateFilterType = exports.RVDateFilterType;
+    exports.FiltersArray = FiltersArray;
     exports.ChartInteractionEventArgs = ChartInteractionEventArgs;
+    exports.VisualizationEditorOpenedEventArgs = VisualizationEditorOpenedEventArgs;
     exports.RVDataSourcesRequestedTriggerType = exports.RVDataSourcesRequestedTriggerType;
     exports.MountainDarkTheme = MountainDarkTheme;
     exports.MountainLightTheme = MountainLightTheme;
@@ -5721,7 +5844,7 @@ var RevealApi = (function (exports, $$1) {
     exports.RevealDashboardThumbnailView = RevealDashboardThumbnailView;
     exports.RVChartType = RVChartType;
     exports.RevealSdkSettings = RevealSdkSettings;
-    exports.SdkApp = SdkApp;
+    // exports.SdkApp = SdkApp;
     exports.ARVLocalFileDataSource = RVLocalFileDataSource;
     exports.VisualizationsConfiguration = VisualizationsConfiguration;
     exports.MapVisualizationsConfiguration = MapVisualizationsConfiguration;
@@ -5802,6 +5925,8 @@ var RevealApi = (function (exports, $$1) {
     exports.RVOracleSIDDataSource = RVOracleSIDDataSource;
     exports.RVSyBaseDataSource = RVSyBaseDataSource;
     exports.RVSyBaseDataSourceItem = RVSyBaseDataSourceItem;
+    exports.RVSnowflakeDataSource = RVSnowflakeDataSource;
+    exports.RVSnowflakeDataSourceItem = RVSnowflakeDataSourceItem;
     $.ig = Object.assign($.ig, exports);
     $.ig.EMUtility.setSignInManager = new $.ig.RevealSdkSignInManager($.ig.EMProductType.prototype.reportPlus);
     $.ig.CPKeyboardEventManager.prototype.registerNewListenerLayer();
@@ -5811,6 +5936,7 @@ var RevealApi = (function (exports, $$1) {
 
     exports.ChartInteractionEventArgs = ChartInteractionEventArgs;
     exports.DashboardSaveEventArgs = DashboardSaveEventArgs;
+    exports.FiltersArray = FiltersArray;
     exports.MountainDarkTheme = MountainDarkTheme;
     exports.MountainLightTheme = MountainLightTheme;
     exports.OceanDarkTheme = OceanDarkTheme;
@@ -5886,6 +6012,8 @@ var RevealApi = (function (exports, $$1) {
     exports.RVSharePointListItemDataSourceItem = RVSharePointListItemDataSourceItem;
     exports.RVSharePointPeopleDataSourceItem = RVSharePointPeopleDataSourceItem;
     exports.RVSharePointSiteDataSourceItem = RVSharePointSiteDataSourceItem;
+    exports.RVSnowflakeDataSource = RVSnowflakeDataSource;
+    exports.RVSnowflakeDataSourceItem = RVSnowflakeDataSourceItem;
     exports.RVSqlServerDataSource = RVSqlServerDataSource;
     exports.RVSqlServerDataSourceItem = RVSqlServerDataSourceItem;
     exports.RVSyBaseDataSource = RVSyBaseDataSource;
@@ -5894,14 +6022,16 @@ var RevealApi = (function (exports, $$1) {
     exports.RVWebResourceDataSource = RVWebResourceDataSource;
     exports.RVWebResourceDataSourceItem = RVWebResourceDataSourceItem;
     exports.RevealDashboardThumbnailView = RevealDashboardThumbnailView;
+    exports.RevealSdkSettings = RevealSdkSettings;
     exports.RevealTheme = RevealTheme;
     exports.RevealUtility = RevealUtility;
     exports.RevealView = RevealView;
-    exports.SdkApp = SdkApp;
     exports.VisualizationEditorClosedEventArgs = VisualizationEditorClosedEventArgs;
     exports.VisualizationEditorClosingArgs = VisualizationEditorClosingArgs;
+    exports.VisualizationEditorOpenedEventArgs = VisualizationEditorOpenedEventArgs;
+    exports.VisualizationEditorOpeningArgs = VisualizationEditorOpeningArgs;
 
     return exports;
 
-}({}, jQuery));
+}({}));
 //# sourceMappingURL=infragistics.rpembedded.js.map
