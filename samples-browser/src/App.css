@@ -1,0 +1,172 @@
+.App {
+  text-align: center;
+}
+
+.App-Header {
+  position: relative;
+  background-color: #282c34;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(12px + 1vmin);
+  color: white;
+}
+
+.App-Header-Title {
+  flex: 1 0 auto;
+}
+
+.App-Header-Home-Link {
+  position: absolute;
+  left: 0px;
+  padding-left: 10px;
+}
+
+.App-Header-NewDashboard-Link {
+  position: absolute;
+  right: 99px;
+  width: 24px;
+}
+
+.App-Header-UploadDashboard-Link {
+  position: absolute;
+  right: 54px;
+  width: 34px;
+  background-color: transparent;
+  border: 0px;
+}
+
+.App-Header-Logout-Link {
+  position: absolute;
+  right: 20px;
+  width: 23px;
+}
+
+.App-Header-Home-Link img {
+  width: 20px;
+}
+
+.Loading-indicator {
+  color: darkgray;
+  line-height: 100vh;
+}
+
+.Loading-indicator svg {
+  width: 40px;
+}
+
+.Dashboards-grid {
+  background-color: #f6f7fa;
+  min-height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+  width: 100vw;
+}
+
+.Reveal-Thumbnail-Box {
+  position: relative;
+  z-index: 0;
+  background-color: white;
+  height: 250px;
+  width: 330px;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.Reveal-Thumbnail-Box:hover {
+  background-color: #f0f2f8;  
+}
+
+.Reveal-Thumbnail-Box:active {
+  /* transform: translate(2px, 2px); */
+  background-color: #e9ebf2;
+}
+
+.Reveal-Thumbnail-Header {
+  color: #5f5f5f;
+  font-family: 'Roboto-Regular';
+  font-size: medium;
+  padding: 5px;
+  display: inline-block;
+  width:calc(100%-40px);
+}
+
+.Reveal-Thumbnail-View {
+  position: relative;
+  height: 200px;
+}
+
+.Reveal-Dashboard-Delete-Button {
+  visibility: hidden;
+  float: right;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-top: -5px;
+  margin-right: -5px;
+  position: relative;
+}
+
+.Reveal-Dashboard-Thumbnail-Button {
+  visibility: hidden;
+  float: right;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-top: -5px;
+  margin-right: -5px;
+  position: relative;
+}
+
+.Reveal-Dashboard-Thumbnail-Button:active {
+  transform: translate(1px, 1px);
+  background-color:#e9ebf2;
+}
+
+.Reveal-Thumbnail-Box:hover .Reveal-Dashboard-Thumbnail-Button {  
+  visibility: inherit;
+}
+
+.Reveal-Dashboard-Thumbnail-Button:hover {
+  background-color:#e9ebf2;
+}
+
+/*To avoid the parent button to get activated and animated*/
+.Reveal-Dashboard-Thumbnail-Button:active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f0f2f8;
+  z-index: -1;
+}
+
+.Reveal-Dashboard-Thumbnail-Button img {
+  width: 10px;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);  
+}
+
+.Reveal-Dashboard-View {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 50px);
+}
+
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-wrapper > div {
+  position: absolute;
+}
+
