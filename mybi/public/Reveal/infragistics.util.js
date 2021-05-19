@@ -1872,6 +1872,10 @@
 
             os = "android";
         }
+		else if (userAgent.match(/Mac/i)) {
+
+            os = "macos";
+        }
         else {
             os = "desktop";
         }
@@ -1887,6 +1891,15 @@
     $.ig.util.isIOS = function () {
         var os = $.ig.util.getMobileOS();
         return os == "ios";
+    }
+	 $.ig.util.isMacOS = function () {
+        var os = $.ig.util.getMobileOS();
+        return os == "macos";
+    }
+
+	 $.ig.util.isWindows = function () {
+        var os = $.ig.util.getMobileOS();
+        return os == "desktop";
     }
 
 	 $.ig.util.isFirefox = function () {

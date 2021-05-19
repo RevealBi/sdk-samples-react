@@ -506,19 +506,18 @@ $.ig.util.bulkDefine([
 "ReportPlusGetProviderMetadataRequest:m6",
 "ReportPlusUploadFileRequest:m7",
 "ReportPlusGetJSONDashboardZipRequest:m8",
-"ReportPlusGetLicenseRequest:m9",
-"SharePointGetSiteInfoRequest:na",
-"DiscoveryServices:nb",
-"SharePointUpdateFileRequest:nc",
-"SharePointGetListPermissions:nd",
-"SharePointGetCurrentUser:ne",
-"PendingRequestsManager:nf",
-"Monitor:ng",
-"AbstractEnumerable:nh",
-"Func$1:ni",
-"AbstractEnumerator:nj",
-"GenericEnumerable$1:nk",
-"GenericEnumerator$1:nl"]);
+"SharePointGetSiteInfoRequest:m9",
+"DiscoveryServices:na",
+"SharePointUpdateFileRequest:nb",
+"SharePointGetListPermissions:nc",
+"SharePointGetCurrentUser:nd",
+"PendingRequestsManager:ne",
+"Monitor:nf",
+"AbstractEnumerable:ng",
+"Func$1:nh",
+"AbstractEnumerator:ni",
+"GenericEnumerable$1:nj",
+"GenericEnumerator$1:nk"]);
 /*<BeginType Name="Infragistics.PermissionKind" />*/
 
 $.ig.util.defType('PermissionKind', 'Enum', {
@@ -1116,6 +1115,9 @@ $.ig.util.defType('WebRequest', 'Object', {
 		this.__store["xhrFields"] = xhrFields;
 		if (responseType == $.ig.SessionResponseType.prototype.dATA) {
 			xhrFields["responseType"] = "blob";
+		}
+		if ($.ig.WebCoreUtils.prototype.includeWithCredentialsFlag()) {
+			xhrFields["withCredentials"] = true;
 		}
 		var extraHeaders = $.ig.WebCoreUtils.prototype.getExtraHeaders(url);
 		if (authorization != null || additionalHeaderFields != null || extraHeaders != null) {
@@ -2259,6 +2261,12 @@ $.ig.util.defType('CloudFileManager', 'Object', {
 	}
 	/*<EndMethod Name="System.Boolean Infragistics.CloudFileManager::HasExpiredToken(Infragistics.CloudError)" />*/
 	,
+	/*<BeginMethod Name="System.Boolean Infragistics.CloudFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
+	hasItemNotFoundError: function (error) {
+		return false;
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.CloudFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
+	,
 	/*<BeginMethod Name="Infragistics.Request Infragistics.CloudFileManager::GetFilePathName(System.String, Infragistics.StringBlock, Infragistics.CloudErrorBlock)" />*/
 	getFilePathName: function (path, handler, errorHandler) {
 		return this.getFileMetaData(path, function (file) {
@@ -3251,7 +3259,7 @@ $.ig.util.defType('BoxFileManager', 'CloudFileManager', {
 	,
 	/*<BeginMethod Name="System.Boolean Infragistics.BoxFileManager::HasDropCapability()" />*/
 	hasDropCapability: function () {
-		return true;
+		return false;
 	}
 	/*<EndMethod Name="System.Boolean Infragistics.BoxFileManager::HasDropCapability()" />*/
 	,
@@ -3791,6 +3799,16 @@ $.ig.util.defType('BoxFileManager', 'CloudFileManager', {
 		return false;
 	}
 	/*<EndMethod Name="System.Boolean Infragistics.BoxFileManager::HasExpiredToken(Infragistics.CloudError)" />*/
+	,
+	/*<BeginMethod Name="System.Boolean Infragistics.BoxFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
+	hasItemNotFoundError: function (error) {
+		var errorMessage = (error != null && !$.ig.CPStringUtility.prototype.isNullOrEmpty(error.errorMessage())) ? error.errorMessage().toLowerCase() : "";
+		if (error != null && error.errorCode() == 404 || $.ig.NativeStringUtility.prototype.contains(errorMessage, "not_found") || $.ig.NativeStringUtility.prototype.contains(errorMessage, "trashed")) {
+			return true;
+		}
+		return false;
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.BoxFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
 	,
 	/*<BeginMethod Name="Infragistics.Request Infragistics.BoxFileManager::DownloadFileFromLink(System.String, System.String, Infragistics.RequestSuccessBlock, Infragistics.RequestErrorBlock)" />*/
 	downloadFileFromLink: function (fileId, downloadLink, successHandler, errorHandler) {
@@ -5496,6 +5514,7 @@ $.ig.util.defType('InfragisticsRequestsConfiguration', 'CPJSONObject', {
 	/*<EndProperty Name="System.String Infragistics.InfragisticsRequestsConfiguration::NotificationsURL()" />*/
 	,
 	_deprecatedBaseUrls: null,
+	_supportsDirectTokenSignIn: false,
 	$type: new $.ig.Type('InfragisticsRequestsConfiguration', $.ig.CPJSONObject.prototype.$type)
 }, true);
 
@@ -7260,12 +7279,22 @@ $.ig.util.defType('DropboxFileManager', 'CloudFileManager', {
 	/*<BeginMethod Name="System.Boolean Infragistics.DropboxFileManager::HasExpiredToken(Infragistics.CloudError)" />*/
 	hasExpiredToken: function (error) {
 		var errorMessage = (error != null && !$.ig.CPStringUtility.prototype.isNullOrEmpty(error.errorMessage())) ? error.errorMessage().toLowerCase() : "";
-		if ($.ig.NativeStringUtility.prototype.contains(errorMessage, "invalid_access_token") || $.ig.NativeStringUtility.prototype.contains(error.errorMessage(), "expired_access_token")) {
+		if ($.ig.NativeStringUtility.prototype.contains(errorMessage, "invalid_access_token") || $.ig.NativeStringUtility.prototype.contains(errorMessage, "expired_access_token")) {
 			return true;
 		}
 		return false;
 	}
 	/*<EndMethod Name="System.Boolean Infragistics.DropboxFileManager::HasExpiredToken(Infragistics.CloudError)" />*/
+	,
+	/*<BeginMethod Name="System.Boolean Infragistics.DropboxFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
+	hasItemNotFoundError: function (error) {
+		var errorMessage = (error != null && !$.ig.CPStringUtility.prototype.isNullOrEmpty(error.errorMessage())) ? error.errorMessage().toLowerCase() : "";
+		if ((error != null && (error.errorCode() == 404 || error.errorCode() == 409)) || $.ig.NativeStringUtility.prototype.contains(errorMessage, "not_found")) {
+			return true;
+		}
+		return false;
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.DropboxFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
 	,
 	/*<BeginMethod Name="Infragistics.Request Infragistics.DropboxFileManager::DownloadFileFromLink(System.String, System.String, Infragistics.RequestSuccessBlock, Infragistics.RequestErrorBlock)" />*/
 	downloadFileFromLink: function (fileId, downloadLink, successHandler, errorHandler) {
@@ -11954,12 +11983,22 @@ $.ig.util.defType('GoogleFileManager', 'CloudFileManager', {
 	/*<BeginMethod Name="System.Boolean Infragistics.GoogleFileManager::HasExpiredToken(Infragistics.CloudError)" />*/
 	hasExpiredToken: function (error) {
 		var errorMessage = (error != null && !$.ig.CPStringUtility.prototype.isNullOrEmpty(error.errorMessage())) ? error.errorMessage().toLowerCase() : "";
-		if ($.ig.NativeStringUtility.prototype.contains(errorMessage, "autherror") || $.ig.NativeStringUtility.prototype.contains(error.errorMessage(), "invalid credentials")) {
+		if ($.ig.NativeStringUtility.prototype.contains(errorMessage, "autherror") || $.ig.NativeStringUtility.prototype.contains(errorMessage, "invalid credentials")) {
 			return true;
 		}
 		return false;
 	}
 	/*<EndMethod Name="System.Boolean Infragistics.GoogleFileManager::HasExpiredToken(Infragistics.CloudError)" />*/
+	,
+	/*<BeginMethod Name="System.Boolean Infragistics.GoogleFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
+	hasItemNotFoundError: function (error) {
+		var errorMessage = (error != null && !$.ig.CPStringUtility.prototype.isNullOrEmpty(error.errorMessage())) ? error.errorMessage().toLowerCase() : "";
+		if (error != null && error.errorCode() == 404 || $.ig.NativeStringUtility.prototype.contains(errorMessage, "notfound")) {
+			return true;
+		}
+		return false;
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.GoogleFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
 	,
 	/*<BeginMethod Name="Infragistics.Request Infragistics.GoogleFileManager::DownloadFileFromLink(System.String, System.String, Infragistics.RequestSuccessBlock, Infragistics.RequestErrorBlock)" />*/
 	downloadFileFromLink: function (fileId, downloadLink, successHandler, errorHandler) {
@@ -14879,6 +14918,16 @@ $.ig.util.defType('MicrosoftFileManager', 'CloudFileManager', {
 		}
 	}
 	/*<EndMethod Name="System.Void Infragistics.MicrosoftFileManager::FailedSharedLinks(Infragistics.CloudError, Infragistics.CloudErrorBlock)" />*/
+	,
+	/*<BeginMethod Name="System.Boolean Infragistics.MicrosoftFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
+	hasItemNotFoundError: function (error) {
+		var errorMessage = (error != null && !$.ig.CPStringUtility.prototype.isNullOrEmpty(error.errorMessage())) ? error.errorMessage().toLowerCase() : "";
+		if (error != null && error.errorCode() == 404 || $.ig.NativeStringUtility.prototype.contains(errorMessage, "itemnotfound")) {
+			return true;
+		}
+		return false;
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.MicrosoftFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
 	,
 	/*<BeginMethod Name="Infragistics.Request Infragistics.MicrosoftFileManager::DownloadFileFromLink(System.String, System.String, Infragistics.RequestSuccessBlock, Infragistics.RequestErrorBlock)" />*/
 	downloadFileFromLink: function (fileId, downloadLink, successHandler, errorHandler) {
@@ -18226,6 +18275,18 @@ $.ig.util.defType('LinkedDocument', 'ActivityTrackingBackingStore', {
 	}
 	/*<EndMethod Name="Infragistics.CPList Infragistics.LinkedDocument::GetStringsToSearch()" />*/
 	,
+	/*<BeginMethod Name="Infragistics.CPList Infragistics.LinkedDocument::ResolveSharedMembers()" />*/
+	resolveSharedMembers: function () {
+		return this.resolveSharedMembers1(null);
+	}
+	/*<EndMethod Name="Infragistics.CPList Infragistics.LinkedDocument::ResolveSharedMembers()" />*/
+	,
+	/*<BeginMethod Name="Infragistics.CPList Infragistics.LinkedDocument::ResolveSharedMembers(System.String)" />*/
+	resolveSharedMembers1: function (myTeamId) {
+		return new $.ig.Array();
+	}
+	/*<EndMethod Name="Infragistics.CPList Infragistics.LinkedDocument::ResolveSharedMembers(System.String)" />*/
+	,
 	$type: new $.ig.Type('LinkedDocument', $.ig.ActivityTrackingBackingStore.prototype.$type)
 }, true);
 
@@ -19178,12 +19239,6 @@ $.ig.util.defType('CloudFile', 'LinkedDocument', {
 		return false;
 	}
 	/*<EndProperty Name="System.Boolean Infragistics.CloudFile::SupportsFilePermissions()" />*/
-	,
-	/*<BeginProperty Name="System.Boolean Infragistics.CloudFile::SupportsPublicPermissions()" />*/
-	supportsPublicPermissions: function () {
-		return true;
-	}
-	/*<EndProperty Name="System.Boolean Infragistics.CloudFile::SupportsPublicPermissions()" />*/
 	,
 	$type: new $.ig.Type('CloudFile', $.ig.LinkedDocument.prototype.$type)
 }, true);
@@ -20343,6 +20398,31 @@ $.ig.util.defType('CloudProviderTypeUtility', 'Object', {
 		return type == $.ig.CloudProviderType.prototype.box || type == $.ig.CloudProviderType.prototype.dropbox || type == $.ig.CloudProviderType.prototype.google || type == $.ig.CloudProviderType.prototype.googleProvider || type == $.ig.CloudProviderType.prototype.microsoft || type == $.ig.CloudProviderType.prototype.microsoftProvider || type == $.ig.CloudProviderType.prototype.sharePoint;
 	}
 	/*<EndMethod Name="System.Boolean Infragistics.CloudProviderTypeUtility::IsContentProvider(Infragistics.CloudProviderType)" />*/
+	,
+	/*<BeginMethod Name="System.Void Infragistics.CloudProviderTypeUtility::ClearFileProviderManagers()" />*/
+	clearFileProviderManagers: function () {
+		if ($.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers != null) {
+			$.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers.clear();
+			$.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers = null;
+		}
+	}
+	/*<EndMethod Name="System.Void Infragistics.CloudProviderTypeUtility::ClearFileProviderManagers()" />*/
+	,
+	/*<BeginMethod Name="Infragistics.CloudFileManager Infragistics.CloudProviderTypeUtility::ResolveFileManagerForProvider(Infragistics.ProviderBase)" />*/
+	resolveFileManagerForProvider: function (provider) {
+		if ($.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers == null) {
+			$.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers = new $.ig.Dictionary(0);
+		}
+		if ($.ig.NativeDictionaryUtility.prototype.containsKey($.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers, provider.identifier())) {
+			return $.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers.item(provider.identifier());
+		}
+		var manager = $.ig.CloudProviderTypeUtility.prototype.createFileManagerForProvider(provider);
+		if (manager != null) {
+			$.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers.item(provider.identifier(), manager);
+		}
+		return manager;
+	}
+	/*<EndMethod Name="Infragistics.CloudFileManager Infragistics.CloudProviderTypeUtility::ResolveFileManagerForProvider(Infragistics.ProviderBase)" />*/
 	,
 	/*<BeginMethod Name="Infragistics.CloudFileManager Infragistics.CloudProviderTypeUtility::CreateFileManagerForProvider(Infragistics.ProviderBase)" />*/
 	createFileManagerForProvider: function (provider) {
@@ -28751,57 +28831,6 @@ $.ig.util.defType('ReportPlusGetJSONDashboardZipRequest', 'ReportPlusRequestBase
 
 /*<EndType Name="Infragistics.ReportPlusGetJSONDashboardZipRequest" />*/
 
-/*<BeginType Name="Infragistics.ReportPlusGetLicenseRequest" />*/
-
-$.ig.util.defType('ReportPlusGetLicenseRequest', 'InfragisticsAPIRequestBase', {
-	__skipCache: false,
-	init: function (forceRefresh, success, error) {
-		$.ig.InfragisticsAPIRequestBase.prototype.init.call(this, 0, "ReportPlusGetLicenseRequest", success, error);
-		this.__skipCache = forceRefresh;
-	},
-	/*<BeginMethod Name="System.String Infragistics.ReportPlusGetLicenseRequest::ResolveAction()" />*/
-	resolveAction: function () {
-		return "subscription";
-	}
-	/*<EndMethod Name="System.String Infragistics.ReportPlusGetLicenseRequest::ResolveAction()" />*/
-	,
-	/*<BeginMethod Name="Infragistics.SessionHTTPMethod Infragistics.ReportPlusGetLicenseRequest::ResolveHTTPMethod()" />*/
-	resolveHTTPMethod: function () {
-		return $.ig.SessionHTTPMethod.prototype.gET;
-	}
-	/*<EndMethod Name="Infragistics.SessionHTTPMethod Infragistics.ReportPlusGetLicenseRequest::ResolveHTTPMethod()" />*/
-	,
-	/*<BeginMethod Name="System.Boolean Infragistics.ReportPlusGetLicenseRequest::ParamsInRequestURL()" />*/
-	paramsInRequestURL: function () {
-		return this.__skipCache;
-	}
-	/*<EndMethod Name="System.Boolean Infragistics.ReportPlusGetLicenseRequest::ParamsInRequestURL()" />*/
-	,
-	/*<BeginMethod Name="Infragistics.CPDictionary Infragistics.ReportPlusGetLicenseRequest::ResolveParams()" />*/
-	resolveParams: function () {
-		if (!this.__skipCache) {
-			return $.ig.InfragisticsAPIRequestBase.prototype.resolveParams.call(this);
-		}
-		var dict = new $.ig.Dictionary(0);
-		dict.item("forceRefresh", this.__skipCache);
-		return dict;
-	}
-	/*<EndMethod Name="Infragistics.CPDictionary Infragistics.ReportPlusGetLicenseRequest::ResolveParams()" />*/
-	,
-	/*<BeginMethod Name="System.Object Infragistics.ReportPlusGetLicenseRequest::ProcessJSONResponse(Infragistics.CPJSONObject)" />*/
-	processJSONResponse: function (response) {
-		if (response == null || !response.containsKey("usersubscriptionid")) {
-			return null;
-		}
-		return response;
-	}
-	/*<EndMethod Name="System.Object Infragistics.ReportPlusGetLicenseRequest::ProcessJSONResponse(Infragistics.CPJSONObject)" />*/
-	,
-	$type: new $.ig.Type('ReportPlusGetLicenseRequest', $.ig.InfragisticsAPIRequestBase.prototype.$type)
-}, true);
-
-/*<EndType Name="Infragistics.ReportPlusGetLicenseRequest" />*/
-
 /*<BeginType Name="Infragistics.SharePointOAuthProvider" />*/
 
 $.ig.util.defType('SharePointOAuthProvider', 'MicrosoftOAuthProvider', {
@@ -30063,6 +30092,16 @@ $.ig.util.defType('SharePointFileManager', 'CloudFileManager', {
 		}
 	}
 	/*<EndMethod Name="Infragistics.CloudFile Infragistics.SharePointFileManager::CreateCloudFile(Infragistics.CPJSONObject, System.String)" />*/
+	,
+	/*<BeginMethod Name="System.Boolean Infragistics.SharePointFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
+	hasItemNotFoundError: function (error) {
+		var errorMessage = (error != null && !$.ig.CPStringUtility.prototype.isNullOrEmpty(error.errorMessage())) ? error.errorMessage().toLowerCase() : "";
+		if (error != null && error.errorCode() == 404 || $.ig.NativeStringUtility.prototype.contains(errorMessage, "-2130575338")) {
+			return true;
+		}
+		return false;
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.SharePointFileManager::HasItemNotFoundError(Infragistics.CloudError)" />*/
 	,
 	/*<BeginMethod Name="Infragistics.Request Infragistics.SharePointFileManager::DownloadFileFromLink(System.String, System.String, Infragistics.RequestSuccessBlock, Infragistics.RequestErrorBlock)" />*/
 	downloadFileFromLink: function (fileId, downloadLink, successHandler, errorHandler) {
@@ -33442,6 +33481,9 @@ $.ig.CloudFile.prototype.typeRPlus = "RPlus";
 $.ig.CloudFile.prototype.typeDashboard = "dashboard";
 $.ig.CloudFile.prototype._pendingMembersKey = "pendingMembers";
 $.ig.CloudFile.prototype._oldPendingMemberIdsKey = "pendingMemberIds";
+$.ig.CloudFile.prototype.folderRefreshTokenErrorCodeKey = 500;
+$.ig.CloudFile.prototype.folderRefreshTokenErrorKey = "RefreshTokenError";
+$.ig.CloudFile.prototype.folderRefreshTokenErrorDocumentKey = "document";
 /*<EndStatics Name="Infragistics.CloudFile" />*/
 
 /*<BeginStatics Name="Infragistics.CloudError" />*/
@@ -33454,6 +33496,11 @@ $.ig.CloudError.prototype.errorMaxDownloadSize = 1015;
 $.ig.CloudError.prototype.aDDITIONAL_INFO_CLOUD_PROVIDER_ID = "cloud-prov-id";
 $.ig.CloudError.prototype.aDDITIONAL_INFO_CLOUD_PROVIDER_MISSING_SCOPES = "cloud-prov-scopes";
 /*<EndStatics Name="Infragistics.CloudError" />*/
+
+/*<BeginStatics Name="Infragistics.CloudProviderTypeUtility" />*/
+
+$.ig.CloudProviderTypeUtility.prototype.__fileProviderManagers = null;
+/*<EndStatics Name="Infragistics.CloudProviderTypeUtility" />*/
 
 /*<BeginStatics Name="Infragistics.DocumentLink" />*/
 

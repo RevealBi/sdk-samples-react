@@ -1694,7 +1694,7 @@ $.ig.util.defType('InteractiveView', 'Object', {
 	,
 	/*<BeginMethod Name="System.Boolean Infragistics.InteractiveView::CanMove(System.Int32, System.Int32, System.Boolean)" />*/
 	canMove: function (x, y, isTouch) {
-		var slop = (isTouch || this.requiresTouchSlopForMove()) ? $.ig.InteractiveView.prototype.touchSlop : 1;
+		var slop = (isTouch || this.requiresTouchSlopForMove()) ? $.ig.InteractiveView.prototype.touchSlop : 15;
 		var distanceX = Math.abs(x - this.__startTouchX);
 		var distanceY = Math.abs(y - this.__startTouchY);
 		return distanceX > slop || distanceY > slop;
@@ -1851,35 +1851,40 @@ $.ig.util.defType('InteractiveView', 'Object', {
 	}
 	/*<EndMethod Name="System.Void Infragistics.InteractiveView::EndDrag(System.Boolean, System.Int32, System.Int32, System.Boolean)" />*/
 	,
+	__wheelTimer: null,
+	__wheelStopTimer: null,
+	__wheelFactorX: 0,
+	__wheelFactorY: 0,
 	/*<BeginMethod Name="System.Void Infragistics.InteractiveView::OnScrollWheel(System.JQuery.JQueryEvent)" />*/
 	onScrollWheel: function (e) {
+		var $self = this;
 		if (this.__disabled || !this.handlesUIInteraction()) {
 			return;
 		}
 		var deltaY = 0;
 		var deltaX = 0;
-		var deltaDivider = 1;
-		if (e.originalEvent && e.originalEvent.deltaY){ deltaDivider = e.originalEvent.deltaMode == 0 ? 60 : 10; deltaY = -e.originalEvent.deltaY / deltaDivider;};
-		if (e.originalEvent && e.originalEvent.deltaX){ deltaDivider = e.originalEvent.deltaMode == 0 ? 60 : 10; deltaX = -e.originalEvent.deltaX / deltaDivider;};
-		if (e.wheelDelta) {
-			deltaY = e.wheelDelta / 120;
+		if (this.__wheelStopTimer == null) {
+			this.__wheelStopTimer = new $.ig.CPTimer();
 		}
-		;
-		if (e.originalEvent && e.originalEvent.wheelDelta) {
-			if (e.originalEvent && e.originalEvent.wheelDeltaY) deltaY = e.originalEvent.wheelDeltaY / 120;
-			if (e.originalEvent && e.originalEvent.wheelDeltaX) deltaX = e.originalEvent.wheelDeltaX / 120;
+		this.__wheelStopTimer.stop();
+		this.__wheelStopTimer.startAndFireOnce(0.25, function () {
+			$self.__wheelFactorX = $self.__wheelFactorY = 1;
+			$self.__wheelTimer.stop();
+			$self.__wheelTimer = null;
+		});
+		var step = 2000;
+		var windowEvent = window.event || e;
+		deltaX = windowEvent.deltaX;
+		deltaY = -windowEvent.deltaY;
+		if (this.__wheelTimer == null) {
+			this.__wheelFactorX = deltaX != 0 ? Math.abs(deltaX) : 1;
+			this.__wheelFactorY = deltaY != 0 ? Math.abs(deltaY) : 1;
+			this.__wheelTimer = new $.ig.CPTimer();
+			this.__wheelTimer.startAndFireOnce(60, function () {
+			});
 		}
-		;
-		if (e.detail) {
-			deltaY = -e.detail / 3;
-		}
-		;
-		if (e.originalEvent && e.originalEvent.detail) {
-			deltaY = -e.originalEvent.detail / 3;
-		}
-		;
-		deltaY = deltaY / 30;
-		deltaX = deltaX / 30;
+		deltaX = this.scrollWheelDeltaHelper(deltaX, this.__wheelFactorX, step);
+		deltaY = this.scrollWheelDeltaHelper(deltaY, this.__wheelFactorY, step);
 		var pos = this._element.offset();
 		var x = this.getX(e.originalEvent, pos);
 		var y = this.getY(e.originalEvent, pos);
@@ -1889,6 +1894,24 @@ $.ig.util.defType('InteractiveView', 'Object', {
 		}
 	}
 	/*<EndMethod Name="System.Void Infragistics.InteractiveView::OnScrollWheel(System.JQuery.JQueryEvent)" />*/
+	,
+	/*<BeginMethod Name="System.Double Infragistics.InteractiveView::ScrollWheelDeltaHelper(System.Double, System.Double, System.Double)" />*/
+	scrollWheelDeltaHelper: function (delta, factor, step) {
+		var result = 0;
+		if (factor >= 50) {
+			var absDelta = Math.abs(delta);
+			var scale = absDelta <= factor ? factor / 4 : absDelta <= factor * 3 ? factor / 6 : delta <= factor * 10 ? factor / 10 : factor / 50;
+			result = delta / scale / step;
+		} else if (factor >= 16) {
+			var absDelta1 = Math.abs(delta);
+			var scale1 = absDelta1 <= factor ? factor / 3 : absDelta1 <= factor * 3 ? factor / 6 : 1;
+			result = delta / scale1 / step;
+		} else {
+			result = delta / factor / step;
+		}
+		return result;
+	}
+	/*<EndMethod Name="System.Double Infragistics.InteractiveView::ScrollWheelDeltaHelper(System.Double, System.Double, System.Double)" />*/
 	,
 	/*<BeginMethod Name="System.Boolean Infragistics.InteractiveView::HandlesUIInteraction()" />*/
 	handlesUIInteraction: function () {
@@ -9049,6 +9072,10 @@ $.ig.util.defType('NativeUIUtility', 'Object', {
 				$.ig.WebCoreUtils.prototype.addHeaders(xhr, headers);
 			}
 		};
+		var xhrFields = {};
+		if ($.ig.WebCoreUtils.prototype.includeWithCredentialsFlag()) {
+			xhrFields["withCredentials"] = true;
+		}
 		
 				$.ajax({
                     url: ajaxUrl, 
@@ -9059,6 +9086,7 @@ $.ig.util.defType('NativeUIUtility', 'Object', {
                     beforeSend: function (xhr) {
                         addHeadersBlock(xhr, extraHeaders);
                     },
+                    xhrFields: xhrFields,
 					success: function(result) {
 						var img = document.createElement('img');
 						img.src = 'data:image/png;base64,' + result;
@@ -13921,6 +13949,7 @@ $.ig.util.defType('CPBucketViewCell', 'CPGridViewItemCellBase', {
 			this.__gridView = new $.ig.CPGridView(0);
 			this.__gridView._rowHeight = this.sizingGuide().height();
 			this.__gridView._headerHeight = 0;
+			this.__gridView.setScrollbarsAlwaysVisible(false, true);
 			this.__gridView._rowSeparatorHeight = 0;
 			this.__gridView._sectionHeaderHeight = this.__gridView._rowHeight;
 			this.__gridView._rowSpacing = $.ig.ThemeManager.prototype.theme().padding5();
@@ -15071,7 +15100,7 @@ $.ig.util.defType('CPIconButton', 'CPInteractionView', {
 			if (this.__dropDown == null) {
 				this.__dropDown = new $.ig.PathIconView();
 				this.__dropDown.setIcon($.ig.UIPathIcons.prototype.icons().getChevronDownIcon());
-				this.__dropDown.iconColor(this.__icon.iconColor());
+				this.__dropDown.iconColor(this.getColor());
 				this.addSubview(this.__dropDown);
 			}
 			this.__dropDown.isHidden(false);
@@ -15217,11 +15246,13 @@ $.ig.util.defType('CPIconButton', 'CPInteractionView', {
 	}
 	/*<EndMethod Name="System.Void Infragistics.CPIconButton::SetColor(System.String)" />*/
 	,
+	__buttonForegroundColor: null,
 	/*<BeginMethod Name="System.Void Infragistics.CPIconButton::SetColor(System.String, System.Boolean)" />*/
 	setColor1: function (color, quietly) {
 		if (!quietly) {
 			this.__currentColor = color;
 		}
+		this.__buttonForegroundColor = color;
 		this.__icon.iconColor(color);
 		if (this.__buttonBorderView != null) {
 			this.__buttonBorderView.setBorderColor(color);
@@ -15242,7 +15273,7 @@ $.ig.util.defType('CPIconButton', 'CPInteractionView', {
 	,
 	/*<BeginMethod Name="System.String Infragistics.CPIconButton::GetColor()" />*/
 	getColor: function () {
-		return this.__icon.iconColor();
+		return this.__buttonForegroundColor;
 	}
 	/*<EndMethod Name="System.String Infragistics.CPIconButton::GetColor()" />*/
 	,
@@ -16659,13 +16690,19 @@ $.ig.util.defType('CPIIconLabelPillButton', 'CPIconLabelButton', {
 	}
 	/*<EndProperty Name="System.String Infragistics.CPIIconLabelPillButton::DefaultForegroundColor()" />*/
 	,
+	/*<BeginMethod Name="System.Void Infragistics.CPIIconLabelPillButton::ResetDefaultPaddings()" />*/
+	resetDefaultPaddings: function () {
+		this.overrideIconLabelPadding($.ig.ThemeManager.prototype.theme().padding5());
+		this.overrideLabelEdgePadding($.ig.ThemeManager.prototype.theme().padding5());
+	}
+	/*<EndMethod Name="System.Void Infragistics.CPIIconLabelPillButton::ResetDefaultPaddings()" />*/
+	,
 	/*<BeginMethod Name="System.Void Infragistics.CPIIconLabelPillButton::SetupPill()" />*/
 	setupPill: function () {
 		this.__arrowSpacing = $.ig.NativeUIUtility.prototype.utility().densify(2);
 		this.setColor(this.defaultForegroundColor());
 		this.setFont($.ig.ThemeManager.prototype.theme().mediumFont());
-		this.overrideIconLabelPadding($.ig.ThemeManager.prototype.theme().padding5());
-		this.overrideLabelEdgePadding($.ig.ThemeManager.prototype.theme().padding5());
+		this.resetDefaultPaddings();
 		this.turnOffHilightBackgroundView();
 		this.__pillBackgroundView = new $.ig.CPView();
 		this.__pillBackgroundView.setCornerRadius($.ig.ThemeManager.prototype.theme().itemCornerRadius());
@@ -21420,9 +21457,11 @@ $.ig.util.defType('CPContentViewController', 'ViewControllerBase', {
 		this.title(this.__titleValue);
 		this.view().addSubview(this.__contentView);
 		if (this.__hasClose && $.ig.util.cast($.ig.CPPopupViewDelegate.prototype.$type, this.__contentView) !== null) {
-			this.addRightBarButtonItem($.ig.ThemeManager.prototype.theme().createNavBarButton(null, $.ig.UIPathIcons.prototype.icons().getEMCloseIcon(), function (x, y) {
+			var button = $.ig.ThemeManager.prototype.theme().createNavBarButton(null, $.ig.UIPathIcons.prototype.icons().getEMCloseIcon(), function (x, y) {
 				$self.close();
-			}));
+			});
+			this.addRightBarButtonItem(button);
+			$.ig.UIUtility.prototype.setAccessibilityName1(button, "overflow_options_button_Close");
 		}
 		if (this.__additionalButtons != null) {
 			for (var i = 0; i < this.__additionalButtons.length; i++) {
@@ -21773,6 +21812,10 @@ $.ig.util.defType('CPDialogTextBox', 'CPGridViewItemCellBase', {
 	/*<BeginMethod Name="System.Void Infragistics.CPDialogTextBox::TextViewTextChanged()" />*/
 	textViewTextChanged: function () {
 		var hasText = !$.ig.CPStringUtility.prototype.isNullOrEmpty(this.getText());
+		var hasTextChanged = hasText != this.__hasText;
+		if (hasTextChanged) {
+			this.__hasText = hasText;
+		}
 		if (this.__characterLimit > 0) {
 			if (hasText && this.getText().length > this.__characterLimit) {
 				this.setText($.ig.NativeStringUtility.prototype.substring(this.getText(), 0, this.__characterLimit));
@@ -21782,8 +21825,7 @@ $.ig.util.defType('CPDialogTextBox', 'CPGridViewItemCellBase', {
 			this.updateCharacterLimit();
 			this.triggerSizeChanged();
 		}
-		if (hasText != this.__hasText) {
-			this.__hasText = hasText;
+		if (hasTextChanged) {
 			this.ensureStates();
 		}
 		if (this.__textChanged != null) {
@@ -49116,7 +49158,13 @@ $.ig.util.defType('ScrollEventProcessor', 'Object', {
 	__startY: 0,
 	/*<BeginMethod Name="System.Void Infragistics.ScrollEventProcessor::HandleMouseDown(System.Double, System.Double)" />*/
 	handleMouseDown: function (x, y) {
-		if (this.allowMouseDrag()) {
+		this.processDown(x, y, true);
+	}
+	/*<EndMethod Name="System.Void Infragistics.ScrollEventProcessor::HandleMouseDown(System.Double, System.Double)" />*/
+	,
+	/*<BeginMethod Name="System.Void Infragistics.ScrollEventProcessor::ProcessDown(System.Double, System.Double, System.Boolean)" />*/
+	processDown: function (x, y, isMouse) {
+		if (!isMouse || this.allowMouseDrag()) {
 			this.__isScrolling = false;
 			this.stopAnimationTimers();
 			var val = (this.__contentOffsetX / this._scrollHelperDelegate.viewportWidth());
@@ -49134,11 +49182,17 @@ $.ig.util.defType('ScrollEventProcessor', 'Object', {
 			this.__anchorPointY = y;
 		}
 	}
-	/*<EndMethod Name="System.Void Infragistics.ScrollEventProcessor::HandleMouseDown(System.Double, System.Double)" />*/
+	/*<EndMethod Name="System.Void Infragistics.ScrollEventProcessor::ProcessDown(System.Double, System.Double, System.Boolean)" />*/
 	,
 	/*<BeginMethod Name="System.Void Infragistics.ScrollEventProcessor::HandleMouseUp()" />*/
 	handleMouseUp: function () {
-		if (this.allowMouseDrag()) {
+		this.processUp(true);
+	}
+	/*<EndMethod Name="System.Void Infragistics.ScrollEventProcessor::HandleMouseUp()" />*/
+	,
+	/*<BeginMethod Name="System.Void Infragistics.ScrollEventProcessor::ProcessUp(System.Boolean)" />*/
+	processUp: function (isMouse) {
+		if (!isMouse || this.allowMouseDrag()) {
 			this.__mouseDown = false;
 			if (this.__isScrolling) {
 				this.__isScrolling = false;
@@ -49146,7 +49200,7 @@ $.ig.util.defType('ScrollEventProcessor', 'Object', {
 			}
 		}
 	}
-	/*<EndMethod Name="System.Void Infragistics.ScrollEventProcessor::HandleMouseUp()" />*/
+	/*<EndMethod Name="System.Void Infragistics.ScrollEventProcessor::ProcessUp(System.Boolean)" />*/
 	,
 	/*<BeginMethod Name="System.Void Infragistics.ScrollEventProcessor::StartMultiTouch(, )" />*/
 	startMultiTouch: function (x, y) {
@@ -49165,7 +49219,7 @@ $.ig.util.defType('ScrollEventProcessor', 'Object', {
 	,
 	/*<BeginMethod Name="System.Void Infragistics.ScrollEventProcessor::HandleTouchStart(, )" />*/
 	handleTouchStart: function (x, y) {
-		this.handleMouseDown(x[0], y[0]);
+		this.processDown(x[0], y[0], false);
 		if (x.length > 1) {
 			this.startMultiTouch(x, y);
 		}
@@ -49188,7 +49242,7 @@ $.ig.util.defType('ScrollEventProcessor', 'Object', {
 		if (this.__zoomScale < this.__minZoomScale) {
 			this.__zoomScale = this.__minZoomScale;
 		}
-		this.handleMouseUp();
+		this.processUp(false);
 	}
 	/*<EndMethod Name="System.Void Infragistics.ScrollEventProcessor::HandleTouchEnd(System.Int32)" />*/
 	,
@@ -53071,6 +53125,24 @@ $.ig.util.defType('CPTheme', 'Object', {
 		return this.resolveColorSet("orange", 247, 140, 30);
 	}
 	/*<EndProperty Name="Infragistics.CPThemeColorSet Infragistics.CPTheme::OrangeColor()" />*/
+	,
+	/*<BeginProperty Name="Infragistics.CPThemeColorSet Infragistics.CPTheme::GoldColor()" />*/
+	goldColor: function () {
+		return this.resolveColorSet("gold", 255, 181, 103);
+	}
+	/*<EndProperty Name="Infragistics.CPThemeColorSet Infragistics.CPTheme::GoldColor()" />*/
+	,
+	/*<BeginProperty Name="Infragistics.CPThemeColorSet Infragistics.CPTheme::SilverColor()" />*/
+	silverColor: function () {
+		return this.resolveColorSet("silver", 167, 195, 224);
+	}
+	/*<EndProperty Name="Infragistics.CPThemeColorSet Infragistics.CPTheme::SilverColor()" />*/
+	,
+	/*<BeginProperty Name="Infragistics.CPThemeColorSet Infragistics.CPTheme::BronzeColor()" />*/
+	bronzeColor: function () {
+		return this.resolveColorSet("bronze", 197, 110, 77);
+	}
+	/*<EndProperty Name="Infragistics.CPThemeColorSet Infragistics.CPTheme::BronzeColor()" />*/
 	,
 	/*<BeginProperty Name="Infragistics.CPThemeColorSet Infragistics.CPTheme::ErrorColor()" />*/
 	errorColor: function () {

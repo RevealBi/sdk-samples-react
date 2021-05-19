@@ -270,10 +270,6 @@ $.ig.em.strings =
     
       "CopyHere" : "Copy Here",
     
-      "CreateNewTeam" : "Create New Team",
-    
-      "CreateTeam" : "Create Team",
-    
       "Delete" : "Delete",
     
       "EmptyStateBoardSectionSubTitle" : "Add a group or drag your files here",
@@ -284,17 +280,9 @@ $.ig.em.strings =
     
       "EmptyStateContentWidgetTitle" : "Pin your Favorites",
     
-      "EmptyStateTeamsSubTitle" : "Don’t be lonely - be happy",
+      "LeaveWorkspace" : "Leave Workspace",
     
-      "EmptyStateTeamsTitle" : "Create Teams",
-    
-      "EnterTeamName" : "Name your team",
-    
-      "LeaveTeam" : "Leave Team",
-    
-      "LeaveProject" : "Leave Project",
-    
-      "DeleteTeam" : "Delete Team",
+      "DeleteWorkspace" : "Delete Workspace",
     
       "ManageWidgets" : "Manage Widgets",
     
@@ -320,7 +308,7 @@ $.ig.em.strings =
     
       "Settings" : "Settings",
     
-      "Teams" : "Teams",
+      "Workspaces" : "Workspaces",
     
       "ANALYSISSERVICES" : "Microsoft Analysis Services",
     
@@ -434,11 +422,7 @@ $.ig.em.strings =
     
       "EnterEmail" : "Enter Email",
     
-      "InviteTeamMembers" : "Invite Team Members",
-    
       "InvitedMembers" : "Invited Members",
-    
-      "UpdateTeam" : "Update Team",
     
       "ItemPinnedNotificationMessage" : "Your item %@ is pinned!",
     
@@ -455,8 +439,6 @@ $.ig.em.strings =
       "ItemDeletedNotificationMessage" : "Item deleted",
     
       "LinkAddedNotificationMessage" : "Web Link pinned",
-    
-      "ManageTeam" : "Manage Team",
     
       "ManageMembers" : "Manage Members",
     
@@ -704,15 +686,7 @@ $.ig.em.strings =
     
       "UploadFilesTitle" : "Upload your files",
     
-      "Import" : "Import",
-    
       "Join" : "Join",
-    
-      "O365Groups" : "Your Office 365 Groups",
-    
-      "SharePlusTeams" : "Slingshot Teams",
-    
-      "Imported" : "Imported",
     
       "Joined" : "Joined",
     
@@ -760,7 +734,7 @@ $.ig.em.strings =
     
       "Themes" : "Themes",
     
-      "RenameTeam" : "Rename Team",
+      "RenameWorkspace" : "Rename Workspace",
     
       "TasksManager" : "Tasks Manager",
     
@@ -1170,6 +1144,8 @@ $.ig.em.strings =
     
       "TextAlignment" : "Text Alignment",
     
+      "ErrorGettingAccounts" : "Error getting accounts, please contact support.",
+    
       "AccountSavedErrorMessage" : "Account credentials could not be saved: {0}",
     
       "AccountSavedMessage" : "Account credentials have been saved",
@@ -1223,6 +1199,8 @@ $.ig.em.strings =
       "GetDatabases" : "Get Databases",
     
       "LoadingDatabases" : "Loading Databases",
+    
+      "LoadingResource" : "Loading Resource",
     
       "GetOrganizations" : "Get Organizations",
     
@@ -1310,14 +1288,6 @@ $.ig.em.strings =
     
       "TopPercent" : "Top Percent",
     
-      "dashboards_NotificationID" : "Dashboards",
-    
-      "tasks_NotificationID" : "Tasks",
-    
-      "teams_NotificationID" : "Teams",
-    
-      "projects_NotificationID" : "Projects",
-    
       "fileAccess_NotificationID" : "Files",
     
       "NotificationsFilter_All" : "All Notifications",
@@ -1400,6 +1370,10 @@ $.ig.em.strings =
     
       "NotificationTemplateTitle_successorDatesChanged" : "When a date change for a task causes a date change for a dependent task",
     
+      "NotificationTemplateTitle_successorAdded" : "When your task starts blocking another task",
+    
+      "NotificationTemplateTitle_predecessorAdded" : "When your task starts waiting on another task",
+    
       "NotificationSummary_Task_StartDateChanged" : "%1 changed the start date to %2",
     
       "NotificationSummary_Task_DueDateChanged" : "%1 changed the due date to %2",
@@ -1435,6 +1409,10 @@ $.ig.em.strings =
       "NotificationSummary_Task_SuccessorDateChanged_Due" : "Your new due date is %2",
     
       "NotificationSummary_Task_SuccessorDateChanged_Both" : "Your task has new start and due dates",
+    
+      "NotificationSummary_Task_SuccessorAdded" : "Your task is now blocking another task",
+    
+      "NotificationSummary_Task_PredecessorAdded" : "Your task is now waiting on another task",
     
       "NotificationSummary_Task_Updated" : "%1 updated this task",
     
@@ -1510,6 +1488,8 @@ $.ig.em.strings =
     
       "Value" : "Value",
     
+      "OptionalValue" : "Optional value",
+    
       "ValueAndPercentage" : "Value and Percentage",
     
       "Limits" : "Limits",
@@ -1552,7 +1532,7 @@ $.ig.em.strings =
     
       "Date" : "Date",
     
-      "Team" : "Team",
+      "Workspace" : "Workspace",
     
       "ItemsSelected" : "Items Selected",
     
@@ -1796,6 +1776,8 @@ $.ig.em.strings =
     
       "YearToDatePreviousYear" : "Year vs previous Year",
     
+      "Connection" : "Connection",
+    
       "Connect" : "Connect",
     
       "Disconnect" : "Disconnect",
@@ -1840,8 +1822,6 @@ $.ig.em.strings =
     
       "VisualizeTasks" : "Visualize Tasks",
     
-      "TeamFiltersEmptyState" : "Create filters to track the crucial tasks you want to stay on top of",
-    
       "RuleValueLower" : "rule value",
     
       "SelectFilterType" : "Select Filter Type",
@@ -1856,19 +1836,13 @@ $.ig.em.strings =
     
       "AddTasksWidgetTitleDescription" : "Select an existing filter or create a new one",
     
-      "CreateNewFilter" : "Create New Filter",
-    
-      "CreateNewFilterTitleDescription" : "Select options to create your filter",
-    
       "EditFilterTitleDescription" : "Select options to edit your existing filter",
-    
-      "MyFilters" : "My Filters",
-    
-      "TeamFilters" : "Team Filters",
     
       "Accounts" : "Accounts",
     
       "DataSourceAccount" : "Data Source Account",
+    
+      "DataSourceCredentials" : "Data Source Credentials",
     
       "EditSharePoint" : "Edit SharePoint site",
     
@@ -1884,6 +1858,8 @@ $.ig.em.strings =
     
       "AddNewWebResource" : "Add a new Web Resource",
     
+      "AddWebResource" : "Add content from Web",
+    
       "AccountVerificationFailed" : "Verification failed",
     
       "AccountVerificationFailedMessage" : "These credentials did not work with {0}",
@@ -1892,17 +1868,13 @@ $.ig.em.strings =
     
       "CreateNewAccountMessage" : "Add new credentials to use on different data sources",
     
-      "EditAccount" : "Edit Account",
-    
-      "EditAccountMessage" : "Use these credentials on different data sources",
-    
       "VerifyingCredentials" : "Verifying Credentials...",
+    
+      "SavingCredentials" : "Saving Credentials...",
     
       "CheckingCredentials" : "Checking credentials...",
     
       "DeleteAccount" : "Delete Account",
-    
-      "CreateNewFilterDescription" : "Build your filter to display the tasks you want",
     
       "ChangeVisualization" : "Chart Types",
     
@@ -1952,6 +1924,10 @@ $.ig.em.strings =
     
       "WindowsCredentials" : "Windows credentials",
     
+      "ChangeCredentials" : "Change Credentials",
+    
+      "DontNeedCredentials" : "Don't need Credentials",
+    
       "TasActivityDescriptionChanged" : "Description was changed",
     
       "TaskActivityAssignedToChanged" : "Task was assigned",
@@ -1977,8 +1953,6 @@ $.ig.em.strings =
       "TaskActivityTasWasUnassigned" : "Task was unassigned",
     
       "TaskActivityTitleChanged" : "Title was changed",
-    
-      "JoinTeam" : "Join %P Teams",
     
       "LeftAxisConfig" : "Left Axis Config",
     
@@ -2060,13 +2034,9 @@ $.ig.em.strings =
     
       "DuplicatedDataSourceMessage" : "This data source contains the same information as \"{0}\". Please modify it or use the existing one.",
     
-      "EmptyTeamName" : "Empty Team Name",
+      "MaxCharactersReached" : "Maximum characters reached",
     
-      "EmptyTeamNameMessage" : "Please enter a name for your Team",
-    
-      "MaxTeamCharacters" : "Maximum characters reached",
-    
-      "MaxTeamCharactersMessage" : "You can have a maximum of 30 characters for your Team name",
+      "MaxWorkspaceCharactersMessage" : "You can have a maximum of 30 characters for your Workspace name",
     
       "SelectDashboard" : "Select Dashboard",
     
@@ -2184,10 +2154,6 @@ $.ig.em.strings =
     
       "EmptyStatePersonalContentTitle" : "Personal Content",
     
-      "EmptyStateTeamContentSubTitle" : "Shared account access for everyone to enjoy",
-    
-      "EmptyStateTeamContentTitle" : "Team Content",
-    
       "NoPersonalProvidersMessage" : "You don't currently have any content providers setup",
     
       "NoTeamProvidersMessage" : "There aren't any shared content providers setup for this team",
@@ -2222,6 +2188,8 @@ $.ig.em.strings =
     
       "ChangeDataSource" : "Change data source",
     
+      "ConfirmChangeDatasourceText" : "Change this data source could affect some dashboards. This change can not be undone.",
+    
       "SetupDataSource" : "Set up data source",
     
       "ActionNotAvailableInEditor" : "Action not available while in the editor",
@@ -2233,6 +2201,8 @@ $.ig.em.strings =
       "EditDashboardTitle" : "Edit Dashboard Title",
     
       "SetParameterMessage" : "Select values for this parameter",
+    
+      "SetParameters" : "Set parameters",
     
       "ArchivedTasks" : "Archived Tasks",
     
@@ -2260,8 +2230,6 @@ $.ig.em.strings =
     
       "EditOracle" : "Edit Oracle",
     
-      "ImportGroups" : "Import External Groups",
-    
       "EmptyLinksHelp" : "Connect this visualization to another dashboard or a URL",
     
       "Selection" : "Selection",
@@ -2278,7 +2246,7 @@ $.ig.em.strings =
     
       "PersonalTasks" : "Personal Tasks",
     
-      "TeamTasks" : "Team Tasks",
+      "WorkspaceTasks" : "Workspace Tasks",
     
       "PinCopied" : "Pin Copied",
     
@@ -2369,8 +2337,6 @@ $.ig.em.strings =
       "SharedWithOrg" : "Shared with my Organization",
     
       "SharedWithTeam" : "Shared with my Team",
-    
-      "TeamDashboards" : "Team Dashboards",
     
       "InvalidUrl" : "Invalid URL",
     
@@ -2492,8 +2458,6 @@ $.ig.em.strings =
     
       "MyTags" : "My Tags",
     
-      "TeamTags" : "Team Tags",
-    
       "TaskAdded" : "Task Added",
     
       "RemoveFilter" : "Remove Filter",
@@ -2557,16 +2521,6 @@ $.ig.em.strings =
       "ToolTipTaskWidgetVisual" : "Visualize",
     
       "ToolTipVisualizations" : "Get insights with self-service BI and data visualizations",
-    
-      "ImportTeamsEmptyStateMessage" : "There are no external groups to import at the moment. Groups from your O365 / Google accounts will be listed here.",
-    
-      "ImportTeamsEmptyStateTitle" : "No External Groups to Import",
-    
-      "JoinTeamsEmptyStateMessageNoOrg" : "There are currently no teams to join. If your team was part of an organization, you would be able to join %P teams your coworkers created.",
-    
-      "JoinTeamsEmptyStateMessageNoTeams" : "All %P teams in your organization are set to private. Public teams will show here allowing you to join them if you would like.",
-    
-      "JoinTeamsEmptyStateTitle" : "No Teams to Join",
     
       "ToolTipDiscussions" : "Conversation topics to discuss with your team",
     
@@ -2932,6 +2886,8 @@ $.ig.em.strings =
     
       "YesContinue" : "Yes, Continue",
     
+      "YesModify" : "Yes, modify",
+    
       "NoCancel" : "No, Cancel",
     
       "Yes" : "Yes",
@@ -2947,8 +2903,6 @@ $.ig.em.strings =
       "XmlaMeasureValues" : "Values",
     
       "XmlaSets" : "Sets",
-    
-      "messaging_NotificationID" : "Messaging",
     
       "NotificationTemplateTitle_directMessage" : "All new direct messages",
     
@@ -3112,8 +3066,6 @@ $.ig.em.strings =
     
       "AddTopic" : "Add Topic",
     
-      "YourTeam" : "Your Team",
-    
       "CopyMessageText" : "Copy Message",
     
       "MessageAddedToClipboard" : "Message Copied to Clipboard!",
@@ -3172,15 +3124,13 @@ $.ig.em.strings =
     
       "DashboardThemes" : "Dashboard Themes",
     
-      "TeamInfo" : "Team Info",
-    
-      "TeamUpdated" : "Team Updated",
+      "WorkspaceUpdated" : "Workspace Updated",
     
       "NameUpdated" : "Name Updated",
     
       "Discussion" : "Discussion",
     
-      "JoinOrCreateNewTeam" : "Join Or Create a Team",
+      "JoinOrCreateNewWorkspace" : "Join Or Create a Workspace",
     
       "NavigateBack" : "Navigate Back",
     
@@ -3236,8 +3186,6 @@ $.ig.em.strings =
     
       "AllOrganizations" : "All Organizations",
     
-      "GroupTeam" : "Group Team",
-    
       "PersonalOrg" : "Personal Organization",
     
       "AddGroup" : "Add Group",
@@ -3252,15 +3200,9 @@ $.ig.em.strings =
     
       "DiscussionName" : "Discussion Name",
     
-      "TeamGroupName" : "Team Group Name",
-    
       "TopicName" : "Topic Name",
     
       "SectionName" : "Section Name",
-    
-      "RemoveAllTeamsFromGroup" : "Remove All Teams From Group",
-    
-      "UngroupedTeams" : "Ungrouped Teams",
     
       "AddTablesManually" : "You can add tables manually with the + button",
     
@@ -3277,8 +3219,6 @@ $.ig.em.strings =
       "TrailingTwelveMonths" : "Trailing 12 Months",
     
       "FormatToDate" : "Format this field to a Date/Time?",
-    
-      "TeamCreated" : "Team Created",
     
       "InvitesSent" : "Invites Sent",
     
@@ -3313,8 +3253,6 @@ $.ig.em.strings =
       "UnsubscribeMessage" : "Unsubscribe from \"%@\"?",
     
       "UnsubscribeSuccessful" : "Successfully Unsubscribed",
-    
-      "TeamMembersRemoved" : "Team Members Removed",
     
       "NewKeyword" : "New",
     
@@ -3372,7 +3310,7 @@ $.ig.em.strings =
     
       "AssignNewOwner" : "Assign at least one new Owner",
     
-      "ReassignTeamOwner" : "Reassign Team Owner",
+      "ReassignWorkspaceOwner" : "Reassign Workspace Owner",
     
       "OwnerRequired" : "Team needs an owner",
     
@@ -3380,31 +3318,25 @@ $.ig.em.strings =
     
       "LeaveTeamQuestion" : "Leave Team?",
     
-      "LeaveProjectQuestion" : "Leave Project?",
+      "LeaveWorkspaceQuestion" : "Leave Workspace?",
     
-      "DeleteTeamMessage" : "It will be removed with all of its content.",
-    
-      "DeleteTeamQuestion" : "Delete Team?",
+      "DeleteWorkspaceMessage" : "It will be removed with all of its content.",
     
       "LeaveAndDelete" : "Leave & Delete",
     
-      "LeaveAndDeleteTeamMessage" : "Since you are the only member of this team, if you leave, it will be removed with all of its content.",
+      "LeaveAndDeleteWorkspaceMessage" : "Since you are the only member of this workspace, if you leave, it will be removed with all of its content.",
     
-      "LeaveAndDeleteTeamQuestion" : "Leave & Delete Team?",
+      "LeaveAndDeleteWorkspaceQuestion" : "Leave & Delete Workspace?",
     
-      "LeaveTeamMessage" : "You will no longer have access to the content within the team.",
+      "LeaveChildWorkspaceMessage" : "You will no longer receive notifications about this workspace.",
     
-      "LeaveProjectMessage" : "You will no longer receive notifications about this project.",
-    
-      "LeaveProjectMessageExternal" : "You will no longer have access to the content within the project.",
+      "LeaveWorkspaceNoAccessMessage" : "You will no longer have access to the content within the workspace.",
     
       "Privacy" : "Privacy",
     
       "AddTaskGroup" : "Add Task Group",
     
       "TaskGroup" : "Task Group",
-    
-      "TaskGroupName" : "Task Group Name",
     
       "TaskGroups" : "Task Groups",
     
@@ -3464,7 +3396,11 @@ $.ig.em.strings =
     
       "EditRESTAPI" : "Edit REST API",
     
+      "RestAPINoParameters" : "This Rest API does not require parameters.",
+    
       "Header" : "Header",
+    
+      "Headers" : "Headers",
     
       "Method" : "Method",
     
@@ -3479,6 +3415,8 @@ $.ig.em.strings =
       "SharedWithMeFilter" : "Shared with Me",
     
       "OAuthCredentialsInvalidUrl" : "Invalid url: {0}",
+    
+      "CredentialType" : "Credential Type",
     
       "GenericCredential" : "Generic Credentials",
     
@@ -3507,6 +3445,10 @@ $.ig.em.strings =
       "AccountDeleteErrorMessage" : "The account could not be deleted",
     
       "Key" : "Key",
+    
+      "SelectAKey" : "Select a key...",
+    
+      "CustomKey" : "Custom key...",
     
       "DashboardNotFound" : "Dashboard was not found",
     
@@ -3539,8 +3481,6 @@ $.ig.em.strings =
       "Modify" : "Modify",
     
       "PermissionsUpdated" : "Permissions Updated",
-    
-      "Project" : "Project",
     
       "ShareBoard" : "Share Board",
     
@@ -3642,19 +3582,17 @@ $.ig.em.strings =
     
       "ActivityTaskDescriptionChanged" : "%1 modified the Description",
     
-      "ActivityTeamAddedTeamMember" : "%1 added %2 to the team",
+      "ActivityWorkspaceAddedMember" : "%1 added %2 to the workspace",
     
-      "ActivityTeamColorSet" : "Changed Team Color",
+      "ActivityWorkspaceLeftWorkspace" : "%1 left workspace",
     
-      "ActivityTeamLeftTeam" : "%1 Left Team",
+      "ActivityModifyMemberRole" : "%1 changed the role of %2",
     
-      "ActivityTeamModifyTeamMemberRole" : "%1 changed the role of %2",
+      "ActivityMemberRoleChangedToOwner" : "%1 changed the role of %2 to Owner",
     
-      "ActivityTeamMemberRoleChangedToOwner" : "%1 changed the role of %2 to Owner",
+      "ActivityMemberRoleChangedToMember" : "%1 changed the role of %2 to Member",
     
-      "ActivityTeamMemberRoleChangedToMember" : "%1 changed the role of %2 to Member",
-    
-      "ActivityTeamMemberRoleChangedToViewer" : "%1 changed the role of %2 to Viewer",
+      "ActivityMemberRoleChangedToViewer" : "%1 changed the role of %2 to Viewer",
     
       "ActivityYourTeamMemberRoleChangedToOwner" : "%1 changed your role to Owner",
     
@@ -3662,17 +3600,13 @@ $.ig.em.strings =
     
       "ActivityYourTeamMemberRoleChangedToViewer" : "%1 changed your role to Viewer",
     
-      "ActivityTeamPrivacyLevelPrivate" : "Set the Privacy Level to Private",
+      "ActivityWorkspacePrivacyLevelPrivate" : "Set the Privacy Level to Private",
     
-      "ActivityTeamPrivacyLevelPublic" : "Set the Privacy Level to Public",
+      "ActivityWorkspacePrivacyLevelPublic" : "Set the Privacy Level to Public",
     
-      "ActivityTeamPrivacyLevelRestricted" : "Set the Privacy Level to Restricted",
+      "ActivityWorkspacePrivacyLevelRestricted" : "Set the Privacy Level to Restricted",
     
-      "ActivityTeamProviderRemoved" : "Removed %1 file provider",
-    
-      "ActivityTeamRemovedMemberFromTeam" : "%1 removed %2 from the team",
-    
-      "ActivityTeamRenamed" : "%1 set the name of the Team to: %2",
+      "ActivityWorkspaceProviderRemoved" : "Removed %1 file provider",
     
       "ActivityUnshared" : "Unshared with: %1",
     
@@ -3703,10 +3637,6 @@ $.ig.em.strings =
       "ChartSettings" : "Chart Settings",
     
       "ChartSettingsMessage" : "Easily customize the look and feel of your visualization.",
-    
-      "CreateATeam" : "Create a Team",
-    
-      "CreateATeamMessage" : "Work together with your collaborators to easily share and create your analytics.",
     
       "DashboardDateFilterMessage" : "Change the filter to update all visualizations at once.",
     
@@ -3754,13 +3684,11 @@ $.ig.em.strings =
     
       "Joining" : "Joining...",
     
-      "TeamName" : "Team Name",
-    
       "SendLater" : "Send Later",
     
       "SelectRole" : "Select Role",
     
-      "InviteTeamMembersDescription" : "Your Team has been created!\nLet's invite your teammates.",
+      "InviteWorkspaceMembersDescription" : "Your Workspace has been created!\nLet's invite your teammates.",
     
       "FolderRenamed" : "Folder Renamed",
     
@@ -3864,13 +3792,7 @@ $.ig.em.strings =
     
       "RemoveMyself" : "Remove Myself",
     
-      "RemoveMySelfFromShareDocumentMessage" : "You will no longer have access to this %@",
-    
-      "RemoveMyTeam" : "Remove My Team",
-    
-      "RemoveMyTeamFromShareDocumentMessage" : "The team will no longer have access to this %@",
-    
-      "RemoveTeam" : "Remove Team",
+      "RemoveWorkspace" : "Remove Workspace",
     
       "RemoveMember" : "Remove Member",
     
@@ -3888,6 +3810,8 @@ $.ig.em.strings =
     
       "ChangeDisplayName" : "Change Display Name",
     
+      "DisplayName" : "Display Name",
+    
       "ManageCredentialsSubtitle" : "Use these credentials on different data sources",
     
       "MoreInfo" : "More Info",
@@ -3904,13 +3828,11 @@ $.ig.em.strings =
     
       "classicTheme" : "Classic Theme",
     
-      "OrgInfo" : "Organization Info",
-    
       "BackTo" : "Back to %@",
     
-      "ActivityTeamProviderSubsiteAdded" : "Added file provider subsite",
+      "ActivityWorkspaceProviderSubsiteAdded" : "Added file provider subsite",
     
-      "ActivityTeamProviderSubsiteRemoved" : "Removed file provider subsite",
+      "ActivityWorkspaceProviderSubsiteRemoved" : "Removed file provider subsite",
     
       "HelpAddingVisualization" : "Adding a Visualization",
     
@@ -3996,7 +3918,9 @@ $.ig.em.strings =
     
       "PurchaseProduct" : "Purchase %@",
     
-      "SubscriptionHasExpired" : "Subscription expired on %@",
+      "SubscriptionHasExpired" : "Your subscription has expired",
+    
+      "SubscriptionHasExpiredOn" : "Subscription expired on %@",
     
       "ContactSubscriptionManager" : "Contact Manager",
     
@@ -4088,7 +4012,9 @@ $.ig.em.strings =
     
       "Trial" : "Trial",
     
-      "YourTrialHasExpired" : "Free trial expired on %@",
+      "YourTrialHasExpired" : "Your free trial has expired",
+    
+      "YourTrialHasExpiredOn" : "Free trial expired on %@",
     
       "MessageWasDeleted" : "Message deleted.",
     
@@ -4097,6 +4023,8 @@ $.ig.em.strings =
       "MySubscriptionHasExpired" : "My %@ subscription has expired",
     
       "SubscriptionEmailMessage" : "Hi,\n\nMy %@ subscription has expired, I need it to continue working. Could you renew it, please?\n\nThanks.",
+    
+      "SubscriptionSoonEmailMessage" : "Hi,\n\nMy %@ subscription is expiring soon, I need it to continue working. Could you renew it, please?\n\nThanks.",
     
       "SubscriptionUpdated" : "Subscription Updated!",
     
@@ -4376,7 +4304,9 @@ $.ig.em.strings =
     
       "EmptyStatePinPersonalContentTitle" : "Setup Your Content Providers",
     
-      "Change" : "Change...",
+      "Change" : "Change",
+    
+      "ChangeEllipsis" : "Change...",
     
       "Group" : "Group",
     
@@ -4466,9 +4396,7 @@ $.ig.em.strings =
     
       "Basic" : "Basic",
     
-      "AllTeamMembers" : "All Team Members",
-    
-      "AllProjectMembers" : "All Project Members",
+      "AllWorkspacetMembers" : "All Workspace Members",
     
       "CreateAndClose" : "Create and Close",
     
@@ -4612,8 +4540,6 @@ $.ig.em.strings =
     
       "PrivateCloudStorage" : "Private Cloud Storage",
     
-      "ProjectCloudStorage" : "Project Cloud Storage",
-    
       "DeleteFromProvider" : "Delete from %@",
     
       "DeleteFromProviderDescription" : "This will delete the item from your %@ account",
@@ -4690,7 +4616,7 @@ $.ig.em.strings =
     
       "EmptyStatePinTeamContentTitle" : "Setup Your Content Providers",
     
-      "TeamCloudStorage" : "Team Cloud Storage",
+      "WorkspaceCloudStorage" : "Workspace Cloud Storage",
     
       "Not" : "Not",
     
@@ -4814,13 +4740,9 @@ $.ig.em.strings =
     
       "ReportingSetUp" : "Set up your Report",
     
-      "DeleteProject" : "Delete Project",
+      "NewWorkspace" : "New Workspace",
     
-      "DeleteProjectMessage" : "It will be removed with all of its content.",
-    
-      "NewProject" : "New Project",
-    
-      "ProjectName" : "Project Name",
+      "WorkspaceName" : "Workspace Name",
     
       "PythonScript" : "Python Script",
     
@@ -4872,13 +4794,11 @@ $.ig.em.strings =
     
       "MoveDashboard" : "Move Dashboard",
     
-      "CreateProject" : "Create Project",
+      "CreateWorkspace" : "Create Workspace",
     
       "TypeBriefDescription" : "Type a brief description",
     
       "XCharactersRemaining" : "%@ characters left",
-    
-      "Issues" : "Issues",
     
       "Milestones" : "Milestones",
     
@@ -4888,11 +4808,7 @@ $.ig.em.strings =
     
       "EndDate" : "End Date",
     
-      "ProjectUpdated" : "Project Updated",
-    
-      "EditProject" : "Edit Project",
-    
-      "ActivityTeamDescriptionSet" : "%1 modified the Description",
+      "ActivityWorkspaceDescriptionSet" : "%1 modified the Description",
     
       "ActivityWorkspaceEndDateNotSet" : "%1 removed the End Date",
     
@@ -4930,15 +4846,9 @@ $.ig.em.strings =
     
       "UserCreatedNewWorkspace" : "%1 created this project",
     
-      "IssuesEmptyStateMessage" : "There are currently no issues within this project",
-    
-      "IssuesEmptyStateTitle" : "No Issues",
-    
       "MentionsEmptyStateMessagePersonal" : "You do not currently have any mentions",
     
-      "MentionsEmptyStateMessageTeam" : "You do not currently have any mentions within this team",
-    
-      "MentionsEmptyStateMessageProject" : "You do not currently have any mentions within this project",
+      "MentionsEmptyStateMessageWorkspace" : "You do not currently have any mentions within this workspace",
     
       "MentionsEmptyStateTitle" : "No Mentions",
     
@@ -4946,17 +4856,15 @@ $.ig.em.strings =
     
       "MilestonesEmptyStateTitle" : "No Milestones",
     
-      "TeamContentEmptyStateMessage" : "Pin crucial stuff here for easy access",
+      "WorkspaceOverviewContentEmptyStateMessage" : "Pin crucial stuff here for easy access",
     
-      "TeamContentEmptyStateTitle" : "No Content",
+      "NoContent" : "No Content",
     
-      "TeamTaskEmptyStateTitle" : "No Tasks",
-    
-      "TeamTasksEmptyStateMessage" : "Tasks assigned to your team members will show up here",
+      "WorkspaceTaskEmptyStateMessage" : "Tasks assigned to members of this workspace will show up here.",
     
       "NOfN" : "%1 of %2",
     
-      "EditTeam" : "Edit Team",
+      "EditWorkspace" : "Edit Workspace",
     
       "EditOrg" : "Edit Organization",
     
@@ -4977,8 +4885,6 @@ $.ig.em.strings =
       "GoogleAnalyticsDataErrorMessage" : "%@ does not have any properties associated with it.",
     
       "GoogleErrorButtonMessage" : "Choose a Different Google Account",
-    
-      "Issue" : "Issue",
     
       "AtRisk" : "At Risk",
     
@@ -5094,10 +5000,6 @@ $.ig.em.strings =
     
       "RemoveBookmarkMessage" : "This bookmark will be removed from this overview.",
     
-      "ThisTeam" : "This Team",
-    
-      "ThisProject" : "This Project",
-    
       "ThisFolderIsEmpty" : "This folder is empty",
     
       "PurchaseFailed" : "Purchase didn't complete. Error details: %@",
@@ -5150,29 +5052,17 @@ $.ig.em.strings =
     
       "ActivityTasksStartDateSet" : "%1 set the Start Date",
     
-      "ActivityProjectStatusChanged" : "%1 set the Status to %2",
+      "ActivityWorkspaceStatusChanged" : "%1 set the Status to %2",
     
-      "ActivityProjectStartDateChanged" : "%1 set the Start Date to %2",
+      "ActivityWorkspaceStartDateChanged" : "%1 set the Start Date to %2",
     
-      "ActivityProjectEndDateChanged" : "%1 set the End Date to %2",
+      "ActivityWorkspaceEndDateChanged" : "%1 set the End Date to %2",
     
-      "ActivityProjectStartDateRemoved" : "%1 removed the Start Date",
+      "ActivityWorkspaceStartDateRemoved" : "%1 removed the Start Date",
     
-      "ActivityProjectEndDateRemoved" : "%1 removed the End Date",
+      "ActivityWorkspaceEndDateRemoved" : "%1 removed the End Date",
     
-      "ActivityProjectStartAndEndDateChanged" : "%1 changed the Start and End dates",
-    
-      "ActivityProjectIssuePosted" : "%1 posted issue %2",
-    
-      "ActivityProjectIssuePostedYou" : "You posted issue %2",
-    
-      "ActivityProjectIssueRemoved" : "%1 removed issue %2",
-    
-      "ActivityProjectIssueRemovedYou" : "You removed issue %2",
-    
-      "ActivityProjectNewMember" : "%1 was added to project %2",
-    
-      "ActivityProjectUnassigned" : "%1 was removed from project %2",
+      "ActivityWorkspaceStartAndEndDateChanged" : "%1 changed the Start and End dates",
     
       "Role" : "Role",
     
@@ -5180,19 +5070,17 @@ $.ig.em.strings =
     
       "External" : "External",
     
-      "TeamMembers" : "Team Members",
-    
       "RoleAscending" : "Role Ascending",
     
       "RoleDescending" : "Role Descending",
     
       "TeamMembersTitle" : "Who is part of this team?",
     
-      "ProjectMembersTitle" : "Who is working on this?",
+      "WhoIsWorkingOnThis" : "Who is working on this?",
     
       "ActivityOrgRenamed" : "%1 set the name of the Org to: %2",
     
-      "ActivityWorkspaceRenamed" : "%1 set the name of the project to: %2",
+      "ActivityWorkspaceRenamed" : "%1 set the name of the workspace to: %2",
     
       "GrandTotal" : "Grand Total",
     
@@ -5226,13 +5114,11 @@ $.ig.em.strings =
     
       "SalesforceCommonObjects" : "Popular Objects",
     
-      "ActivityOrgAddedTeamMember" : "%1 added %2 to the org",
+      "ActivityOrgAddedMember" : "%1 added %2 to the org",
     
-      "ActivityOrgRemovedMemberFromTeam" : "%1 removed %2 from the org",
+      "ActivityOrgRemovedMember" : "%1 removed %2 from the org",
     
-      "ActivityWorkspaceAddedTeamMember" : "%1 added %2 to the project",
-    
-      "ActivityWorkspaceRemovedMemberFromTeam" : "%1 removed %2 from the project",
+      "ActivityWorkspaceRemovedMember" : "%1 removed %2 from the workspace",
     
       "ErrorCreatingDashboardAuth" : "Error creating a dashboard. Authorization required.",
     
@@ -5308,15 +5194,11 @@ $.ig.em.strings =
     
       "AutoDetect" : "Auto Detect",
     
-      "Projects" : "Projects",
-    
-      "UntitledProject" : "Untitled Project",
-    
       "TopicIn" : "Topic in %1",
     
       "TaskIn" : "Task in %1",
     
-      "ProjectIn" : "Project in %1",
+      "WorkspaceIn" : "Workspace in %1",
     
       "DashboardIn" : "Dashboard in %1",
     
@@ -5444,7 +5326,7 @@ $.ig.em.strings =
     
       "HasActiveSubscription" : "Your Apple ID is assigned to another %@ account",
     
-      "LoginAs" : "Please sign in as %@ to use Reveal on this device.",
+      "LoginAs" : "Please sign in as %@ to use %1 on this device.",
     
       "LogInDifferentAccount" : "Login with a different account",
     
@@ -5458,13 +5340,11 @@ $.ig.em.strings =
     
       "EditDataSourceTitle" : "Edit %@",
     
-      "MoveToProject" : "Move to Project",
+      "MoveToWorkspace" : "Move to Workspace",
     
       "LegendOfTotal" : "of total",
     
       "LegendTie" : "Tie",
-    
-      "TeamSlashProject" : "Team/Project",
     
       "Groups" : "Groups",
     
@@ -5480,13 +5360,11 @@ $.ig.em.strings =
     
       "YouHaveZeroLists" : "You have 0 lists",
     
-      "NoTeams" : "No Teams",
-    
-      "TeamsEmptyStateSubtitle" : "Teams you are a member of will show here",
+      "WorkspacesEmptyStateSubtitle" : "Workspaces you are a member of will show here",
     
       "EmptyStateProjectsSubTitle" : "Organize your teams with projects. You can share projects with those who are not on your team.",
     
-      "StartAConvo" : "Start a conversation...",
+      "StartAConvo" : "Start a Chat",
     
       "UserCreatedNewPrivateChat" : "%1 started a new conversation",
     
@@ -5520,11 +5398,11 @@ $.ig.em.strings =
     
       "PurchaseFetchSubscriptionFailed" : "Receipt validation failed. Code: %1, message: %2. Please contact support.",
     
-      "PurchaseConnectionError" : "Could not connect with the Store to get subscription options. Please enter your Apple ID and password when requested, and make sure your internet connection is working fine.\n\nError details: %@",
+      "PurchaseConnectionError" : "Could not connect with the Store to get subscription options. Please enter your Apple ID and password when requested.\n\nError details: %@",
     
       "PurchaseRefreshFailed" : "Subscription refresh failed, trying with Store...",
     
-      "PurchaseRestoreFoundNoSubscriptions" : "You don't have any active %@ subscription",
+      "PurchaseRestoreFoundNoSubscriptions" : "You don't have an active %@ subscription",
     
       "OrContactSupport" : "Or contact support",
     
@@ -5596,7 +5474,7 @@ $.ig.em.strings =
     
       "LabelsNotSupported" : "This map does not support labels",
     
-      "ProjectCreated" : "Project Created",
+      "WorkspaceCreated" : "Workspace Created",
     
       "StartADiscussion" : "Start a Discussion",
     
@@ -5680,7 +5558,7 @@ $.ig.em.strings =
     
       "SqlFunctions" : "Functions",
     
-      "JoinProject" : "Join Project",
+      "JoinWorkspace" : "Join Workspace",
     
       "SalesforceAllReports" : "Reports",
     
@@ -5696,9 +5574,9 @@ $.ig.em.strings =
     
       "ProviderGrantAccessHintMessage" : "Your %@ certificate has expired, please re-authenticate",
     
-      "NOtherProjects" : "%1 other projects",
+      "NOtherWorkspaces" : "%1 other workspaces",
     
-      "OneOtherProject" : "1 other project",
+      "OneOtherWorkspace" : "1 other workspace",
     
       "DownloadFromBoxProviderMessage" : "This file is located on someone else's Box account. Due to a limitation in the Box provider a file owned by someone else cannot be downloaded.",
     
@@ -5900,9 +5778,7 @@ $.ig.em.strings =
     
       "EditorsAndViewers" : "Editors and Viewers",
     
-      "ProjectSettings" : "Project Settings",
-    
-      "TeamSettings" : "Team Settings",
+      "WorkspaceSettings" : "Workspace Settings",
     
       "OrgSettings" : "Organization Settings",
     
@@ -6028,15 +5904,9 @@ $.ig.em.strings =
     
       "OriginalFieldName" : "Original Field Name: %@",
     
-      "ProjectMembers" : "Project Members",
+      "MembersEmptyTitle" : "Share Workspace",
     
-      "ProjectMembersEmptyTitle" : "Add Project Members",
-    
-      "ProjectMembersEmptySubTitle" : "Project members will receive notifications on any update. Adding members will also allow you to track their tasks at the overview.",
-    
-      "TeamMembersEmptyTitle" : "Add Team Members",
-    
-      "TeamMembersEmptySubTitle" : "Team members will receive notifications on any update. Adding members will also allow you to track their tasks at the overview.",
+      "MembersEmptySubTitle" : "Start collaborating with others in this workspace",
     
       "AddMembersHint" : "Add members by name or email",
     
@@ -6060,7 +5930,7 @@ $.ig.em.strings =
     
       "SearchResultsFor" : "Search results for '%1'",
     
-      "SelectedTeamsProjects" : "Selected Teams/Projects",
+      "SelectedWorkspaces" : "Selected Workspaces",
     
       "NumberSelected" : "%1 Selected",
     
@@ -6250,8 +6120,6 @@ $.ig.em.strings =
     
       "ErrorCreatingTask" : "Error creating task",
     
-      "OtherProjects" : "Other Projects",
-    
       "DataPrivacy" : "Data Privacy",
     
       "DeleteAccountTitle" : "Delete my data",
@@ -6268,9 +6136,7 @@ $.ig.em.strings =
     
       "ExportDataModalTitle" : "Your data is on its way",
     
-      "ProjectOverview" : "Project Overview",
-    
-      "TeamOverview" : "Team Overview",
+      "WorkspaceOverview" : "Workspace Overview",
     
       "AboutMe" : "About Me",
     
@@ -6374,7 +6240,7 @@ $.ig.em.strings =
     
       "Prev" : "Prev",
     
-      "AddProject" : "Add project",
+      "AddWorkspace" : "Add workspace",
     
       "AddDateHierarchy" : "Add Date",
     
@@ -6396,9 +6262,11 @@ $.ig.em.strings =
     
       "DataBlendingNotSupported" : "This provider does not support blending",
     
-      "NoProjects" : "No Projects",
+      "NoWorkspaces" : "No Workspaces",
     
       "FileCannotBeFound" : "File cannot be found from %@",
+    
+      "FileNotFound" : "File not found",
     
       "Time" : "Time",
     
@@ -6530,11 +6398,13 @@ $.ig.em.strings =
     
       "AlreadyAdded" : "Already added",
     
-      "Metadata" : "Metadata",
+      "MetadataSection" : "Make it more business friendly",
     
       "AddDataSource" : "Add Data Source",
     
       "MetadataDescriptionHint" : "If you write a description it will be easier for others to find it.",
+    
+      "RestConnections" : "REST connections",
     
       "SQLServers" : "Your SQL Servers",
     
@@ -6544,7 +6414,17 @@ $.ig.em.strings =
     
       "Manage" : "Manage",
     
+      "AddRestAPIContent" : "Add content from Rest API",
+    
+      "AddRestAPIConnection" : "Add Rest API connection",
+    
       "AddDatabase" : "Add %@ Database",
+    
+      "EditDatabase" : "Edit %@ Database",
+    
+      "AddDatasheet" : "Add Datasheet",
+    
+      "EditDatasheet" : "Edit Datasheet",
     
       "ConnectToDownloadFile" : "Connect to Download File",
     
@@ -6632,6 +6512,8 @@ $.ig.em.strings =
     
       "FreeTrialExpiredExplanation" : "Oh no, %1! Your Free Trial Expired. You will get to %bkeep access to 1 team and 1 project%b of your choice. Everything else will become %bread-only%b.",
     
+      "SubscriptionExpiredExplanation" : "Oh no, %1! Your Subscription Expired. You will get to %bkeep access to 1 team and 1 project%b of your choice. Everything else will become %bread-only%b.",
+    
       "AnyDocumentNotChosen" : "Any %1 not chosen will become READ-ONLY.",
     
       "ChooseNDocuments" : "Choose %1 %2",
@@ -6652,7 +6534,7 @@ $.ig.em.strings =
     
       "OnlyYou" : "Only you.",
     
-      "UpgradeBannerTitle" : "This %1 is Read-Only. Upgrade to unlock.",
+      "UpgradeBannerTitle" : "This %1 is Read-Only. %2 to unlock.",
     
       "GoogleAdsShows" : "Shows",
     
@@ -6690,6 +6572,8 @@ $.ig.em.strings =
     
       "SlingshotURL" : "https://slingshotapp.io",
     
+      "ErrorCouldNotAccessServer" : "Can't access the data from this server. Check your credentials to log in it.",
+    
       "APIKeys" : "API Keys",
     
       "CreateKey" : "Create Key",
@@ -6709,6 +6593,10 @@ $.ig.em.strings =
       "ApiKeyCreated" : "API Key Created",
     
       "CopyAndClose" : "Copy and Close",
+    
+      "SelectAndContinue" : "Select and continue",
+    
+      "LoadAndContinue" : "Load and continue",
     
       "EmptyApiKey" : "Looking to take %@ to the next level?",
     
@@ -6736,9 +6624,97 @@ $.ig.em.strings =
     
       "GoToProvider" : "Go to %@",
     
+      "DocumentSettings" : "Document Settings",
+    
       "SQLDatabaseNotFound" : "Database '%@' not found",
     
       "ErrorLoadingResults" : "Error Loading Results",
+    
+      "EmilyDailyFrequencyMessage" : "Send me up to one message a day (default)",
+    
+      "EmilyMonthlyFrequencyMessage" : "Aggregate all messages to a monthly digest",
+    
+      "EmilyWeeklyFrequencyMessage" : "Aggregate all messages to a weekly digest",
+    
+      "DeleteDocument" : "Delete %1",
+    
+      "DocumentNotFound" : "%1 Not Found",
+    
+      "DocumentWasDeletedMessage" : "The %1 may have been deleted.",
+    
+      "InvalidPermissionsMessage" : "You do not have the neccessary permissions to view this %1.",
+    
+      "NotCurrentlyAMemberOfWorkspace" : "You are not currently a member of this Workspace",
+    
+      "Free" : "Free",
+    
+      "StartTrial" : "Start Trial",
+    
+      "SlingshotTrialLength" : "60 days",
+    
+      "RevealTrialLength" : "2 weeks",
+    
+      "UpgradeFromFree" : "Upgrade %@ free for %l",
+    
+      "UpgradeFromFreeIOS" : "Upgrade %@",
+    
+      "RestrictOrgMembersBody" : "Restrict to users only within your organization",
+    
+      "RestrictOrgMembersTitle" : "Users who can join teams & projects in your organization",
+    
+      "OrgUpdated" : "Organization Updated",
+    
+      "DeleteOrgMemberQuestion" : "Delete Member?",
+    
+      "DeleteOrgMembersQuestion" : "Delete Members?",
+    
+      "DeleteOrgMemberTitle" : "They will be removed from all teams and projects in the organization. This action cannot be undone.",
+    
+      "AlreadyHaveApp" : "Already have the app?",
+    
+      "DownloadApp" : "Download App",
+    
+      "LaunchApp" : "Launch App",
+    
+      "SlingshotReasonToDownloadNative" : "Collaborate better with our Slingshot App",
+    
+      "DataSourceMoved" : "Data source moved!",
+    
+      "Certification" : "Certification",
+    
+      "CertificationBronze" : "Certified by Team",
+    
+      "CertificationGold" : "Certified by IT",
+    
+      "CertificationNone" : "Not Certified",
+    
+      "CertificationSilver" : "Certified by Business",
+    
+      "DocumentsSharedInAllWorkspaces" : "Documents shared in all Workspaces",
+    
+      "FileSharing" : "File Sharing",
+    
+      "PreventedByOrganizationAdmin" : "This is prevented by your organization’s administrator",
+    
+      "PreventPublicPermissions" : "Prevent 'All Can Access' permissions",
+    
+      "ChildWorkspaceMembersNote" : "Add members who will be collaborating in this workspace. Keep in mind, members from the parent workspace who are not added will still have access.",
+    
+      "BlendingWithSameDatasourceOnly" : "Tables from provider '%@' can only be blended with tables coming from the same data source.",
+    
+      "ValidatingPurchase" : "Validating Purchase...",
+    
+      "DataSourceModifiedExternally" : "The data source '%@' has been edited by another user.",
+    
+      "OnboardingTaskMove" : "You can move tasks within and across Task Lists.",
+    
+      "SettingsUpdated" : "Settings Updated",
+    
+      "SetStatus" : "Set Status",
+    
+      "ApplyToAll" : "Apply to All",
+    
+      "KeepBoth" : "Keep Both",
     
 };
   

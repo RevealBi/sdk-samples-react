@@ -1484,13 +1484,19 @@ var RevealApi = (function (exports) {
         static set theme(theme) {
             RevealView.updateRevealTheme(theme);
         }
+        /**
+         * Sets the base url where Reveal server is running.
+         * This is useful when the client side app is not hosted along with the server side component.
+         * @param base
+         */
         static setBaseUrl(base) {
-            if (base.toLowerCase().startsWith("https://") ||
-                base.toLowerCase().startsWith("http://")) {
-                window.IGAppBaseURL = base;
+            let normalizedBase = base.endsWith('/') ? base : base + "/";
+            if (normalizedBase.toLowerCase().startsWith("https://") ||
+                normalizedBase.toLowerCase().startsWith("http://")) {
+                window.IGAppBaseURL = normalizedBase;
             }
             else {
-                window.IGAppBase = base;
+                window.IGAppBase = normalizedBase;
             }
         }
         /**
@@ -1510,8 +1516,29 @@ var RevealApi = (function (exports) {
         static get measuringHostElement() {
             return RevealSdkSettings._measuringHostElement;
         }
+        /**
+         * Specifies a callback function that will be invoked before a request to the Reveal backend and might return
+         * additional headers to be included in the request.
+         * The specified function is expected to return an object with the headers, like:
+         * { 'Session-Id': sessionId }
+         * This is useful to send authentication headers to the backend.
+         * @param provider the function to return headers for the given url
+         */
         static setAdditionalHeadersProvider(provider) {
             window.IGAppExtraHeadersProvider = provider;
+        }
+        /**
+         * Configures if the AJAX requests sent by Reveal to the backend should include authentication cookies or not.
+         * You might need to set this flag to true when your backend uses cookies for authentication and session handling and the frontend
+         * is in a different domain (CORS rules applies), for example if you're using Angular or React.
+         * @param flag true if the AJAX request sent by Reveal when it sends a request to the backend should have "withCrentials: true" or not.
+         */
+        static set requestWithCredentialsFlag(flag) {
+            window.IGAppRequestWithCredentials = flag;
+        }
+        static get requestWithCredentialsFlag() {
+            var flag = window.IGAppRequestWithCredentials;
+            return flag;
         }
         static get shapeFilesUrl() {
             return RevealSdkSettings.visualizations.maps.shapeFilesUrl;
@@ -1712,7 +1739,7 @@ var RevealApi = (function (exports) {
                 revealView._dashboardView.createWidget(dsiInfo);
             }
             else {
-                var vc = new $.ig.SdkSelectExistingDatasourceViewController(revealView._dashboardModel, revealDatasources, success, null, $.ig.DataSourceSelectorMode.prototype.add);
+                var vc = new $.ig.SdkSelectExistingDatasourceViewController(revealView._dashboardModel, revealDatasources, success, null, null, $.ig.DataSourceSelectorMode.prototype.add);
                 addWidgetPopupId = $.ig.CPPopupManager.prototype.showTallScreenModalDialog(revealView._dashboardView, vc, true);
             }
         }
@@ -5711,6 +5738,7 @@ var RevealApi = (function (exports) {
         constructor() {
             super();
             this._database = null;
+            this._account = null;
         }
         get database() {
             return this._database;
@@ -5718,12 +5746,19 @@ var RevealApi = (function (exports) {
         set database(value) {
             this._database = value;
         }
+        get account() {
+            return this._account;
+        }
+        set account(value) {
+            this._account = value;
+        }
         getType() {
             return "RVSnowflakeDataSource";
         }
         _getWrapper() {
             var wrapper = super._getWrapper();
             wrapper.database(this.database);
+            wrapper.account(this.account);
             return wrapper;
         }
     }

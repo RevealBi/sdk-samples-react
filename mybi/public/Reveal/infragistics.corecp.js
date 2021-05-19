@@ -2205,6 +2205,12 @@ $.ig.util.defType('WebCoreUtils', 'Object', {
 	}
 	/*<EndMethod Name="Infragistics.CPDictionary Infragistics.WebCoreUtils::GetExtraHeaders(System.String)" />*/
 	,
+	/*<BeginMethod Name="System.Boolean Infragistics.WebCoreUtils::IncludeWithCredentialsFlag()" />*/
+	includeWithCredentialsFlag: function () {
+		return window.IGAppRequestWithCredentials;
+	}
+	/*<EndMethod Name="System.Boolean Infragistics.WebCoreUtils::IncludeWithCredentialsFlag()" />*/
+	,
 	$type: new $.ig.Type('WebCoreUtils', $.ig.Object.prototype.$type)
 }, true);
 
@@ -5801,13 +5807,25 @@ $.ig.util.defType('CPLongTermMemoryStorageUtility', 'Object', {
 	,
 	/*<BeginMethod Name="Infragistics.CPJSONObject Infragistics.CPLongTermMemoryStorageUtility::GetJson(System.String)" />*/
 	getJson: function (key) {
+		return $.ig.CPLongTermMemoryStorageUtility.prototype.getJsonHelper(key, true);
+	}
+	/*<EndMethod Name="Infragistics.CPJSONObject Infragistics.CPLongTermMemoryStorageUtility::GetJson(System.String)" />*/
+	,
+	/*<BeginMethod Name="Infragistics.CPJSONObject Infragistics.CPLongTermMemoryStorageUtility::GetJsonIfExists(System.String)" />*/
+	getJsonIfExists: function (key) {
+		return $.ig.CPLongTermMemoryStorageUtility.prototype.getJsonHelper(key, false);
+	}
+	/*<EndMethod Name="Infragistics.CPJSONObject Infragistics.CPLongTermMemoryStorageUtility::GetJsonIfExists(System.String)" />*/
+	,
+	/*<BeginMethod Name="Infragistics.CPJSONObject Infragistics.CPLongTermMemoryStorageUtility::GetJsonHelper(System.String, System.Boolean)" />*/
+	getJsonHelper: function (key, createIfNull) {
 		var jsonString = $.ig.CPLongTermMemoryStorageUtility.prototype.getString(key);
 		if (!$.ig.CPStringUtility.prototype.isNullOrEmpty(jsonString)) {
 			return $.ig.CPJSONObject.prototype.createFromString(jsonString);
 		}
-		return new $.ig.CPJSONObject(1);
+		return createIfNull ? new $.ig.CPJSONObject(1) : null;
 	}
-	/*<EndMethod Name="Infragistics.CPJSONObject Infragistics.CPLongTermMemoryStorageUtility::GetJson(System.String)" />*/
+	/*<EndMethod Name="Infragistics.CPJSONObject Infragistics.CPLongTermMemoryStorageUtility::GetJsonHelper(System.String, System.Boolean)" />*/
 	,
 	/*<BeginMethod Name="System.Void Infragistics.CPLongTermMemoryStorageUtility::RemoveItem(System.String)" />*/
 	removeItem: function (key) {

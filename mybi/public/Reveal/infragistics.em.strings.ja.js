@@ -1344,7 +1344,7 @@ $.ig.em.strings =
     
       "SharePointUrl" : "URL",
     
-      "EditNotificationSettingsTitle" : "通知設定を編集します。",
+      "EditNotificationSettingsTitle" : "通知設定の編集",
     
       "NotificationTemplateTitle_newTeamMember" : "新しいメンバーが参加する時",
     
@@ -1601,10 +1601,6 @@ $.ig.em.strings =
       "CreateNewAccount" : "新規アカウントの作成",
     
       "CreateNewAccountMessage" : "他のデータ ソースで使用する新しい資格情報を追加します。",
-    
-      "EditAccount" : "アカウントの編集",
-    
-      "EditAccountMessage" : "他のデータ ソースでこれらの資格情報を使用します。",
     
       "VerifyingCredentials" : "資格情報を確認しています。",
     
@@ -3494,7 +3490,9 @@ $.ig.em.strings =
     
       "PurchaseProduct" : "%@ の購入",
     
-      "SubscriptionHasExpired" : "%@ にサブスクリプション期限が切れました。",
+      "SubscriptionHasExpired" : "サブスクリプション期限が切れました。",
+    
+      "SubscriptionHasExpiredOn" : "%@ にサブスクリプション期限が切れました。",
     
       "ContactSubscriptionManager" : "管理者にお問い合わせ",
     
@@ -3586,7 +3584,9 @@ $.ig.em.strings =
     
       "Trial" : "トライアル版",
     
-      "YourTrialHasExpired" : "%@ に無料トライアルが終了しました。",
+      "YourTrialHasExpired" : "無料トライアルが終了しました。",
+    
+      "YourTrialHasExpiredOn" : "%@ に無料トライアルが終了しました。",
     
       "AddANewSharePoint" : "新しい SharePoint の追加",
     
@@ -3878,7 +3878,7 @@ $.ig.em.strings =
     
       "Basic" : "ベーシック",
     
-      "Change" : "変更...",
+      "Change" : "変更",
     
       "Chart1" : "チャート 1",
     
@@ -4978,7 +4978,7 @@ $.ig.em.strings =
     
       "BigQueryModelFieldsConfiguration" : "BigQuery モデルのフィルドを追加",
     
-      "ChangeBigQueryModel" : "モデルを変更",
+      "ChangeBigQueryModel" : "モデルの変更",
     
       "DownloadFailed" : "ダウンロードに失敗しました。",
     
@@ -5150,7 +5150,7 @@ $.ig.em.strings =
     
       "HasActiveSubscription" : "Apple ID は、他の %@ アカウントに割り当てられています。",
     
-      "LoginAs" : "このデバイスで Reveal を使用するには、%@ としてサインインしてください。",
+      "LoginAs" : "このデバイスで %1 を使用するには、%@ としてサインインしてください。",
     
       "LogInDifferentAccount" : "別のアカウントでログイン",
     
@@ -5192,7 +5192,7 @@ $.ig.em.strings =
     
       "EmptyStateProjectsSubTitle" : "プロジェクトでチームを編成します。チーム外の人とプロジェクトを共有できます。",
     
-      "StartAConvo" : "会話を開始",
+      "StartAConvo" : "チャットを開始",
     
       "UserCreatedNewPrivateChat" : "%1 さんが新しい会話を開始しました。",
     
@@ -5224,7 +5224,7 @@ $.ig.em.strings =
     
       "PurchaseFetchSubscriptionFailed" : "領収の検証に失敗しました。コード: %1、 メッセージ: %2。 サポートにお問い合わせください。",
     
-      "PurchaseConnectionError" : "ストアに接続してサブスクリプション管理情報を取得できませんでした。要求された際に AppleId とパスワードを入力し、インターネット接続が適切に機能していることを確認してください。n\nError の詳細: %@",
+      "PurchaseConnectionError" : "ストアに接続してサブスクリプション管理情報を取得できませんでした。要求された際に AppleId とパスワードを入力してください。n\nError の詳細: %@",
     
       "PurchaseRefreshFailed" : "サブスクリプションの更新に失敗しました。ストアで試行します...",
     
@@ -5400,9 +5400,9 @@ $.ig.em.strings =
     
       "UnmuteNotificationTypeMessage" : "この種類の通知をミュート解除",
     
-      "MuteNotifications" : "通知をミュート",
+      "MuteNotifications" : "通知のミュート",
     
-      "UnmuteNotifications" : "通知をミュート解除",
+      "UnmuteNotifications" : "通知のミュート解除",
     
       "DisplayDateFormatNoYear" : "M 月 d 日",
     
@@ -6160,7 +6160,7 @@ $.ig.em.strings =
     
       "OnboardingUserInfoTitle" : "作業についての情報",
     
-      "OnboardingWelcomeMessage" : "AI アシスタントのエミリーです。Slingshot エクスペリエンスを向上させるためのセットアップをサポートします。",
+      "OnboardingWelcomeMessage" : "AI アシスタントの Emily です。Slingshot エクスペリエンスを向上させるためのセットアップをサポートします。",
     
       "OnboardingWelcomeUser" : "%1 さん、こんにちは。",
     
@@ -6480,7 +6480,7 @@ $.ig.em.strings =
     
       "OnboardingGeneralOpenNative" : "設定を [ネイティブ] に更新すると、ブラウザーの代わりにネイティブ アプリでドキュメントを開くことができます。",
     
-      "OnboardingWelcomeToSlingshotMessage" : "スリングショットの詳細については、ガイド付きツアーをご覧ください。",
+      "OnboardingWelcomeToSlingshotMessage" : "Slingshot の詳細については、ガイド付きツアーをご覧ください。",
     
       "OnboardingTeamsCreate" : "チームでコラボレーションを開始しましょう。既存のチームに参加するか、新しいチームを作成して他のチームを招待します。",
     
@@ -6626,8 +6626,6 @@ $.ig.em.strings =
     
       "AlreadyAdded" : "既に追加されています",
     
-      "Metadata" : "メタデータ",
-    
       "AddDataSource" : "データ ソースの追加",
     
       "MetadataDescriptionHint" : "説明を書くと、他の人が見つけやすくなります。",
@@ -6644,7 +6642,7 @@ $.ig.em.strings =
     
       "DataSourceDetails" : "データ ソースの詳細",
     
-      "UpgradeBannerTitle" : "この %1 は読み取り専用です。アップグレードしてロックを解除します。",
+      "UpgradeBannerTitle" : "この %1 は読み取り専用です。%2 してロックを解除します。",
     
       "YouBrackets" : "(自分)",
     
@@ -6715,6 +6713,178 @@ $.ig.em.strings =
       "Dismiss" : "閉じる",
     
       "DismissAll" : "すべて閉じる",
+    
+      "ApiKeyCreatedMessage" : "%@\n\n(注: このダイアログを閉じた後、完全なキーは再び表示されません。)",
+    
+      "ContextualGuides" : "コンテキスト ガイド",
+    
+      "Emily" : "Emily",
+    
+      "EditYourPreferences" : "設定の編集",
+    
+      "EmilyMessages" : "Emily からのメッセージ",
+    
+      "ResetGuides" : "ガイドのリセット (最初からやり直す)",
+    
+      "ProviderAccountDisconnected" : "この %1 アカウントは %2 に接続されていません。",
+    
+      "GoToProvider" : "%@ に移動",
+    
+      "SQLDatabaseNotFound" : "'%@' データベースが見つかりませんでした。",
+    
+      "ErrorLoadingResults" : "結果の読み込みエラー",
+    
+      "AddDatasheet" : "データシートの追加",
+    
+      "AddNewMsSQL" : "Microsoft SQL データベースの追加",
+    
+      "AddWebResource" : "Web からコンテンツの追加",
+    
+      "ChangeCredentials" : "資格情報の変更",
+    
+      "ChangeEllipsis" : "変更...",
+    
+      "ConfirmChangeDatasourceText" : "このデータ ソースを変更すると、一部のダッシュボードに影響を与える可能性があります。この変更は元に戻せません。",
+    
+      "DataSourceCredentials" : "データ ソースの資格情報",
+    
+      "DeleteDocument" : "%1 の削除",
+    
+      "DisplayName" : "表示名",
+    
+      "DocumentSettings" : "ドキュメントの設定",
+    
+      "DontNeedCredentials" : "資格情報は必要ありません",
+    
+      "EditDatabase" : "%@ データ ベースの編集",
+    
+      "EditDatasheet" : "データシートの編集",
+    
+      "EmilyDailyFrequencyMessage" : "1 日に最大 1 つのメッセージを送ります (デフォルト)。",
+    
+      "EmilyMonthlyFrequencyMessage" : "すべてのメッセージを月間ダイジェストに集約します。",
+    
+      "EmilyWeeklyFrequencyMessage" : "すべてのメッセージを週間ダイジェストに集約します。",
+    
+      "ErrorCouldNotAccessServer" : "このサーバーからのデータにアクセスできません。資格情報を確認してログインしてください。",
+    
+      "YesModify" : "変更",
+    
+      "UnsavedDependencyChangesQuestion" : "これらの変更をタスクに適用しますか？",
+    
+      "SelectAndContinue" : "選択して続行",
+    
+      "FileNotFound" : "ファイルが見つかりません。",
+    
+      "LoadAndContinue" : "ロードして続行",
+    
+      "MetadataSection" : "よりビジネスをしやすくする",
+    
+      "DocumentNotFound" : "%1 は見つかりませんでした。",
+    
+      "DocumentWasDeletedMessage" : "%1 が削除されている可能性があります。",
+    
+      "InvalidPermissionsMessage" : "この %1 を表示するために必要なアクセス許可がありません。",
+    
+      "NotCurrentlyAMemberOfTeam" : "現在、このチームのメンバーではありません。",
+    
+      "SubscriptionSoonEmailMessage" : "\n\n %@ サブスクリプションが間もなく期限切れになります。作業を続けるにはサブスクリプションが必要です。更新していただけませんでしょうか？\n\nよろしくお願いいたします。",
+    
+      "Free" : "無償版",
+    
+      "StartTrial" : "トライアルの開始",
+    
+      "SlingshotTrialLength" : "60 日間",
+    
+      "RevealTrialLength" : "2 週間",
+    
+      "UpgradeFromFree" : "%@ を %l で無料でアップグレード",
+    
+      "UpgradeFromFreeIOS" : "%@ をアップグレード",
+    
+      "OptionalValue" : "オプション値",
+    
+      "Connection" : "接続",
+    
+      "SetParameters" : "パラメーターの設定",
+    
+      "Headers" : "ヘッダー",
+    
+      "SelectAKey" : "キーの選択...",
+    
+      "CustomKey" : "カスタム キー...",
+    
+      "RestConnections" : "REST 接続",
+    
+      "AddRestAPIContent" : "REST API からコンテンツの追加",
+    
+      "AddRestAPIConnection" : "REST 接続の追加",
+    
+      "RestrictOrgMembersBody" : "組織内のユーザーのみに制限する",
+    
+      "RestrictOrgMembersTitle" : "組織内のチームやプロジェクトに参加できるユーザー",
+    
+      "DeleteOrgMemberQuestion" : "メンバーを削除しますか？",
+    
+      "DeleteOrgMembersQuestion" : "メンバーを削除しますか？",
+    
+      "DeleteOrgMemberTitle" : "それらは、組織内のすべてのチームとプロジェクトから削除されます。この操作は元に戻せません。",
+    
+      "AlreadyHaveApp" : "既にアプリをお持ちですか?",
+    
+      "DownloadApp" : "アプリのダウンロード",
+    
+      "LaunchApp" : "アプリの起動",
+    
+      "SlingshotReasonToDownloadNative" : "Slingshot アプリとのコラボレーションを強化",
+    
+      "Certification" : "認定",
+    
+      "CertificationBronze" : "チームによる認定",
+    
+      "CertificationGold" : "IT による認定",
+    
+      "CertificationNone" : "未認定",
+    
+      "CertificationSilver" : "ビジネスによる認定",
+    
+      "DocumentsSharedInAllTeamsProjects" : "すべてのチームとプロジェクトで共有されるドキュメント",
+    
+      "FileSharing" : "ファイル共有",
+    
+      "PreventedByOrganizationAdmin" : "これは、組織の管理者によって防止されています。",
+    
+      "PreventPublicPermissions" : "「すべてのユーザーがアクセス可能」アクセス許可を防止する",
+    
+      "SubscriptionExpiredExplanation" : "%1 さん、申し訳ございません。サブスクリプション期限が切れました。選択した 1 つのチームと 1 つのプロジェクトへの%bアクセスを維持します。それ以外のすべては%b読み取り専用%bになります。",
+    
+      "LoadingResource" : "リソースを読み込み中",
+    
+      "RestAPINoParameters" : "この RestAPI にパラメーターは必要ありません。",
+    
+      "CredentialType" : "資格情報の種類",
+    
+      "ProjectMembersNote" : "このプロジェクトに作業するメンバーを追加します。追加されていないチーム メンバーもアクセスできることに注意してください。",
+    
+      "DataSourceMoved" : "データ ソースが移動されました!",
+    
+      "BlendingWithSameDatasourceOnly" : "'%@' プロバイダーのテーブルは、同じデータ ソースからのテーブルとのみブレンドできます。",
+    
+      "ValidatingPurchase" : "購入を検証しています...",
+    
+      "ErrorGettingAccounts" : "アカウント取得でエラーが発生しました。サポートにお問い合わせください。",
+    
+      "NotificationTemplateTitle_successorAdded" : "タスクが別のタスクをブロックし始めたとき",
+    
+      "NotificationTemplateTitle_predecessorAdded" : "タスクが別のタスクを待機し始めたとき",
+    
+      "NotificationSummary_Task_SuccessorAdded" : "あなたのタスクは別のタスクをブロックしています",
+    
+      "NotificationSummary_Task_PredecessorAdded" : "あなたのタスクは別のタスクを待機しています",
+    
+      "SavingCredentials" : "資格情報を保存しています...",
+    
+      "DataSourceModifiedExternally" : "'%@' データ ソースは他のユーザーによって編集されました。",
     
 };
   
