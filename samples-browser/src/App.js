@@ -17,7 +17,7 @@ import AppHeader from './components/AppHeader';
 import { backend } from './backend/Backend';
 import { DashboardsListStateContext } from './context/dashboardsListState';
 
-const $ = window.$;
+const RevealApi = window.RevealApi;
 
 function App() {  
   const history = useHistory();
@@ -25,7 +25,7 @@ function App() {
   const [authentication, setAuthentication] = useState({ isAuthenticated: false, userId: null, fullName: null });
   const [dashboardsListState, setDashboardsListState] = useState({ dirty: true });
   const [knownAuthenticationStatus, setKnownAuthenticationStatus] = useState(false);
-  $.ig.RevealSdkSettings.setBaseUrl(config.url.REVEAL_API_URL);
+  RevealApi.RevealSdkSettings.setBaseUrl(config.url.REVEAL_API_URL);
 
   const openDashboard = (dashboardId) => {
     history.push("/dashboard/" + dashboardId)
