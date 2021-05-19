@@ -188,6 +188,8 @@ const fetchParameters = (method, includeSession = true, contentType = null, body
     if (body != null) {
         params.body = body;
     }
+    //used only when using cookies (and not the Shiro-Session-Id header)
+    //params.credentials = 'include';
     return params;
 }
 export const backend = {

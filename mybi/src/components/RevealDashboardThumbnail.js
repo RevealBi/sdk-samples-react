@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import crossicon from '../images/cross-icon.svg';
 import downloadicon from '../images/download-icon.svg';
-const $ = window.$;
+const RevealApi = window.RevealApi;
 
 
 export function RevealDashboardThumbnail(props) {
@@ -12,7 +12,7 @@ export function RevealDashboardThumbnail(props) {
   const divId = "thumbnail_" + escapedId;
   const escapedTitle = escapeId(props.title);
   useEffect(() => {
-    var thumbnailView = new $.ig.RevealDashboardThumbnailView("#" + divId);
+    var thumbnailView = new RevealApi.RevealDashboardThumbnailView("#" + divId);
     thumbnailView.dashboardInfo = props.summary;
   }, [props.summary, divId]);
 

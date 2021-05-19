@@ -17,7 +17,7 @@ import { config } from './Constants';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 
-const $ = window.$;
+const RevealApi = window.RevealApi;
 
 function App() {  
   const history = useHistory();
@@ -25,7 +25,7 @@ function App() {
   const [authentication, ] = useState({ isAuthenticated: false, userId: null, fullName: null });
   const fileInput = useRef(null);
 
-  $.ig.RevealSdkSettings.setBaseUrl(config.url.REVEAL_API_URL);
+  RevealApi.RevealSdkSettings.setBaseUrl(config.url.REVEAL_API_URL);
 
   const openDashboard = (dashboardId) => {
     history.push("/dashboard/" + dashboardId)
