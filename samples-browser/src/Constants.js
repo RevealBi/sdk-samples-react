@@ -1,5 +1,5 @@
 const dev_base_url = 'http://localhost:8080/samples/';
-const prod_base_url = 'https://revealcdb01.eastus.cloudapp.azure.com/samples/'
+const prod_base_url = 'https://revealcdb01.eastus.cloudapp.azure.com/samples-backend/'
 const base_url = process.env.NODE_ENV === 'development' ? dev_base_url : prod_base_url;
 
 const dev_ui_url = 'http://localhost:3000';
