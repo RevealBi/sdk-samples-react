@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Prompt, useParams } from 'react-router-dom';
 import { backend } from "../backend/Backend";
 const RevealApi = window.RevealApi;
+const $ = window.$;
 
 export const DashboardView = (props) => {
 	const [, setRevealView] = useState(null);
@@ -39,7 +40,7 @@ export const DashboardView = (props) => {
 		const installRevealView = (view) => {
 			view.onDataSourcesRequested = function (callback) {
 				loadDataSources((result) => {
-					callback(new RevealApi.RevealDataSources(result.dataSources, result.dataSourceItems, result.showDataSourcesInDashboard));
+					callback(new $.ig.RevealDataSources(result.dataSources, result.dataSourceItems, result.showDataSourcesInDashboard));
 				}, (error) => {
 					console.log("Error getting data sources: " + error);
 				});
