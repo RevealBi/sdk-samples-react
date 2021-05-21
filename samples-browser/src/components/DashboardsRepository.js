@@ -5,7 +5,9 @@ import { CSSGrid, measureItems, makeResponsive, layout } from 'react-stonecutter
 import { useLoading, Oval } from '@agney/react-loading';
 import { Modal, Button } from 'react-bootstrap'
 import { backend } from '../backend/Backend';
-import { useDashboardsListState } from '../context/dashboardsListState';
+import uploadicon from '../images/upload-icon.svg';
+import plusicon from '../images/plus-icon.svg';
+import { Link } from 'react-router-dom';
 
 const Grid = makeResponsive(measureItems(CSSGrid), {
   maxWidth: 1920,
@@ -16,10 +18,12 @@ function DashboardsRepository(props) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [dashboards, setDashboards] = useState([]);
-  const dashboardsListState = useDashboardsListState();
+  const [dirty, setDirty] = useState(true);
 
   const [showModal, setShowModal] = useState(false);
   const selectedDashboard = useRef(null);
+
+  const fileInput = useRef(null);
 
   const { containerProps, indicatorEl } = useLoading({
     loading: true,
@@ -34,12 +38,10 @@ function DashboardsRepository(props) {
       } else if (error) {
         setError(error);
       }
-      if (props.onReloadFinished) {
-        props.onReloadFinished(result);
-      }
+      setDirty(false);
     }
     let ignored = false;
-    if (dashboardsListState.dirty) {
+    if (dirty) {
       loadDashboards((result) => {
         if (!ignored) {
           reloadFinished(result, null);
@@ -50,21 +52,16 @@ function DashboardsRepository(props) {
           reloadFinished(null, error);
         }
       });
-    } else {
-      setIsLoaded(true);
-      setDashboards(dashboardsListState.dashboards);
     }
     return () => ignored = true;
-  }, [dashboardsListState, props])
+  }, [dirty])
 
   const loadDashboards = (onSuccess, onError) => {
     backend.dashboards(onSuccess, onError);
   }
 
   const reload = () => {
-    if (props.onReload) {
-      props.onReload();
-    }
+    setDirty(true);
   }
 
   const handleCloseModal = (yesOption) => {
@@ -95,6 +92,23 @@ function DashboardsRepository(props) {
       });
   }
 
+  const uploadDashboard = () => {
+    fileInput.current.click();
+  }
+
+  const handleFileInput = (e) => {
+      const formData = new FormData();
+      const files = e.target.files;
+      for (var i = 0; i < files.length; i++) {
+        const file = files[i];
+        formData.append("files", file, file.name);
+      }
+      backend.uploadDashboards(formData, () => {
+        reload();
+      });
+      fileInput.current.value = null;//to avoid an issue when uploading again the same file, it's ignored
+  }
+
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -102,6 +116,11 @@ function DashboardsRepository(props) {
   } else {
     return (
       <>
+      <input type="file" ref={fileInput} onChange={handleFileInput} style={{display:'none'}} accept=".rdash" multiple={true}/>
+      <header className="Repository-Header">
+          { !props.readOnly && <Link id="newdashboard_link" to="/newdashboard" className="Repository-Header-NewDashboard-Link"><img alt="New Dashboard" src={plusicon}/></Link>}
+          { !props.readOnly && <button id="uploaddashboard_link" onClick={uploadDashboard} className="Repository-Header-UploadDashboard-Link"><img alt="Upload Dashboard" src={uploadicon}/></button>}
+      </header>
       <Grid component="div" 
           columnWidth={350}
           itemHeight={270}

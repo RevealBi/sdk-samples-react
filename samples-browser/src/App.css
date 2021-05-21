@@ -23,20 +23,6 @@
   padding-left: 10px;
 }
 
-.App-Header-NewDashboard-Link {
-  position: absolute;
-  right: 99px;
-  width: 24px;
-}
-
-.App-Header-UploadDashboard-Link {
-  position: absolute;
-  right: 54px;
-  width: 34px;
-  background-color: transparent;
-  border: 0px;
-}
-
 .App-Header-Logout-Link {
   position: absolute;
   right: 20px;
@@ -62,7 +48,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 25px;
   width: 100vw;
 }
 
@@ -170,3 +155,26 @@
   position: absolute;
 }
 
+.Repository-Header {
+  position: relative;
+  background-color: white;/*#282c34;*/
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Repository-Header-NewDashboard-Link {
+  position: absolute;
+  right: 65px;
+  width: 24px;
+}
+
+.Repository-Header-UploadDashboard-Link {
+  position: absolute;
+  right: 20px;
+  width: 34px;
+  background-color: transparent;
+  border: 0px;
+}

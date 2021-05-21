@@ -59,9 +59,6 @@ export const DashboardView = (props) => {
 					}
 				}
 				saveEvent.saveFinished();
-				if (props.onDashboardSaved) {
-					props.onDashboardSaved();
-				}
 			};
 			setRevealView(view);
 		}

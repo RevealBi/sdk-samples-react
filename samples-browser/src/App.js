@@ -15,7 +15,6 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import AppHeader from './components/AppHeader';
 import { backend } from './backend/Backend';
-import { DashboardsListStateContext } from './context/dashboardsListState';
 
 const RevealApi = window.RevealApi;
 
@@ -23,7 +22,6 @@ function App() {
   const history = useHistory();
   const location = useLocation();
   const [authentication, setAuthentication] = useState({ isAuthenticated: false, userId: null, fullName: null });
-  const [dashboardsListState, setDashboardsListState] = useState({ dirty: true });
   const [knownAuthenticationStatus, setKnownAuthenticationStatus] = useState(false);
   RevealApi.RevealSdkSettings.setBaseUrl(config.url.REVEAL_API_URL);
 
@@ -31,21 +29,8 @@ function App() {
     history.push("/dashboard/" + dashboardId)
   }
 
-  const reloadDashboards = () => {
-    setDashboardsListState({dirty: true});
-  }
-
-  const reloadDashboardsFinished = (dashboards) => {
-    setDashboardsListState({dirty: false, dashboards: dashboards});
-  }
-
   const loggedOut = () => {    
     setAuthentication({ isAuthenticated: false, userId: null, fullName: null });
-    reloadDashboards();
-  }
-
-  const dashboardSaved = () => {
-    reloadDashboards();
   }
 
   useEffect(() => {
@@ -67,17 +52,14 @@ function App() {
       knownAuthenticationStatus &&
       <div className="App">
         <AuthenticationContext.Provider value={ authentication }>
-        <DashboardsListStateContext.Provider value={ dashboardsListState }>
           <AppHeader 
             showHome={location.pathname === "/"}             
             title={location.pathname === "/login" ? "Login" : "Dashboards"} 
-            canCreate={authentication.isAuthenticated}
-            canUpload={authentication.isAuthenticated}
             isAuthenticated={authentication.isAuthenticated}
-            onReload={reloadDashboards}/>
+          />
           <Switch>
             <Route path="/dashboard/:dashboardId">
-              <DashboardView readOnly={!authentication.isAuthenticated} onDashboardSaved={dashboardSaved}/>
+              <DashboardView readOnly={!authentication.isAuthenticated}/>
             </Route>
             <Route path="/newdashboard">
               <DashboardView readOnly={!authentication.isAuthenticated}/>
@@ -89,11 +71,13 @@ function App() {
             </Route>
             <Route path="/">
               <div className="Dashboards-grid">
-                <DashboardsRepository onReload={reloadDashboards} onReloadFinished={reloadDashboardsFinished} onOpenDashboard={openDashboard} readOnly={!authentication.isAuthenticated}/>
+                <DashboardsRepository             
+                  onOpenDashboard={openDashboard} 
+                  readOnly={!authentication.isAuthenticated}
+                />
               </div>
             </Route>
           </Switch>
-        </DashboardsListStateContext.Provider>
         </AuthenticationContext.Provider>
       </div>
   );
