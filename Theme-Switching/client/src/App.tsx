@@ -8,7 +8,8 @@ declare global {
 }
 
 const $ = window.$;
-const baseUrl = "https://localhost:44301/";
+const nodeEnv: string = (process.env.NODE_ENV as string);
+const baseUrl = nodeEnv === "development" ? "https://localhost:44301/" : "https://revealsamples01.eastus.cloudapp.azure.com/theme-switching-backend/";
 
 $.ig.RevealSdkSettings.setBaseUrl(baseUrl);
 
