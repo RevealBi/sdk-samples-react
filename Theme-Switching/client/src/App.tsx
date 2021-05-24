@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import * as WebFontLoader from 'webfontloader';
 import './App.css';
 
 declare global {
@@ -25,22 +24,10 @@ function App() {
   useEffect(() => {
     fetch(baseUrl + "Dashboards/Names")
       .then(data => data.json())
-      .then(async json => {
-        setDashboardNames(json);
-        setSelectedDashboard(json[0]);
-        WebFontLoader.load({
-          active: () => {
-            loadDashboard(json[0]);
-          },
-          inactive: () => {
-            console.warn("Roboto fonts failed to load.");
-            loadDashboard(json[0]);
-          },
-          custom: {
-            families: ['Roboto-Regular', 'Roboto-Bold', 'Roboto-Light', 'Roboto-Medium']
-          }
-        });
-      });
+      .then(json => {
+        setDashboardNames(json)
+        loadDashboard(json[0]);
+    });
   }, []);
 
   const selectDashboard = (name: string) => {
@@ -59,7 +46,8 @@ function App() {
 
   const changeTheme = (event: any) => {
     const selectedTheme = event.target.value;
-    switch (selectedTheme) {
+    switch (selectedTheme)
+    {
       case "Mountain Light Theme":
         $.ig.RevealSdkSettings.theme = new $.ig.MountainLightTheme();
         break;
@@ -76,12 +64,13 @@ function App() {
         $.ig.RevealSdkSettings.theme = createCustomTheme();
         break;
     }
+
     loadDashboard(selectedDashboard);
   }
 
   const createCustomTheme = () => {
     var revealTheme = new $.ig.RevealTheme();
-    revealTheme.chartColors = ["rgb(192, 80, 77)", "rgb(101, 197, 235)", "rgb(232, 77, 137)"];
+    revealTheme.chartColors = ["rgb(192, 80, 77)", "rgb(101, 197, 235)", "rgb(232, 77, 137)"];    
     revealTheme.mediumFont = "Gabriola";
     revealTheme.boldFont = "Comic Sans MS";
     revealTheme.fontColor = "rgb(31, 59, 84)";
@@ -93,7 +82,7 @@ function App() {
   return (
     <div className="container">
       <div className="column">
-        <select onChange={changeTheme} style={{ margin: "25px" }}>
+        <select onChange={changeTheme} style={{margin: "25px"}}>
           {themes.map(theme => (<option key={theme}>{theme}</option>))}
         </select>
         <ul className="dashboardList">
