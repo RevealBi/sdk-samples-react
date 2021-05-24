@@ -3,7 +3,7 @@ import '../App.css';
 import { RevealDashboardThumbnail } from './RevealDashboardThumbnail'
 import { CSSGrid, measureItems, makeResponsive, layout } from 'react-stonecutter';
 import { useLoading, Oval } from '@agney/react-loading';
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { backend } from '../backend/Backend';
 import uploadicon from '../images/upload-icon.svg';
 import plusicon from '../images/plus-icon.svg';
@@ -118,8 +118,16 @@ function DashboardsRepository(props) {
       <>
       <input type="file" ref={fileInput} onChange={handleFileInput} style={{display:'none'}} accept=".rdash" multiple={true}/>
       <header className="Repository-Header">
-          { !props.readOnly && <Link id="newdashboard_link" to="/newdashboard" className="Repository-Header-NewDashboard-Link"><img alt="New Dashboard" src={plusicon}/></Link>}
-          { !props.readOnly && <button id="uploaddashboard_link" onClick={uploadDashboard} className="Repository-Header-UploadDashboard-Link"><img alt="Upload Dashboard" src={uploadicon}/></button>}
+          { !props.readOnly && 
+            <OverlayTrigger placement="bottom" overlay={<Tooltip>New Dashboard</Tooltip>}>
+              <Link id="newdashboard_link" to="/newdashboard" className="Repository-Header-NewDashboard-Link"><img alt="New Dashboard" src={plusicon}/></Link>
+            </OverlayTrigger>
+          }
+          { !props.readOnly && 
+            <OverlayTrigger placement="bottom" overlay={<Tooltip>Upload Dashboard</Tooltip>}>
+            <button id="uploaddashboard_link" onClick={uploadDashboard} className="Repository-Header-UploadDashboard-Link"><img alt="Upload Dashboard" src={uploadicon}/></button>
+          </OverlayTrigger>
+          }
       </header>
       <Grid component="div" 
           columnWidth={350}
