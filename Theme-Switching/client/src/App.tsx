@@ -9,9 +9,10 @@ declare global {
 }
 
 const $ = window.$;
-const nodeEnv: string = (process.env.NODE_ENV as string);
+let nodeEnv: string = (process.env.NODE_ENV as string);
+//uncomment to use the prod server instead of the local one
+//nodeEnv = "production";
 const baseUrl = nodeEnv === "development" ? "https://localhost:44301/" : "https://revealsamples01.eastus.cloudapp.azure.com/theme-switching-backend/";
-
 $.ig.RevealSdkSettings.setBaseUrl(baseUrl);
 
 function App() {
