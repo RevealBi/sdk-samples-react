@@ -26,7 +26,33 @@ In dashboardInfo you need to set a "summary" of the dashboard, a reduced version
 
 But, how to get this summary for a given dashboard? This is something you need to do server side. In short, for the Java SDK you need to do this:
 ```java
+InputStream in = getDashboard(userId, dashboardId);
 RVDashboardSummary summary = RVSerializationUtilities.getDashboardSummary(in);
 Map<String, Object> json = summary.toJson();
 ```
-The value of that map (json) is what you need client side to render the thumbnail.
+Where "in" is an InputStream with the contents of the dashboard in "rdash" format. The value of that map (json) is what you need client side to render the thumbnail.
+For the Java SDK, there are some base classes you can extend to simplify this process, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java).
+
+As a reference, this is a simplified summary for the Campaigns dashboard:
+```json
+{
+	"Title": "Campaigns",
+	"UseAutoLayout": false,
+	"DataSources": [],
+	"Widgets": [{
+		"ColumnSpan": 15,
+		"VisualizationSettings": {
+			"VisualizationType": "INDICATOR_TARGET"
+		},
+		"RowSpan": 13,
+		"Title": "Spend vs Budget"
+	}]
+}
+```
+
+And if you're running one of the upmedia-backend projects ([upmedia-backend-tomcat](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-tomcat) or [upmedia-backend-spring](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-spring)), you can access http://localhost:8080/upmedia-backend/reveal-api/dashboards to get a list of all dashboards, and that list will include an "info" attribute for each dashboard with this summary:
+
+<img width="306" alt="image" src="https://user-images.githubusercontent.com/14890904/119552035-a8bede80-bd70-11eb-8f7e-7851fc4b48e5.png">
+
+
+
