@@ -31,7 +31,7 @@ RVDashboardSummary summary = RVSerializationUtilities.getDashboardSummary(in);
 Map<String, Object> json = summary.toJson();
 ```
 Where "in" is an InputStream with the contents of the dashboard in "rdash" format. The value of that map (json) is what you need client side to render the thumbnail.
-For the Java SDK, there are some base classes you can extend to simplify this process, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java).
+For the Java SDK, there are some base classes you can extend to simplify this process, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java#returning-the-list-of-dashboards).
 
 As a reference, this is a simplified summary for the Campaigns dashboard:
 ```json
