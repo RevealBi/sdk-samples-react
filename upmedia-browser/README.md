@@ -54,5 +54,26 @@ And if you're running one of the upmedia-backend projects ([upmedia-backend-tomc
 
 <img width="306" alt="image" src="https://user-images.githubusercontent.com/14890904/119552035-a8bede80-bd70-11eb-8f7e-7851fc4b48e5.png">
 
+In this React application, you can take a look at [DashboardsRepository.js](src/components/DashboardsRepository.js), we get the list of dashboards using that endpoint (/reveal-api/dashboards through backend.dashboards function), then iterate them creating a [RevealDashboardThumbnail](src/components/RevealDashboardThumbnail.js) component for each of them:
+```javascript
+<RevealDashboardThumbnail title={d.info.Title} id={d.id} summary={d.info}/>
+```
 
+In [RevealDashboardThumbnail](src/components/RevealDashboardThumbnail.js) component, we pass the summary property to the RevealDashboardThumbnailView class:
+```javascript
+var thumbnailView = new RevealApi.RevealDashboardThumbnailView("#" + divId);
+thumbnailView.dashboardInfo = props.summary;
+```
 
+Regarding the div used to hold the thumbnail, you can see we're creating it using the style class "Reveal-Thumbnail-View":
+```html
+<div id={divId} className="Reveal-Thumbnail-View"/>
+```
+With the CSS class being defined this way:
+```css
+.Reveal-Thumbnail-View {
+  position: relative;
+  height: 200px;
+}
+```
+And that's all you need to get the preview displayed in a React component.
