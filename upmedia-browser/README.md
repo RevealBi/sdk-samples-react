@@ -24,16 +24,12 @@ thumbnailView.dashboardInfo = dashboardInfo;
 ```
 In dashboardInfo you need to set a "summary" of the dashboard, a reduced version of the dashboard document that only includes the minimum information required by the thumbnail to be rendered (layout, visualizations list and theme).
 
-But, how to get this summary for a given dashboard? This is something you need to do server side. In short, for the Java SDK you need to do this:
-```java
-InputStream in = getDashboard(userId, dashboardId);
-RVDashboardSummary summary = RVSerializationUtilities.getDashboardSummary(in);
-Map<String, Object> json = summary.toJson();
-```
-Where "in" is an InputStream with the contents of the dashboard in "rdash" format. The value of that map (json) is what you need client side to render the thumbnail.
-For the Java SDK, there are some base classes you can extend to simplify this process, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java#returning-the-list-of-dashboards).
+But, how to get this summary for a given dashboard? This is something you need to do server side. 
+For the Java SDK, there are some base classes you can extend to provide this information, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java#returning-the-list-of-dashboards).
 
-As a reference, this is a simplified summary for the Campaigns dashboard:
+Following the instructions there, your server will expose an endpoint at "/reveal-api/dashboards", that will return a list of all dashboards the current user has access to, including the required summary to render the "preview" components.
+
+As a reference, this is a simplified version of the JSON document, returned by the server, with the summary for the Campaigns dashboard:
 ```json
 {
 	"Title": "Campaigns",
@@ -50,11 +46,11 @@ As a reference, this is a simplified summary for the Campaigns dashboard:
 }
 ```
 
-And if you're running one of the upmedia-backend projects ([upmedia-backend-tomcat](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-tomcat) or [upmedia-backend-spring](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-spring)), you can access http://localhost:8080/upmedia-backend/reveal-api/dashboards to get a list of all dashboards, and that list will include an "info" attribute for each dashboard with this summary:
+If you're running one of the upmedia-backend projects ([upmedia-backend-tomcat](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-tomcat) or [upmedia-backend-spring](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-spring)), you can access http://localhost:8080/upmedia-backend/reveal-api/dashboards to get a list of all dashboards, and that list will include an "info" attribute for each dashboard with this summary:
 
 <img width="306" alt="image" src="https://user-images.githubusercontent.com/14890904/119552035-a8bede80-bd70-11eb-8f7e-7851fc4b48e5.png">
 
-In this React application, you can take a look at [DashboardsRepository.js](src/components/DashboardsRepository.js), we get the list of dashboards using that endpoint (/reveal-api/dashboards through backend.dashboards function), then iterate them creating a [RevealDashboardThumbnail](src/components/RevealDashboardThumbnail.js) component for each of them:
+In this React application, you can take a look at [DashboardsRepository.js](src/components/DashboardsRepository.js), we get the list of dashboards using that endpoint (/reveal-api/dashboards through backend.dashboards() function), then iterate them creating a [RevealDashboardThumbnail](src/components/RevealDashboardThumbnail.js) component for each of them:
 ```javascript
 <RevealDashboardThumbnail title={d.info.Title} id={d.id} summary={d.info}/>
 ```
@@ -76,4 +72,4 @@ With the CSS class being defined this way:
   height: 200px;
 }
 ```
-And that's all you need to get the preview displayed in a React component.
+
