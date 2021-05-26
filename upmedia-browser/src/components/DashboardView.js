@@ -56,6 +56,11 @@ export const DashboardView = (props) => {
 				}
 				saveEvent.saveFinished();
 			};
+			view.onVisualizationLinkingDashboard = function(title, url, callback) {
+				if (url.startsWith("id:")) {
+					callback(url.substring("id:".length));
+				}
+			};
 			setRevealView(view);
 		}
 		initView();

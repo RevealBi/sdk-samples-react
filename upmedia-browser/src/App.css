@@ -17,14 +17,14 @@
   flex: 1 0 auto;
 }
 
-.App-Header-Home-Link {
+.App-Header-Logo-Link {
   position: absolute;
   left: 0px;
   padding-left: 10px;
 }
 
-.App-Header-Home-Link img {
-  width: 20px;
+.App-Header-Logo-Link img {
+  width: 120px;
 }
 
 .Loading-indicator {

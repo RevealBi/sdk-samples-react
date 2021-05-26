@@ -20,8 +20,8 @@ function App() {
   return (
       <div className="App">
           <AppHeader 
-            showHome={location.pathname === "/"}             
-            title={"Dashboards"} 
+            isHome={location.pathname === "/"}             
+            title={location.pathname === "/" ? "Dashboards" : ""} 
           />
           <Switch>
             <Route path="/dashboard/:dashboardId">
