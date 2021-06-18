@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 // import { AnimatedSwitch } from 'react-router-transition';
 import { PrivateRoute } from './components/PrivateRoute';

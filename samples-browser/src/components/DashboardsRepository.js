@@ -3,11 +3,11 @@ import '../App.css';
 import { RevealDashboardThumbnail } from './RevealDashboardThumbnail'
 import { CSSGrid, measureItems, makeResponsive, layout } from 'react-stonecutter';
 import { useLoading, Oval } from '@agney/react-loading';
-import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Modal, Button, OverlayTrigger, Tooltip, ListGroup } from 'react-bootstrap'
 import { backend } from '../backend/Backend';
 import uploadicon from '../images/upload-icon.svg';
 import plusicon from '../images/plus-icon.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Grid = makeResponsive(measureItems(CSSGrid), {
   maxWidth: 1920,
@@ -19,6 +19,7 @@ function DashboardsRepository(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [dashboards, setDashboards] = useState([]);
   const [dirty, setDirty] = useState(true);
+  const location = useLocation();
 
   const [showModal, setShowModal] = useState(false);
   const selectedDashboard = useRef(null);
@@ -114,10 +115,11 @@ function DashboardsRepository(props) {
   } else if (!isLoaded) {
     return <section {...containerProps} className="Loading-indicator">{indicatorEl}</section>
   } else {
+    var tags = ["Finance", "Marketing", "Operations", "HR", "Healthcare", "Manufacturing"];
     return (
       <>
       <input type="file" ref={fileInput} onChange={handleFileInput} style={{display:'none'}} accept=".rdash" multiple={true}/>
-      <header className="Repository-Header">
+      <header className="Repository-Header" hidden={props.readOnly}>
           { !props.readOnly && 
             <OverlayTrigger placement="bottom" overlay={<Tooltip>New Dashboard</Tooltip>}>
               <Link id="newdashboard_link" to="/newdashboard" className="Repository-Header-NewDashboard-Link"><img alt="New Dashboard" src={plusicon}/></Link>
@@ -129,31 +131,41 @@ function DashboardsRepository(props) {
           </OverlayTrigger>
           }
       </header>
-      <Grid component="div" 
-          columnWidth={350}
-          itemHeight={270}
-          gutterWidth={5}
-          gutterHeight={5}
-          layout={layout.simple}
-          duration={800}
-          easing="ease-out"
-          enter={() => ({ scale: 1, opacity: 0 })}
-          entered={() => ({ scale: 1, opacity: 1 })}>
-        {dashboards.map((d, i) => 
-          <div key={d.id}>
-            <RevealDashboardThumbnail title={d.info.Title} id={d.id} summary={d.info} 
-            onOpenDashboard={() => {
-              props.onOpenDashboard(d.id);
-            }} 
-            onExportDashboard={() => {
-              exportDashboard(d.id);
-            }}
-            onDeleteDashboard={() => {
-              confirmDeleteDashboard(d);
-            }}
-            readOnly={props.readOnly}/>
-          </div>)}
-      </Grid>
+      <div class="Repository-Container">
+        <ListGroup className="Tags-List" activeKey={location.pathname === '/' ? ('/tags/' + tags[0].toLowerCase()) : location.pathname}>
+          {tags.map((t, i) => 
+            <ListGroup.Item action href={'/tags/' + t.toLowerCase()}>
+            {t}
+            </ListGroup.Item>
+          )}
+        </ListGroup>
+        <Grid component="div" 
+            columnWidth={350}
+            itemHeight={270}
+            gutterWidth={5}
+            gutterHeight={5}
+            layout={layout.simple}
+            duration={800}
+            easing="ease-out"
+            enter={() => ({ scale: 1, opacity: 0 })}
+            entered={() => ({ scale: 1, opacity: 1 })}>
+          {dashboards.map((d, i) => 
+            <div key={d.id}>
+              <RevealDashboardThumbnail title={d.info.Title} id={d.id} summary={d.info} 
+              onOpenDashboard={() => {
+                props.onOpenDashboard(d.id);
+              }} 
+              onExportDashboard={() => {
+                exportDashboard(d.id);
+              }}
+              onDeleteDashboard={() => {
+                confirmDeleteDashboard(d);
+              }}
+              readOnly={props.readOnly}/>
+            </div>)}
+        </Grid>
+      </div>
+
       <Modal show={showModal} onHide={() => handleCloseModal(false)} animation={false} centered="true" backdrop="static">
         <Modal.Header closeButton>
           <Modal.Title>Confirmation</Modal.Title>

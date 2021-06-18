@@ -178,3 +178,17 @@
   background-color: transparent;
   border: 0px;
 }
+
+.Repository-Container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Tags-List {
+  padding-top: 15px;
+}
+
+.list-group-item.active {
+  background-color: #282c34;
+  border-color: #282c34;
+}
