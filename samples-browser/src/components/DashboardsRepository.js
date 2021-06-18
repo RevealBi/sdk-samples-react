@@ -8,6 +8,7 @@ import { backend } from '../backend/Backend';
 import uploadicon from '../images/upload-icon.svg';
 import plusicon from '../images/plus-icon.svg';
 import { Link, useLocation } from 'react-router-dom';
+import { config } from '../Constants';
 
 const Grid = makeResponsive(measureItems(CSSGrid), {
   maxWidth: 1920,
@@ -116,6 +117,7 @@ function DashboardsRepository(props) {
     return <section {...containerProps} className="Loading-indicator">{indicatorEl}</section>
   } else {
     var tags = ["Finance", "Marketing", "Operations", "HR", "Healthcare", "Manufacturing"];
+    var tagsPath = config.frontendPath + '/tags/';
     return (
       <>
       <input type="file" ref={fileInput} onChange={handleFileInput} style={{display:'none'}} accept=".rdash" multiple={true}/>
@@ -132,9 +134,9 @@ function DashboardsRepository(props) {
           }
       </header>
       <div class="Repository-Container">
-        <ListGroup className="Tags-List" activeKey={location.pathname === '/' ? ('/tags/' + tags[0].toLowerCase()) : location.pathname}>
+        <ListGroup className="Tags-List" activeKey={location.pathname === '/' ? (tagsPath + tags[0].toLowerCase()) : location.pathname}>
           {tags.map((t, i) => 
-            <ListGroup.Item action href={'/tags/' + t.toLowerCase()}>
+            <ListGroup.Item action href={tagsPath + t.toLowerCase()}>
             {t}
             </ListGroup.Item>
           )}

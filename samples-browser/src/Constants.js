@@ -23,5 +23,6 @@ export const config = {
     },
     frontendLoginUrl: frontend_path + '/login',
     frontendAbsoluteLoginUrl: base_ui_url + '/login',
-    routerBasename: router_base_name
+    routerBasename: router_base_name,
+    frontendPath: frontend_path
 };
