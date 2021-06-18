@@ -134,7 +134,7 @@ function DashboardsRepository(props) {
           }
       </header>
       <div class="Repository-Container">
-        <ListGroup className="Tags-List" activeKey={location.pathname === '/' ? (tagsPath + tags[0].toLowerCase()) : location.pathname}>
+        <ListGroup className="Tags-List" activeKey={location.pathname === '/' ? (tagsPath + tags[0].toLowerCase()) : (config.frontendPath + location.pathname)}>
           {tags.map((t, i) => 
             <ListGroup.Item action href={tagsPath + t.toLowerCase()}>
             {t}
