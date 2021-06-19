@@ -8,7 +8,6 @@ import { backend } from '../backend/Backend';
 import uploadicon from '../images/upload-icon.svg';
 import plusicon from '../images/plus-icon.svg';
 import { Link, useParams } from 'react-router-dom';
-import { config } from '../Constants';
 
 const Grid = makeResponsive(measureItems(CSSGrid), {
   maxWidth: 1920,
@@ -21,6 +20,7 @@ function DashboardsRepository(props) {
   const [dashboards, setDashboards] = useState([]);
   const [tags, setTags] = useState(null);
   const [dirty, setDirty] = useState(true);
+  const [loadedTagId, setLoadedTagId] = useState(null);
   const { tagId } = useParams();
 
   const [showModal, setShowModal] = useState(false);
@@ -39,6 +39,7 @@ function DashboardsRepository(props) {
       if (ignored) {
         return;
       }
+      setLoadedTagId(tagId);
       setIsLoaded(true);
       if (result) {
         setDashboards(result);
@@ -51,17 +52,17 @@ function DashboardsRepository(props) {
       if (tags === null) {
         backend.tags((r) => {
           setTags(r);
-          backend.dashboards(onSuccess, onError);
+          backend.dashboards(tagId, onSuccess, onError);
         }, (error) => {
           setTags([]);
           onError(error);
         });
       } else {
-        backend.dashboards(onSuccess, onError);
+        backend.dashboards(tagId, onSuccess, onError);
       }
     }
   
-    if (dirty) {
+    if (dirty || tagId !== loadedTagId) {
       loadDashboards((result) => {
         reloadFinished(result, null);
       },
@@ -70,7 +71,7 @@ function DashboardsRepository(props) {
       });
     }
     return () => ignored = true;
-  }, [dirty, tags])
+  }, [dirty, tags, tagId, loadedTagId])
 
   const reload = () => {
     setDirty(true);
@@ -126,8 +127,6 @@ function DashboardsRepository(props) {
   } else if (!isLoaded) {
     return <section {...containerProps} className="Loading-indicator">{indicatorEl}</section>
   } else {
-    //var tags = ["Finance", "Marketing", "Operations", "HR", "Healthcare", "Manufacturing"];
-    var tagsPath = config.frontendPath + '/tags/';
     return (
       <>
       <input type="file" ref={fileInput} onChange={handleFileInput} style={{display:'none'}} accept=".rdash" multiple={true}/>
@@ -144,10 +143,10 @@ function DashboardsRepository(props) {
           }
       </header>
       <div class="Repository-Container">
-        <ListGroup className="Tags-List" activeKey={tagId}>
+        <ListGroup className="Tags-List">
           {tags.map((t, i) => 
-            <ListGroup.Item href={tagsPath + t.id.toLowerCase()} action>
-              <Link to={'/tag/' + t.id}>{t.label}</Link>
+            <ListGroup.Item key={t.id} active={tagId === t.id}>
+              <Link className={tagId === t.id ? 'Tag-Link-Active' : 'Tag-Link'} to={'/tag/' + t.id}>{t.label}</Link>
             </ListGroup.Item>
           )}
         </ListGroup>

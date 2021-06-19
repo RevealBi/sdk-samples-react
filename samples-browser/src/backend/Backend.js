@@ -9,8 +9,12 @@ const sessionInfo =
         emailAddress: null
     };
 
-const dashboards = (onSuccess, onError) => {
-    executeGet(config.url.API_URL_DASHBOARDS, onSuccess, onError);
+const dashboards = (tagId, onSuccess, onError) => {
+    if (tagId === null || tagId === undefined || tagId === '') {
+        executeGet(config.url.API_URL_DASHBOARDS, onSuccess, onError);
+    } else {
+        executeGet(config.url.API_URL_DASHBOARDS + '/tag/' + tagId, onSuccess, onError);
+    }
 }
 
 const dataSources = (onSuccess, onError) => {

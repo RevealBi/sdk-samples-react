@@ -53,7 +53,7 @@ function App() {
       <div className="App">
         <AuthenticationContext.Provider value={ authentication }>
           <AppHeader 
-            showHome={location.pathname === "/"}             
+            showHome={location.pathname !== "/" && !location.pathname.startsWith('/tag/')}             
             title={location.pathname === "/login" ? "Login" : "Dashboards"} 
             isAuthenticated={authentication.isAuthenticated}
           />

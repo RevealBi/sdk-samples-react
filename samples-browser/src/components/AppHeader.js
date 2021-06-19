@@ -7,7 +7,7 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 function AppHeader(props) {
     return (
         <header className="App-Header">
-            { !props.showHome && 
+            { props.showHome && 
                 <OverlayTrigger placement="bottom" overlay={<Tooltip>Home</Tooltip>}>
                   <Link id="home_link" to="/" className="App-Header-Home-Link"><img alt="Home" src={homeicon}/></Link>
                 </OverlayTrigger>

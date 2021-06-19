@@ -188,6 +188,21 @@
   padding-top: 15px;
 }
 
+.Tag-Link {
+  color: black;
+}
+.Tag-Link:hover {
+  color: black;
+}
+
+.Tag-Link-Active {
+  color: white;
+}
+
+.Tag-Link-Active:hover {
+  color: white;
+}
+
 .list-group-item.active {
   background-color: #282c34;
   border-color: #282c34;
