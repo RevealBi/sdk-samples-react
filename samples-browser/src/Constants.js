@@ -19,6 +19,7 @@ export const config = {
         API_URL_LOGIN: base_api_url + 'login',
         API_URL_DASHBOARDS: base_api_url + 'dashboards',
         API_URL_DATASOURCES: base_api_url + 'dataSources',
+        API_URL_TAGS: base_api_url + 'tags',
         API_URL_MYINFO: base_api_url + 'myinfo'
     },
     frontendLoginUrl: frontend_path + '/login',

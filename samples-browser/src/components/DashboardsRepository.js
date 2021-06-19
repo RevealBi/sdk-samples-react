@@ -7,7 +7,7 @@ import { Modal, Button, OverlayTrigger, Tooltip, ListGroup } from 'react-bootstr
 import { backend } from '../backend/Backend';
 import uploadicon from '../images/upload-icon.svg';
 import plusicon from '../images/plus-icon.svg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { config } from '../Constants';
 
 const Grid = makeResponsive(measureItems(CSSGrid), {
@@ -19,8 +19,9 @@ function DashboardsRepository(props) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [dashboards, setDashboards] = useState([]);
+  const [tags, setTags] = useState(null);
   const [dirty, setDirty] = useState(true);
-  const location = useLocation();
+  const { tagId } = useParams();
 
   const [showModal, setShowModal] = useState(false);
   const selectedDashboard = useRef(null);
@@ -33,7 +34,11 @@ function DashboardsRepository(props) {
   });
 
   useEffect(() => {
+    let ignored = false;
     const reloadFinished = (result, error) => {
+      if (ignored) {
+        return;
+      }
       setIsLoaded(true);
       if (result) {
         setDashboards(result);
@@ -42,25 +47,30 @@ function DashboardsRepository(props) {
       }
       setDirty(false);
     }
-    let ignored = false;
+    const loadDashboards = (onSuccess, onError) => {
+      if (tags === null) {
+        backend.tags((r) => {
+          setTags(r);
+          backend.dashboards(onSuccess, onError);
+        }, (error) => {
+          setTags([]);
+          onError(error);
+        });
+      } else {
+        backend.dashboards(onSuccess, onError);
+      }
+    }
+  
     if (dirty) {
       loadDashboards((result) => {
-        if (!ignored) {
-          reloadFinished(result, null);
-        }
+        reloadFinished(result, null);
       },
       (error) => {
-        if (!ignored) {
-          reloadFinished(null, error);
-        }
+        reloadFinished(null, error);
       });
     }
     return () => ignored = true;
-  }, [dirty])
-
-  const loadDashboards = (onSuccess, onError) => {
-    backend.dashboards(onSuccess, onError);
-  }
+  }, [dirty, tags])
 
   const reload = () => {
     setDirty(true);
@@ -116,7 +126,7 @@ function DashboardsRepository(props) {
   } else if (!isLoaded) {
     return <section {...containerProps} className="Loading-indicator">{indicatorEl}</section>
   } else {
-    var tags = ["Finance", "Marketing", "Operations", "HR", "Healthcare", "Manufacturing"];
+    //var tags = ["Finance", "Marketing", "Operations", "HR", "Healthcare", "Manufacturing"];
     var tagsPath = config.frontendPath + '/tags/';
     return (
       <>
@@ -134,10 +144,10 @@ function DashboardsRepository(props) {
           }
       </header>
       <div class="Repository-Container">
-        <ListGroup className="Tags-List" activeKey={location.pathname === '/' ? (tagsPath + tags[0].toLowerCase()) : (config.frontendPath + location.pathname)}>
+        <ListGroup className="Tags-List" activeKey={tagId}>
           {tags.map((t, i) => 
-            <ListGroup.Item action href={tagsPath + t.toLowerCase()}>
-            {t}
+            <ListGroup.Item href={tagsPath + t.id.toLowerCase()} action>
+              <Link to={'/tag/' + t.id}>{t.label}</Link>
             </ListGroup.Item>
           )}
         </ListGroup>

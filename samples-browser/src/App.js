@@ -69,6 +69,14 @@ function App() {
             <Route path="/logout">
               <Logout onLogout={loggedOut}/>
             </Route>
+            <Route path="/tag/:tagId">
+              <div className="Dashboards-grid">
+                <DashboardsRepository             
+                  onOpenDashboard={openDashboard} 
+                  readOnly={!authentication.isAuthenticated}
+                />
+              </div>
+            </Route>
             <Route path="/">
               <div className="Dashboards-grid">
                 <DashboardsRepository             

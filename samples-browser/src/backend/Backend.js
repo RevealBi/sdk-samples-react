@@ -17,6 +17,10 @@ const dataSources = (onSuccess, onError) => {
     executeGet(config.url.API_URL_DATASOURCES, onSuccess, onError);
 }
 
+const tags = (onSuccess, onError) => {
+    executeGet(config.url.API_URL_TAGS, onSuccess, onError);
+}
+
 const deleteDashboard = (dashboardId, onSuccess, onError) => {
     executeDelete(config.url.API_URL_DASHBOARDS + "/" + dashboardId, onSuccess, onError);
 }
@@ -227,6 +231,7 @@ export const backend = {
     logout: logout,
     dashboards: dashboards,
     dataSources: dataSources,
+    tags: tags,
     deleteDashboard: deleteDashboard,
     exportDashboard: exportDashboard,
     uploadDashboards: uploadDashboards,
