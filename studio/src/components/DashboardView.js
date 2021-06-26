@@ -65,6 +65,7 @@ export const DashboardView = (props) => {
 				}
 			};
 			view.addDataSourceEnabledProviders.push(RevealApi.RVProviderType.GoogleAnalytics);
+			view.addDataSourceEnabledProviders.push(RevealApi.RVProviderType.GoogleBigQuery);
 			view.addDataSourceEnabledProviders.push(RevealApi.RVProviderType.MicrosoftSqlServer);
 			view.addDataSourceEnabledProviders.push(RevealApi.RVProviderType.MySql);
 			view.addDataSourceEnabledProviders.push(RevealApi.RVProviderType.Postgres);
