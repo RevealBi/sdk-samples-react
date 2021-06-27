@@ -34,10 +34,6 @@ export const DashboardView = (props) => {
 		}
 		const installRevealView = (view) => {
 			view.onDataSourcesRequested = function (callback) {
-				// var ga = new $.ig.RVGoogleAnalyticsDataSource();
-				// ga.title = "Google Analytics";
-				// ga.id = "google_analytics";
-				// callback(new $.ig.RevealDataSources([ga], [], false));
 				loadDataSources((result) => {
 					callback(new $.ig.RevealDataSources(result.dataSources, result.dataSourceItems, result.showDataSourcesInDashboard));
 				}, (error) => {
