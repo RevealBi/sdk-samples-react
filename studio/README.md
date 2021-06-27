@@ -52,6 +52,7 @@ view.addDataSourceEnabledProviders.push(RevealApi.RVProviderType.AzureSynapse);
 ```
 Setting that list of enabled providers enables the "+ Data Source" button in the UI, displaying all items enabled, like this:
 <img width="298" alt="image" src="https://user-images.githubusercontent.com/14890904/123553755-86472900-d753-11eb-830a-a3a956897c53.png">
+
 You don't need to enable all of them, if you only want to allow the creation of MS SQL Server data sources, then just add this line:
 ```javascript
 view.addDataSourceEnabledProviders.push(RevealApi.RVProviderType.MicrosoftSqlServer);
