@@ -63,5 +63,5 @@ In [setupProxy.js](src/setupProxy.js) we're enabling a proxy in the React applic
 
 When deploying your application to a production environment you don't need to use such proxy, unless your backend is hosted in a separate domain.
 
-The creation of data sources for OAuth providers (like Google Analytics) relies in both backend and frontend being hosted in the same domain (so no CORS restrictions are applied) because the login page is opened in a new window and there's some communication happening between both windows to check when the authentication is completed.
+The creation of data sources for OAuth providers (like Google Analytics) relies on both backend and frontend being hosted in the same domain (so no CORS restrictions are applied) because the login page is opened in a new window and there's some communication happening between both windows to check when the authentication is completed.
 
