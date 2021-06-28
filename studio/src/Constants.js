@@ -1,5 +1,5 @@
 const dev_base_url = 'http://localhost:3000/studio-backend/';
-const prod_base_url = 'https://samples.revealbi.io/studio-backend/'
+const prod_base_url = 'https://revealcdb01.eastus.cloudapp.azure.com/studio-backend/'
 const base_url = process.env.NODE_ENV === 'development' ? dev_base_url : prod_base_url;
 
 const router_base_name = process.env.NODE_ENV === 'development' ? '/' : '/studio';
