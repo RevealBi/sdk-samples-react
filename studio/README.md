@@ -2,7 +2,7 @@
 This is a sample React application that shows how to use the Reveal BI SDK for Web, including how to create/save dashboards and create data sources.
 
 ## Usage
-This sample is intended to be used along [studio-backend-tomcat](https://github.com/RevealBi/sdk-samples-java/tree/main/studio-backend-tomcat).
+This sample is intended to be used along [studio-backend-tomcat](https://github.com/RevealBi/sdk-samples-java/tree/main/studio-backend-tomcat), the server application described there should be running before starting this React application.
 
 If you're not familiar with React, running:
 ```sh
