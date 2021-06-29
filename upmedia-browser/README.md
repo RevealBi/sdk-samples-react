@@ -25,7 +25,7 @@ thumbnailView.dashboardInfo = dashboardInfo;
 In dashboardInfo you need to set a "summary" of the dashboard, a reduced version of the dashboard document that only includes the minimum information required by the thumbnail to be rendered (layout, visualizations list and theme).
 
 But, how to get this summary for a given dashboard? This is something you need to do server side. 
-For the Java SDK, there are some base classes you can extend to provide this information, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java#returning-the-list-of-dashboards). For the .NET SDK, you can take a look at the UpMedia backend project:[Samples.Web.UpMedia.Backend](https://github.com/RevealBi/sdk-samples-aspnetcore/tree/main/Reveal.Sdk.Samples.Web.UpMedia.Backend).
+For the Java SDK, there are some base classes you can extend to provide this information, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java#returning-the-list-of-dashboards). For the .NET SDK, you can take a look at the UpMedia backend project: [Samples.Web.UpMedia.Backend](https://github.com/RevealBi/sdk-samples-aspnetcore/tree/main/Reveal.Sdk.Samples.Web.UpMedia.Backend).
 
 Following the instructions there, your server will expose an endpoint at "/reveal-api/dashboards", that will return a list of all dashboards the current user has access to, including the required summary to render the "preview" components.
 
