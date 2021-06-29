@@ -25,7 +25,7 @@ thumbnailView.dashboardInfo = dashboardInfo;
 In dashboardInfo you need to set a "summary" of the dashboard, a reduced version of the dashboard document that only includes the minimum information required by the thumbnail to be rendered (layout, visualizations list and theme).
 
 But, how to get this summary for a given dashboard? This is something you need to do server side. 
-For the Java SDK, there are some base classes you can extend to provide this information, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java#returning-the-list-of-dashboards).
+For the Java SDK, there are some base classes you can extend to provide this information, we recommend taking a look at [sdk-samples-java](https://github.com/RevealBi/sdk-samples-java#returning-the-list-of-dashboards). For the .NET SDK, you can take a look at the UpMedia backend project:[Samples.Web.UpMedia.Backend](https://github.com/RevealBi/sdk-samples-aspnetcore/tree/main/Reveal.Sdk.Samples.Web.UpMedia.Backend).
 
 Following the instructions there, your server will expose an endpoint at "/reveal-api/dashboards", that will return a list of all dashboards the current user has access to, including the required summary to render the "preview" components.
 
@@ -46,7 +46,7 @@ As a reference, this is a simplified version of the JSON document, returned by t
 }
 ```
 
-If you're running one of the upmedia-backend projects ([upmedia-backend-tomcat](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-tomcat) or [upmedia-backend-spring](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-spring)), you can access http://localhost:8080/upmedia-backend/reveal-api/dashboards to get a list of all dashboards, and that list will include an "info" attribute for each dashboard with this summary:
+If you're running one of the upmedia-backend projects ([upmedia-backend-tomcat](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-tomcat), [upmedia-backend-spring](https://github.com/RevealBi/sdk-samples-java/tree/main/upmedia-backend-spring) or [Samples.Web.UpMedia.Backend](https://github.com/RevealBi/sdk-samples-aspnetcore/tree/main/Reveal.Sdk.Samples.Web.UpMedia.Backend)), you can access http://localhost:8080/upmedia-backend/reveal-api/dashboards to get a list of all dashboards, and that list will include an "info" attribute for each dashboard with this summary:
 
 <img width="306" alt="image" src="https://user-images.githubusercontent.com/14890904/119552035-a8bede80-bd70-11eb-8f7e-7851fc4b48e5.png">
 
